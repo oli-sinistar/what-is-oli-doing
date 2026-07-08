@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updatedAt": "2026-07-08T11:28:00-04:00",
+  "version": 2,
+  "updatedAt": "2026-07-08T12:10:00-04:00",
   "status": {
     "emoji": "🛠️",
     "tone": "building",
@@ -29,7 +29,10 @@
         "id": "DAT-615",
         "url": "https://linear.app/sinistar/issue/DAT-615/hosts-add-team-tab-to-hosts-dashboard-sales-rep-activity-kpis-and",
         "state": "started",
-        "stateLabel": { "en": "In Progress", "fr": "En cours" }
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
       }
     },
     {
@@ -53,7 +56,10 @@
         "id": "DAT-516",
         "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape",
         "state": "started",
-        "stateLabel": { "en": "In Progress", "fr": "En cours" }
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
       }
     }
   ],
@@ -108,8 +114,8 @@
   ],
   "story": {
     "text": {
-      "en": "Today the meta project shipped: this page. The obvious approach — a headless hook syncing Linear — had been failing silently for weeks with auth errors. So the daily refresh now runs inside the Claude desktop app as a 17:45 scheduled task reading Linear, git and session transcripts, and a validator gates every publish so bad JSON can never brick the page.",
-      "fr": "Aujourd'hui, le projet méta a été livré : cette page. L'approche évidente — un hook headless synchronisant Linear — échouait en silence depuis des semaines. Le rafraîchissement roule donc dans l'app Claude, en tâche planifiée à 17 h 45 : il lit Linear, git et les transcriptions de sessions, et un validateur bloque toute publication de JSON invalide."
+      "en": "This page shipped this morning — then got rebuilt by afternoon. The daily refresh runs inside the Claude app (the headless hook it replaces had been failing silently for weeks), and now the AI also art-directs: it picks the page's accent hue, writes the daily one-liner, and feeds a 13-week commit heatmap. A validator still gates every publish.",
+      "fr": "Cette page a été livrée ce matin — puis rebâtie en après-midi. Le rafraîchissement roule dans l'app Claude (le hook headless qu'il remplace échouait en silence depuis des semaines), et l'IA fait maintenant la direction artistique : teinte d'accent, phrase du jour, et une carte de chaleur de 13 semaines de commits. Un validateur bloque toujours toute publication invalide."
     }
   },
   "screenshot": {
@@ -118,19 +124,385 @@
       "en": "Today's build: this very page",
       "fr": "La construction du jour : cette page même"
     },
-    "capturedAt": "2026-07-08T11:18:00-04:00"
+    "capturedAt": "2026-07-08T12:03:50-04:00"
   },
   "activity": {
-    "days": [
-      { "date": "2026-07-02", "commits": 3 },
-      { "date": "2026-07-03", "commits": 0 },
-      { "date": "2026-07-04", "commits": 0 },
-      { "date": "2026-07-05", "commits": 0 },
-      { "date": "2026-07-06", "commits": 5 },
-      { "date": "2026-07-07", "commits": 3 },
-      { "date": "2026-07-08", "commits": 3 }
+    "calendar": [
+      {
+        "date": "2026-04-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-23",
+        "commits": 3
+      },
+      {
+        "date": "2026-04-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-27",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-29",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-30",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-11",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-22",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-25",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-26",
+        "commits": 3
+      },
+      {
+        "date": "2026-05-27",
+        "commits": 6
+      },
+      {
+        "date": "2026-05-28",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-29",
+        "commits": 5
+      },
+      {
+        "date": "2026-05-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-31",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-01",
+        "commits": 6
+      },
+      {
+        "date": "2026-06-02",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-03",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-04",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-08",
+        "commits": 11
+      },
+      {
+        "date": "2026-06-09",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-10",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-11",
+        "commits": 9
+      },
+      {
+        "date": "2026-06-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-15",
+        "commits": 5
+      },
+      {
+        "date": "2026-06-16",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-17",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-25",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-30",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-02",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-06",
+        "commits": 5
+      },
+      {
+        "date": "2026-07-07",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-08",
+        "commits": 3
+      }
     ],
     "sessions7d": 31,
     "issuesClosed7d": 2
+  },
+  "theme": {
+    "hue": 262
+  },
+  "flair": {
+    "line": {
+      "en": "Ship the pipeline, then give it a pulse.",
+      "fr": "Livrer le pipeline, puis lui donner un pouls."
+    }
   }
 }

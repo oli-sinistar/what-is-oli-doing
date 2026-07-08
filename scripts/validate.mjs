@@ -48,7 +48,16 @@ const localYmd = (d = new Date()) =>
 const today = localYmd();
 
 // --- top level ---
-if (doc.version !== 1) err("version", `must be 1, got ${JSON.stringify(doc.version)}`);
+if (doc.version !== 2) err("version", `must be 2, got ${JSON.stringify(doc.version)}`);
+
+// --- theme (daily AI art direction) ---
+if (!doc.theme || typeof doc.theme !== "object") err("theme", "missing");
+else if (!Number.isInteger(doc.theme.hue) || doc.theme.hue < 0 || doc.theme.hue > 359)
+  err("theme.hue", `must be an integer 0–359, got ${JSON.stringify(doc.theme?.hue)}`);
+
+// --- flair (daily AI one-liner) ---
+if (!doc.flair || typeof doc.flair !== "object") err("flair", "missing");
+else leaf("flair.line", doc.flair.line, 90);
 isoDate("updatedAt", doc.updatedAt);
 if (!allowStale && isStr(doc.updatedAt) && localYmd(new Date(doc.updatedAt)) !== today)
   err("updatedAt", `must be today (${today}); got ${doc.updatedAt} — use --allow-stale to bypass in dev`);
@@ -122,15 +131,17 @@ if (doc.screenshot !== null) {
 // --- activity ---
 if (!doc.activity || typeof doc.activity !== "object") err("activity", "missing");
 else {
-  const days = doc.activity.days;
-  if (!Array.isArray(days) || days.length !== 7) err("activity.days", `must have exactly 7 entries, got ${Array.isArray(days) ? days.length : typeof days}`);
+  const cal = doc.activity.calendar;
+  if (!Array.isArray(cal) || cal.length < 63 || cal.length > 92)
+    err("activity.calendar", `must have 63–92 daily entries (~13 weeks), got ${Array.isArray(cal) ? cal.length : typeof cal}`);
   else {
-    days.forEach((d, i) => {
-      if (!isStr(d.date) || !YMD.test(d.date)) err(`activity.days[${i}].date`, "must be YYYY-MM-DD");
-      if (!isInt(d.commits)) err(`activity.days[${i}].commits`, "must be a non-negative integer");
-      if (i > 0 && days[i - 1].date >= d.date) err(`activity.days[${i}].date`, "dates must be strictly ascending");
+    cal.forEach((d, i) => {
+      if (!isStr(d.date) || !YMD.test(d.date)) err(`activity.calendar[${i}].date`, "must be YYYY-MM-DD");
+      if (!isInt(d.commits)) err(`activity.calendar[${i}].commits`, "must be a non-negative integer");
+      if (i > 0 && cal[i - 1].date >= d.date) err(`activity.calendar[${i}].date`, "dates must be strictly ascending");
     });
-    if (!allowStale && days[6]?.date !== today) err("activity.days[6].date", `last entry must be today (${today})`);
+    if (!allowStale && cal[cal.length - 1]?.date !== today)
+      err(`activity.calendar[${cal.length - 1}].date`, `last entry must be today (${today})`);
   }
   if (!isInt(doc.activity.sessions7d)) err("activity.sessions7d", "must be a non-negative integer");
   if (!isInt(doc.activity.issuesClosed7d)) err("activity.issuesClosed7d", "must be a non-negative integer");
@@ -141,4 +152,4 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
-console.log(`VALID — ${path} passes the v1 contract${allowStale ? " (freshness checks skipped)" : ""}.`);
+console.log(`VALID — ${path} passes the v2 contract${allowStale ? " (freshness checks skipped)" : ""}.`);

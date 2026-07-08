@@ -2,6 +2,7 @@
   "use strict";
 
   const $ = (id) => document.getElementById(id);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const I18N = {
     en: {
@@ -23,7 +24,9 @@
       commits: "commits 7d",
       sessions: "sessions",
       closed: "closed",
-      sparkLabel: "Commits over the last 7 days",
+      vsWeek: "vs last wk",
+      streak: (n) => `🔥 ${n}-day streak`,
+      heatLabel: "Commit activity — last 13 weeks",
       commitWord: (n) => `${n} commit${n === 1 ? "" : "s"}`,
       onTrack: "on track",
       atRisk: "at risk",
@@ -48,7 +51,9 @@
       commits: "commits 7j",
       sessions: "sessions",
       closed: "réglés",
-      sparkLabel: "Commits des 7 derniers jours",
+      vsWeek: "vs sem. passée",
+      streak: (n) => `🔥 série de ${n} jours`,
+      heatLabel: "Activité de commits — 13 dernières semaines",
       commitWord: (n) => `${n} commit${n === 1 ? "" : "s"}`,
       onTrack: "en bonne voie",
       atRisk: "à risque",
@@ -71,27 +76,23 @@
     done: "#5e6ad2",
     canceled: "#ef6363",
   };
-  const GOAL_COLORS = {
-    "on-track": "#34d399",
-    "at-risk": "#fbbf24",
-    done: "#818cf8",
-  };
+  const GOAL_COLORS = { "on-track": "#34d399", "at-risk": "#fbbf24", done: "#818cf8" };
   const GOAL_LABEL_KEYS = { "on-track": "onTrack", "at-risk": "atRisk", done: "goalDone" };
-  const BAR_PAST = "#5e6ad2";
-  const BAR_TODAY = "#6f80fa";
 
   let lang = localStorage.getItem("oli.lang");
   if (lang !== "en" && lang !== "fr") {
     lang = (navigator.language || "en").toLowerCase().startsWith("fr") ? "fr" : "en";
   }
   let data = null;
+  let firstRender = true;
 
   const L = (leaf) => (leaf && typeof leaf === "object" ? leaf[lang] || leaf.en || "" : "");
   const t = (key) => I18N[lang][key];
   const locale = () => (lang === "fr" ? "fr-CA" : "en-US");
-
   const fmtDay = (ymd) =>
     new Date(`${ymd}T12:00:00`).toLocaleDateString(locale(), { month: "short", day: "numeric" });
+
+  /* ---------- chrome ---------- */
 
   function renderChrome() {
     document.documentElement.lang = lang;
@@ -108,6 +109,7 @@
     const pill = $("status-pill");
     pill.style.setProperty("--tone", TONE_COLORS[s.tone] || TONE_COLORS.building);
     pill.textContent = `${s.emoji} ${L(s.text)}`;
+    $("flair").textContent = L(data.flair.line);
   }
 
   function renderFreshness() {
@@ -123,6 +125,18 @@
     el.classList.toggle("dead", mins > 72 * 60);
     el.textContent = mins > 36 * 60 ? `${label} ${t("stale")}` : label;
   }
+
+  function startClock() {
+    const el = $("clock");
+    const tick = () => {
+      el.textContent =
+        new Date().toLocaleTimeString("en-CA", { hour12: false, timeZone: "America/Toronto" }) + " · QC";
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ---------- cards ---------- */
 
   function renderFocus() {
     $("focus-title").textContent = L(data.focus.title);
@@ -163,34 +177,62 @@
     badge.classList.toggle("stale", capDay < data.updatedAt.slice(0, 10));
   }
 
+  function ringSvg(progress, color) {
+    const NS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("class", "goal-ring");
+    svg.setAttribute("viewBox", "0 0 62 62");
+    const C = 2 * Math.PI * 26;
+    const mk = (cls) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", "31");
+      c.setAttribute("cy", "31");
+      c.setAttribute("r", "26");
+      c.setAttribute("fill", "none");
+      c.setAttribute("stroke-width", "5");
+      c.setAttribute("stroke-linecap", "round");
+      c.setAttribute("class", cls);
+      return c;
+    };
+    const track = mk("track");
+    const bar = mk("bar");
+    bar.setAttribute("transform", "rotate(-90 31 31)");
+    bar.setAttribute("stroke-dasharray", String(C));
+    bar.setAttribute("stroke-dashoffset", String(C));
+    const label = document.createElementNS(NS, "text");
+    label.setAttribute("x", "31");
+    label.setAttribute("y", "35");
+    label.setAttribute("text-anchor", "middle");
+    label.textContent = `${Math.round(progress * 100)}%`;
+    svg.append(track, bar, label);
+    const target = C * (1 - Math.min(1, Math.max(0, progress)));
+    if (reduceMotion) bar.setAttribute("stroke-dashoffset", String(target));
+    else requestAnimationFrame(() => requestAnimationFrame(() => bar.setAttribute("stroke-dashoffset", String(target))));
+    return svg;
+  }
+
   function renderGoals() {
     const ul = $("goals-list");
     ul.textContent = "";
     (data.goals || []).forEach((g) => {
       const li = document.createElement("li");
-      li.style.setProperty("--gc", GOAL_COLORS[g.state] || GOAL_COLORS["on-track"]);
-      const head = document.createElement("div");
-      head.className = "goal-head";
+      const color = GOAL_COLORS[g.state] || GOAL_COLORS["on-track"];
+      li.style.setProperty("--gc", color);
+      const row = document.createElement("div");
+      row.className = "goal-row";
+      row.appendChild(ringSvg(g.progress, color));
+      const meta = document.createElement("div");
+      meta.className = "goal-meta";
       const label = document.createElement("span");
       label.className = "goal-label";
       label.textContent = L(g.label);
       const state = document.createElement("span");
       state.className = "goal-state";
       state.textContent = t(GOAL_LABEL_KEYS[g.state] || "onTrack");
-      head.append(label, state);
-      const track = document.createElement("div");
-      track.className = "goal-track";
-      const fill = document.createElement("span");
-      fill.className = "goal-fill";
-      track.appendChild(fill);
-      const pct = document.createElement("div");
-      pct.className = "goal-pct mono";
-      pct.textContent = `${Math.round(g.progress * 100)}%`;
-      li.append(head, track, pct);
+      meta.append(label, state);
+      row.appendChild(meta);
+      li.appendChild(row);
       ul.appendChild(li);
-      requestAnimationFrame(() => {
-        fill.style.width = `${Math.round(g.progress * 100)}%`;
-      });
     });
   }
 
@@ -232,14 +274,36 @@
     });
   }
 
-  function renderStory() {
-    $("story-text").textContent = L(data.story.text);
+  function renderStory(typewrite) {
+    const el = $("story-text");
+    el.textContent = "";
+    const prompt = document.createElement("span");
+    prompt.className = "prompt";
+    prompt.textContent = "❯ ";
+    const textNode = document.createTextNode("");
+    const caret = document.createElement("span");
+    caret.className = "caret";
+    el.append(prompt, textNode, caret);
+    const full = L(data.story.text);
+    if (!typewrite || reduceMotion) {
+      textNode.nodeValue = full;
+      return;
+    }
+    let i = 0;
+    const step = () => {
+      i = Math.min(full.length, i + 2);
+      textNode.nodeValue = full.slice(0, i);
+      if (i < full.length) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   }
 
   function renderShip() {
+    const ticker = $("ticker");
     const box = $("ship-chips");
+    ticker.classList.remove("marquee");
     box.textContent = "";
-    (data.shipped || []).forEach((s) => {
+    const mkChip = (s) => {
       const chip = document.createElement("span");
       chip.className = "ship-chip";
       const glyph = document.createElement("span");
@@ -252,69 +316,195 @@
       when.className = "when mono";
       when.textContent = fmtDay(s.date);
       chip.append(glyph, txt, when);
-      box.appendChild(chip);
+      return chip;
+    };
+    (data.shipped || []).forEach((s) => box.appendChild(mkChip(s)));
+    if (reduceMotion) return;
+    requestAnimationFrame(() => {
+      if (box.scrollWidth > ticker.clientWidth + 8) {
+        (data.shipped || []).forEach((s) => box.appendChild(mkChip(s)));
+        ticker.classList.add("marquee");
+      }
     });
   }
 
-  function roundedBar(x, y, w, h, r, base) {
-    const rr = Math.min(r, w / 2, h);
-    return `M${x},${base} L${x},${y + rr} Q${x},${y} ${x + rr},${y} L${x + w - rr},${y} Q${x + w},${y} ${x + w},${y + rr} L${x + w},${base} Z`;
+  /* ---------- pulse: heatmap + stats ---------- */
+
+  const level = (n) => (n === 0 ? "" : n === 1 ? "l1" : n <= 3 ? "l2" : n <= 6 ? "l3" : "l4");
+
+  function renderHeatmap() {
+    const grid = $("heatmap");
+    grid.textContent = "";
+    grid.setAttribute("aria-label", t("heatLabel"));
+    const cal = data.activity.calendar;
+    const lead = new Date(`${cal[0].date}T12:00:00`).getDay();
+    for (let i = 0; i < lead; i++) {
+      const cell = document.createElement("span");
+      cell.className = "hm-cell empty";
+      grid.appendChild(cell);
+    }
+    cal.forEach((d, i) => {
+      const cell = document.createElement("span");
+      cell.className = `hm-cell ${level(d.commits)}${i === cal.length - 1 ? " today" : ""}`;
+      const day = new Date(`${d.date}T12:00:00`);
+      cell.title = `${day.toLocaleDateString(locale(), { weekday: "short", month: "short", day: "numeric" })} — ${t("commitWord")(d.commits)}`;
+      grid.appendChild(cell);
+    });
+  }
+
+  function countUp(el, target) {
+    if (reduceMotion || target === 0) {
+      el.textContent = target;
+      return;
+    }
+    const start = performance.now();
+    const dur = 900;
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   }
 
   function renderPulse() {
-    const svg = $("sparkline");
-    svg.textContent = "";
-    svg.setAttribute("aria-label", t("sparkLabel"));
-    const days = data.activity.days;
-    const W = 132, H = 48, bw = 12, gap = 8, base = H - 2, top = 4;
-    const max = Math.max(1, ...days.map((d) => d.commits));
-    const x0 = (W - (days.length * bw + (days.length - 1) * gap)) / 2;
+    renderHeatmap();
+    const cal = data.activity.calendar;
+    const last7 = cal.slice(-7).reduce((s, d) => s + d.commits, 0);
+    const prev7 = cal.slice(-14, -7).reduce((s, d) => s + d.commits, 0);
 
-    const baseline = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    baseline.setAttribute("x1", x0);
-    baseline.setAttribute("x2", x0 + days.length * bw + (days.length - 1) * gap);
-    baseline.setAttribute("y1", base + 1);
-    baseline.setAttribute("y2", base + 1);
-    baseline.setAttribute("stroke", "rgba(255,255,255,0.08)");
-    baseline.setAttribute("stroke-width", "1");
-    svg.appendChild(baseline);
-
-    days.forEach((d, i) => {
-      const isToday = i === days.length - 1;
-      const day = new Date(`${d.date}T12:00:00`);
-      const isWeekend = [0, 6].includes(day.getDay());
-      const h = d.commits === 0 ? 2.5 : Math.max(3, (d.commits / max) * (base - top));
-      const x = x0 + i * (bw + gap);
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", roundedBar(x, base - h, bw, h, 3, base));
-      path.setAttribute("fill", isToday ? BAR_TODAY : BAR_PAST);
-      path.setAttribute("opacity", d.commits === 0 ? "0.3" : isWeekend && !isToday ? "0.45" : isToday ? "1" : "0.85");
-      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-      title.textContent = `${day.toLocaleDateString(locale(), { weekday: "short", month: "short", day: "numeric" })} — ${t("commitWord")(d.commits)}`;
-      path.appendChild(title);
-      svg.appendChild(path);
-    });
+    let streak = 0;
+    let idx = cal.length - 1;
+    if (cal[idx].commits === 0) idx--; // grace: today may not have commits yet
+    while (idx >= 0 && cal[idx].commits > 0) {
+      streak++;
+      idx--;
+    }
 
     const stats = $("pulse-stats");
     stats.textContent = "";
-    const totalCommits = days.reduce((s, d) => s + d.commits, 0);
-    [
-      [totalCommits, t("commits")],
-      [data.activity.sessions7d, t("sessions")],
-      [data.activity.issuesClosed7d, t("closed")],
-    ].forEach(([val, lbl]) => {
+    const rows = [
+      [last7, t("commits"), prev7 > 0 || last7 > 0 ? { prev7, last7 } : null],
+      [data.activity.sessions7d, t("sessions"), null],
+      [data.activity.issuesClosed7d, t("closed"), null],
+    ];
+    rows.forEach(([val, lbl, delta]) => {
       const div = document.createElement("div");
       div.className = "pulse-stat";
       const v = document.createElement("span");
       v.className = "val";
-      v.textContent = val;
       const l = document.createElement("span");
       l.className = "lbl";
       l.textContent = lbl;
       div.append(v, l);
+      if (delta && delta.prev7 > 0) {
+        const pct = Math.round(((delta.last7 - delta.prev7) / delta.prev7) * 100);
+        if (pct !== 0) {
+          const d = document.createElement("span");
+          d.className = `delta ${pct > 0 ? "up" : "down"}`;
+          d.textContent = `${pct > 0 ? "▲" : "▼"} ${Math.abs(pct)}% ${t("vsWeek")}`;
+          div.appendChild(d);
+        }
+      }
       stats.appendChild(div);
+      countUp(v, val);
+    });
+    if (streak >= 2) {
+      const s = document.createElement("div");
+      s.className = "streak";
+      s.textContent = t("streak")(streak);
+      stats.appendChild(s);
+    }
+  }
+
+  /* ---------- fx ---------- */
+
+  function startSpotlight() {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const cards = Array.from(document.querySelectorAll(".card"));
+    let raf = null;
+    document.addEventListener("mousemove", (e) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        for (const card of cards) {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+          card.style.setProperty("--my", `${e.clientY - r.top}px`);
+        }
+      });
     });
   }
+
+  function startParticles() {
+    if (reduceMotion || window.innerWidth < 769) return;
+    const canvas = $("fx");
+    const ctx = canvas.getContext("2d");
+    const DPR = Math.min(2, window.devicePixelRatio || 1);
+    let W, H, pts;
+    const N = 60;
+    const hue = () => getComputedStyle(document.documentElement).getPropertyValue("--hue").trim() || "262";
+
+    const resize = () => {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W * DPR;
+      canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    };
+    const seed = () => {
+      pts = Array.from({ length: N }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: 1 + Math.random() * 1.3,
+      }));
+    };
+    resize();
+    seed();
+    window.addEventListener("resize", () => resize());
+
+    const frame = () => {
+      if (document.hidden) {
+        requestAnimationFrame(frame);
+        return;
+      }
+      ctx.clearRect(0, 0, W, H);
+      const h = hue();
+      for (const p of pts) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -10) p.x = W + 10;
+        if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10;
+        if (p.y > H + 10) p.y = -10;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `oklch(0.78 0.12 ${h} / 0.5)`;
+        ctx.fill();
+      }
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const dx = pts[i].x - pts[j].x;
+          const dy = pts[i].y - pts[j].y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 12100) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `oklch(0.75 0.12 ${h} / ${0.11 * (1 - d2 / 12100)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- orchestration ---------- */
 
   function render() {
     renderChrome();
@@ -324,10 +514,16 @@
     renderShot();
     renderGoals();
     renderNow();
-    renderStory();
+    renderStory(firstRender);
     renderShip();
     renderPulse();
-    $("app").setAttribute("aria-busy", "false");
+    const app = $("app");
+    app.setAttribute("aria-busy", "false");
+    if (firstRender) {
+      document.querySelectorAll(".layout > .card").forEach((c, i) => c.style.setProperty("--i", i));
+      if (!reduceMotion) app.classList.add("enter");
+      firstRender = false;
+    }
   }
 
   function setLang(next) {
@@ -346,7 +542,8 @@
       const res = await fetch("status.json", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       data = await res.json();
-      if ((data.version || 1) > 1) throw new Error(`unknown schema version ${data.version}`);
+      if (data.version !== 2) throw new Error(`unknown schema version ${data.version}`);
+      document.documentElement.style.setProperty("--hue", String(data.theme.hue));
       render();
     } catch (e) {
       console.error("status load failed:", e);
@@ -355,6 +552,9 @@
   }
 
   renderChrome();
+  startClock();
+  startSpotlight();
+  startParticles();
   load();
   setInterval(renderFreshness, 60000);
 })();
