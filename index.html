@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>What is Oli doing?</title>
+    <meta name="description" content="A living, daily-updated page: what Olivier is building at Sinistar right now." />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main id="app" class="layout" aria-busy="true">
+      <header class="topbar">
+        <div class="identity">
+          <span class="presence-dot" aria-hidden="true"></span>
+          <h1 class="wordmark" data-i18n="title">What is Oli doing?</h1>
+          <p class="subtitle">Olivier · Data @ Sinistar</p>
+        </div>
+        <div class="topbar-right">
+          <span class="status-pill fill" id="status-pill"></span>
+          <span class="freshness mono" id="freshness"></span>
+          <div class="lang-toggle" role="group" aria-label="Language / Langue">
+            <button type="button" id="lang-en" class="lang-btn" aria-pressed="true">EN</button>
+            <button type="button" id="lang-fr" class="lang-btn" aria-pressed="false">FR</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="card area-focus" aria-labelledby="label-focus">
+        <h2 class="card-label" id="label-focus" data-i18n="focus">Current focus</h2>
+        <p class="focus-title fill" id="focus-title"></p>
+        <p class="focus-blurb fill" id="focus-blurb"></p>
+        <a class="focus-link mono" id="focus-link" hidden target="_blank" rel="noopener"></a>
+      </section>
+
+      <section class="card area-shot" aria-labelledby="label-shot">
+        <h2 class="card-label visually-hidden" id="label-shot" data-i18n="shot">On screen</h2>
+        <div class="shot-window">
+          <div class="shot-bar">
+            <span class="shot-dot d-red" aria-hidden="true"></span>
+            <span class="shot-dot d-amber" aria-hidden="true"></span>
+            <span class="shot-dot d-green" aria-hidden="true"></span>
+            <span class="shot-caption mono fill" id="shot-caption"></span>
+          </div>
+          <div class="shot-body" id="shot-body">
+            <span class="shot-badge mono" id="shot-badge" hidden></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card area-goals" aria-labelledby="label-goals">
+        <h2 class="card-label" id="label-goals" data-i18n="goals">Goals</h2>
+        <ul class="goals-list" id="goals-list"></ul>
+      </section>
+
+      <section class="card area-now" aria-labelledby="label-now">
+        <h2 class="card-label" id="label-now" data-i18n="now">Now</h2>
+        <ul class="now-list" id="now-list"></ul>
+      </section>
+
+      <section class="card area-story" aria-labelledby="label-story">
+        <h2 class="card-label" id="label-story" data-i18n="story">The deep dive</h2>
+        <p class="story-text fill" id="story-text"></p>
+      </section>
+
+      <section class="card strip area-ship" aria-labelledby="label-ship">
+        <h2 class="card-label inline" id="label-ship" data-i18n="ship">Recently shipped</h2>
+        <div class="ship-chips" id="ship-chips"></div>
+      </section>
+
+      <section class="card strip area-pulse" aria-labelledby="label-pulse">
+        <h2 class="card-label visually-hidden" id="label-pulse" data-i18n="pulse">Pulse</h2>
+        <div class="pulse-inner">
+          <svg id="sparkline" role="img" width="150" height="48" viewBox="0 0 150 48"></svg>
+          <div class="pulse-stats" id="pulse-stats"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="error-overlay" id="error-overlay" hidden>
+      <div class="card error-card">
+        <p class="error-title">status.json unreachable</p>
+        <p class="error-sub">Try refreshing. / Essayez de rafraîchir la page.</p>
+      </div>
+    </div>
+
+    <noscript>
+      <p class="noscript">This page needs JavaScript to fetch today's status. / Cette page a besoin de JavaScript pour charger le statut du jour.</p>
+    </noscript>
+    <script src="/app.js"></script>
+  </body>
+</html>

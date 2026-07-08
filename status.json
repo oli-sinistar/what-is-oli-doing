@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-08T11:10:00-04:00",
+  "status": {
+    "emoji": "🚢",
+    "tone": "shipping",
+    "text": {
+      "en": "Shipping FF host cross-matching",
+      "fr": "Livraison du croisement d'hôtes FF"
+    }
+  },
+  "focus": {
+    "title": {
+      "en": "Merging FF hosts with their Airbnb identities",
+      "fr": "Fusionner les hôtes FF avec leurs identités Airbnb"
+    },
+    "blurb": {
+      "en": "The hosts table now cross-matches FF hosts against Airbnb profiles — avatars, listing titles and real portfolio sizes included.",
+      "fr": "La table des hôtes croise maintenant les hôtes FF avec les profils Airbnb — avatars, titres d'annonces et vrais portfolios inclus."
+    }
+  },
+  "now": [
+    {
+      "text": {
+        "en": "Hardening the FF↔Airbnb identity matcher",
+        "fr": "Solidifier le matcher d'identités FF↔Airbnb"
+      }
+    },
+    {
+      "text": {
+        "en": "Building a public daily status page (this one!)",
+        "fr": "Construire une page de statut quotidienne publique (celle-ci!)"
+      }
+    }
+  ],
+  "goals": [
+    {
+      "label": {
+        "en": "Ship FF↔Airbnb host matching end-to-end",
+        "fr": "Livrer le matching d'hôtes FF↔Airbnb de bout en bout"
+      },
+      "state": "on-track",
+      "progress": 0.8
+    },
+    {
+      "label": {
+        "en": "Stand up the acquisition CRM for the hosts team",
+        "fr": "Mettre en place le CRM d'acquisition pour l'équipe hôtes"
+      },
+      "state": "on-track",
+      "progress": 0.6
+    },
+    {
+      "label": {
+        "en": "Keep the realtime price pipeline healthy",
+        "fr": "Garder le pipeline de prix temps réel en santé"
+      },
+      "state": "at-risk",
+      "progress": 0.5
+    }
+  ],
+  "shipped": [
+    {
+      "text": {
+        "en": "FF hosts get avatars, titles and real portfolio sizes",
+        "fr": "Les hôtes FF ont avatars, titres et vrais portfolios"
+      },
+      "date": "2026-07-07"
+    },
+    {
+      "text": {
+        "en": "On-demand FF refresh in the Listings dashboard",
+        "fr": "Rafraîchissement FF sur demande dans le tableau Listings"
+      },
+      "date": "2026-07-04"
+    }
+  ],
+  "story": {
+    "text": {
+      "en": "The FF↔Airbnb matcher looked fine on paper but its threshold was mathematically unreachable — no merge could ever fire. Recalibrating the scoring surfaced 12 host pairs that were the same person all along, and merging them meant carefully deleting the FF row before copying names so the unique constraint wouldn't fire.",
+      "fr": "Le matcher FF↔Airbnb semblait correct sur papier, mais son seuil était mathématiquement inatteignable — aucune fusion ne pouvait se déclencher. La recalibration du score a révélé 12 paires d'hôtes qui étaient la même personne, et les fusionner exigeait de supprimer la ligne FF avant de copier les noms pour éviter la contrainte d'unicité."
+    }
+  },
+  "screenshot": null,
+  "activity": {
+    "days": [
+      { "date": "2026-07-02", "commits": 3 },
+      { "date": "2026-07-03", "commits": 5 },
+      { "date": "2026-07-04", "commits": 2 },
+      { "date": "2026-07-05", "commits": 0 },
+      { "date": "2026-07-06", "commits": 1 },
+      { "date": "2026-07-07", "commits": 6 },
+      { "date": "2026-07-08", "commits": 2 }
+    ],
+    "sessions7d": 12,
+    "issuesClosed7d": 3
+  }
+}
