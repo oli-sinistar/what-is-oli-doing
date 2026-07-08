@@ -17,6 +17,8 @@ A **local Claude Code scheduled task** (`~/.claude/scheduled-tasks/what-is-oli-d
 
 Pure static — no framework, no build step, zero npm dependencies. `index.html` + `style.css` + `app.js` fetch `status.json` at runtime.
 
+**Schema v2 gives the AI schedule creative control**: `theme.hue` re-tints the entire page daily (aurora, glows, heatmap ramp — all derived via `oklch` from one hue), `flair.line` is its daily one-liner, and `activity.calendar` (91 days) feeds a GitHub-style heatmap with streak detection and week-over-week delta. Hand-rolled visual layer: canvas particle constellation, cursor-spotlight card borders, rotating conic hero ring, terminal-style deep-dive with typewriter, radial goal rings, count-up stats, marquee ticker, film grain — all reduced-motion-safe.
+
 - `scripts/validate.mjs` — the authoritative schema contract (char budgets, enums, freshness). `--allow-stale` skips the must-be-today checks for local dev.
 - `vercel.json` — `status.json` is `no-store`; fonts immutable; everything else revalidates.
 - Local preview: the `.claude/launch.json` config serves the folder on port 4173 (`npx serve`).
