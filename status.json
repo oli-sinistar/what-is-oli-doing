@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-08T14:55:00-04:00",
+  "updatedAt": "2026-07-08T15:10:00-04:00",
   "status": {
     "emoji": "🧱",
     "tone": "building",
@@ -15,8 +15,8 @@
       "fr": "De la chasse au bug à l'infrastructure"
     },
     "blurb": {
-      "en": "This morning's CRM bugs became this afternoon's plumbing: a live contact-state overlay, an app-wide host_activity_events audit trail, and a drift-guard test that reads migration SQL.",
-      "fr": "Les bugs CRM du matin sont devenus la plomberie de l'après-midi : overlay d'état en direct, journal d'audit host_activity_events global, et un test anti-dérive qui lit le SQL des migrations."
+      "en": "The CRM cockpit grew a memory — a full audit trail plus a live status overlay — while a Florida-wide Furnished Finder re-scrape spun up from a CSV of every listing we hold there.",
+      "fr": "Le cockpit CRM s'est doté d'une mémoire — journal d'audit complet + overlay de statut en direct — pendant qu'un re-scrape Furnished Finder de toute la Floride démarrait."
     }
   },
   "now": [
@@ -34,8 +34,8 @@
     },
     {
       "text": {
-        "en": "Florida-wide Furnished Finder refresh via bulk export to the dashboard",
-        "fr": "Rafraîchissement Furnished Finder de toute la Floride, export en bloc"
+        "en": "Florida-wide FF re-scrape — CSV of every listing feeding the refresh dashboard",
+        "fr": "Re-scrape FF de toute la Floride — CSV de chaque annonce vers le dashboard"
       }
     },
     {
@@ -105,8 +105,8 @@
   ],
   "story": {
     "text": {
-      "en": "The morning's CRM bugs got promoted to infrastructure. Rep marks were invisible until the hourly matview bake, so a live_contact overlay now supersedes it on every read, and every contact, follow-up and outreach write lands in a new host_activity_events audit trail (migrations 065–066), guarded by a drift test that reads the migration SQL. Florida's FF listings refreshed in bulk alongside.",
-      "fr": "Les bugs CRM du matin sont devenus de l'infrastructure. Les marques des reps restaient invisibles jusqu'à la matview horaire — un overlay live_contact la supplante à chaque lecture, et chaque contact, suivi ou prospection s'inscrit au journal host_activity_events (migrations 065–066), protégé par un test qui lit le SQL des migrations. En parallèle, les annonces FF de la Floride ont été rafraîchies en bloc."
+      "en": "It started as a bug report — CRM hosts showing the same listing twice. By afternoon the fix had grown into a memory for the cockpit: every status change, note and follow-up lands in an append-only host_activity_events log (migration 065), and a live_contact overlay shows rep marks instantly instead of after the hourly matview bake. Meanwhile, a CSV of every Florida listing kicked off a state-wide FF re-scrape.",
+      "fr": "Tout a commencé par un bug — des hôtes du CRM affichant deux fois la même annonce. En après-midi, le correctif était devenu la mémoire du cockpit : chaque changement de statut, note et suivi s'inscrit au journal host_activity_events (migration 065), et l'overlay live_contact affiche les marques des reps sans attendre la matview horaire. En parallèle, un CSV des annonces de Floride a lancé un re-scrape complet."
     }
   },
   "screenshot": {
@@ -481,7 +481,7 @@
       },
       {
         "date": "2026-07-08",
-        "commits": 8
+        "commits": 9
       }
     ],
     "sessions7d": 38,
@@ -492,8 +492,8 @@
   },
   "flair": {
     "line": {
-      "en": "The matview refreshes hourly; sales reps don't. The overlay wins.",
-      "fr": "La matview rafraîchit à l'heure ; les reps, non. L'overlay gagne."
+      "en": "The CRM finally remembers who did what. Florida, you're getting re-scraped.",
+      "fr": "Le CRM se souvient enfin de qui a fait quoi. La Floride, on te re-scrape."
     }
   }
 }
