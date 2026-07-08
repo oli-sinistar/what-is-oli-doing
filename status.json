@@ -1,35 +1,41 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-08T13:15:00-04:00",
+  "updatedAt": "2026-07-08T14:55:00-04:00",
   "status": {
-    "emoji": "🔍",
-    "tone": "debugging",
+    "emoji": "🧱",
+    "tone": "building",
     "text": {
-      "en": "Debugging the host graph, twice",
-      "fr": "Débogage du graphe d'hôtes, deux fois"
+      "en": "Wiring the CRM audit trail",
+      "fr": "Câblage du journal d'audit du CRM"
     }
   },
   "focus": {
     "title": {
-      "en": "One matching service, two bugs, one fix",
-      "fr": "Un service de matching, deux bugs, un correctif"
+      "en": "From bug hunt to infrastructure",
+      "fr": "De la chasse au bug à l'infrastructure"
     },
     "blurb": {
-      "en": "host-identity-matching.service.ts keeps coming back: today it got a host_type backfill fix, then turned out to be the root cause of a fresh CRM duplicate-listings bug.",
-      "fr": "host-identity-matching.service.ts revient sans cesse : corrigé pour le host_type aujourd'hui, puis identifié comme la cause d'un nouveau bug de doublons dans le CRM."
+      "en": "This morning's CRM bugs became this afternoon's plumbing: a live contact-state overlay, an app-wide host_activity_events audit trail, and a drift-guard test that reads migration SQL.",
+      "fr": "Les bugs CRM du matin sont devenus la plomberie de l'après-midi : overlay d'état en direct, journal d'audit host_activity_events global, et un test anti-dérive qui lit le SQL des migrations."
     }
   },
   "now": [
     {
       "text": {
-        "en": "CRM bug hunt: duplicate listings traced to host, not property, dedup",
-        "fr": "Chasse au bug CRM : doublons tracés à la dédup d'hôtes, pas de propriétés"
+        "en": "host_activity_events audit trail behind every contact/follow-up/outreach write",
+        "fr": "Journal host_activity_events derrière chaque contact, suivi et prospection"
       }
     },
     {
       "text": {
-        "en": "App-wide host-activity log threading through contact/follow-up/outreach",
-        "fr": "Journal d'activité global tissé dans contact/suivi/prospection"
+        "en": "Live contact-state overlay — rep marks show instantly, no matview lag",
+        "fr": "Overlay d'état en direct — les marques des reps sans attendre la matview"
+      }
+    },
+    {
+      "text": {
+        "en": "Florida-wide Furnished Finder refresh via bulk export to the dashboard",
+        "fr": "Rafraîchissement Furnished Finder de toute la Floride, export en bloc"
       }
     },
     {
@@ -46,12 +52,6 @@
           "fr": "En cours"
         }
       }
-    },
-    {
-      "text": {
-        "en": "This status page — daily AI art direction, still self-updating",
-        "fr": "Cette page statut — direction artistique IA quotidienne, auto-mise à jour"
-      }
     }
   ],
   "goals": [
@@ -61,7 +61,7 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.8
+      "progress": 0.82
     },
     {
       "label": {
@@ -77,10 +77,17 @@
         "fr": "Donner aux reps des KPI, un classement et des outils"
       },
       "state": "on-track",
-      "progress": 0.75
+      "progress": 0.85
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Team tab closed out (DAT-615) — per-rep KPIs, leaderboard, conversion funnel",
+        "fr": "Onglet Équipe bouclé (DAT-615) — KPI par rep, classement, entonnoir"
+      },
+      "date": "2026-07-08"
+    },
     {
       "text": {
         "en": "Status page v2 glow-up — daily hue theming, flair line, 13-week heatmap",
@@ -94,19 +101,12 @@
         "fr": "Hôtes FF bloqués sur 'unknown' corrigés par un backfill de host_type"
       },
       "date": "2026-07-08"
-    },
-    {
-      "text": {
-        "en": "FF hosts cross-matched to Airbnb — avatars + real portfolios",
-        "fr": "Hôtes FF croisés avec Airbnb — avatars + vrais portfolios"
-      },
-      "date": "2026-07-07"
     }
   ],
   "story": {
     "text": {
-      "en": "FF-only hosts kept landing as 'unknown' type because inferHostType() only ever sees one listing at a time — fixed today with a bulk backfill in Pass B. The same service came back for round two: a CRM duplicate-listings bug traced to hosts being deduped instead of properties, so two scrape runs can leave two rows for one place. Five host-acquisition tickets closed out along the way.",
-      "fr": "Les hôtes FF seuls héritaient du type 'unknown' car inferHostType() ne voit qu'une annonce à la fois — corrigé aujourd'hui par un backfill en bloc dans la Pass B. Le même service est revenu pour un deuxième round : un bug de doublons CRM venait des hôtes dédupliqués au lieu des propriétés, donc deux passes de scraping peuvent laisser deux lignes pour un logement. Cinq tickets d'acquisition ont fermé en chemin."
+      "en": "The morning's CRM bugs got promoted to infrastructure. Rep marks were invisible until the hourly matview bake, so a live_contact overlay now supersedes it on every read, and every contact, follow-up and outreach write lands in a new host_activity_events audit trail (migrations 065–066), guarded by a drift test that reads the migration SQL. Florida's FF listings refreshed in bulk alongside.",
+      "fr": "Les bugs CRM du matin sont devenus de l'infrastructure. Les marques des reps restaient invisibles jusqu'à la matview horaire — un overlay live_contact la supplante à chaque lecture, et chaque contact, suivi ou prospection s'inscrit au journal host_activity_events (migrations 065–066), protégé par un test qui lit le SQL des migrations. En parallèle, les annonces FF de la Floride ont été rafraîchies en bloc."
     }
   },
   "screenshot": {
@@ -118,17 +118,382 @@
     "capturedAt": "2026-07-08T12:03:50-04:00"
   },
   "activity": {
-    "calendar": [{"date": "2026-04-09", "commits": 0}, {"date": "2026-04-10", "commits": 0}, {"date": "2026-04-11", "commits": 0}, {"date": "2026-04-12", "commits": 0}, {"date": "2026-04-13", "commits": 0}, {"date": "2026-04-14", "commits": 0}, {"date": "2026-04-15", "commits": 0}, {"date": "2026-04-16", "commits": 0}, {"date": "2026-04-17", "commits": 0}, {"date": "2026-04-18", "commits": 0}, {"date": "2026-04-19", "commits": 0}, {"date": "2026-04-20", "commits": 0}, {"date": "2026-04-21", "commits": 0}, {"date": "2026-04-22", "commits": 0}, {"date": "2026-04-23", "commits": 3}, {"date": "2026-04-24", "commits": 0}, {"date": "2026-04-25", "commits": 0}, {"date": "2026-04-26", "commits": 0}, {"date": "2026-04-27", "commits": 2}, {"date": "2026-04-28", "commits": 0}, {"date": "2026-04-29", "commits": 2}, {"date": "2026-04-30", "commits": 1}, {"date": "2026-05-01", "commits": 0}, {"date": "2026-05-02", "commits": 0}, {"date": "2026-05-03", "commits": 0}, {"date": "2026-05-04", "commits": 0}, {"date": "2026-05-05", "commits": 0}, {"date": "2026-05-06", "commits": 0}, {"date": "2026-05-07", "commits": 0}, {"date": "2026-05-08", "commits": 0}, {"date": "2026-05-09", "commits": 0}, {"date": "2026-05-10", "commits": 0}, {"date": "2026-05-11", "commits": 2}, {"date": "2026-05-12", "commits": 0}, {"date": "2026-05-13", "commits": 0}, {"date": "2026-05-14", "commits": 1}, {"date": "2026-05-15", "commits": 0}, {"date": "2026-05-16", "commits": 0}, {"date": "2026-05-17", "commits": 0}, {"date": "2026-05-18", "commits": 0}, {"date": "2026-05-19", "commits": 0}, {"date": "2026-05-20", "commits": 0}, {"date": "2026-05-21", "commits": 0}, {"date": "2026-05-22", "commits": 1}, {"date": "2026-05-23", "commits": 0}, {"date": "2026-05-24", "commits": 0}, {"date": "2026-05-25", "commits": 2}, {"date": "2026-05-26", "commits": 3}, {"date": "2026-05-27", "commits": 6}, {"date": "2026-05-28", "commits": 2}, {"date": "2026-05-29", "commits": 5}, {"date": "2026-05-30", "commits": 0}, {"date": "2026-05-31", "commits": 0}, {"date": "2026-06-01", "commits": 6}, {"date": "2026-06-02", "commits": 1}, {"date": "2026-06-03", "commits": 4}, {"date": "2026-06-04", "commits": 2}, {"date": "2026-06-05", "commits": 0}, {"date": "2026-06-06", "commits": 0}, {"date": "2026-06-07", "commits": 0}, {"date": "2026-06-08", "commits": 11}, {"date": "2026-06-09", "commits": 3}, {"date": "2026-06-10", "commits": 1}, {"date": "2026-06-11", "commits": 9}, {"date": "2026-06-12", "commits": 0}, {"date": "2026-06-13", "commits": 0}, {"date": "2026-06-14", "commits": 0}, {"date": "2026-06-15", "commits": 5}, {"date": "2026-06-16", "commits": 4}, {"date": "2026-06-17", "commits": 2}, {"date": "2026-06-18", "commits": 0}, {"date": "2026-06-19", "commits": 0}, {"date": "2026-06-20", "commits": 0}, {"date": "2026-06-21", "commits": 0}, {"date": "2026-06-22", "commits": 0}, {"date": "2026-06-23", "commits": 0}, {"date": "2026-06-24", "commits": 0}, {"date": "2026-06-25", "commits": 3}, {"date": "2026-06-26", "commits": 0}, {"date": "2026-06-27", "commits": 0}, {"date": "2026-06-28", "commits": 0}, {"date": "2026-06-29", "commits": 0}, {"date": "2026-06-30", "commits": 4}, {"date": "2026-07-01", "commits": 0}, {"date": "2026-07-02", "commits": 3}, {"date": "2026-07-03", "commits": 0}, {"date": "2026-07-04", "commits": 0}, {"date": "2026-07-05", "commits": 0}, {"date": "2026-07-06", "commits": 5}, {"date": "2026-07-07", "commits": 3}, {"date": "2026-07-08", "commits": 6}],
-    "sessions7d": 33,
+    "calendar": [
+      {
+        "date": "2026-04-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-23",
+        "commits": 3
+      },
+      {
+        "date": "2026-04-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-27",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-29",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-30",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-11",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-22",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-25",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-26",
+        "commits": 3
+      },
+      {
+        "date": "2026-05-27",
+        "commits": 6
+      },
+      {
+        "date": "2026-05-28",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-29",
+        "commits": 5
+      },
+      {
+        "date": "2026-05-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-31",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-01",
+        "commits": 6
+      },
+      {
+        "date": "2026-06-02",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-03",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-04",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-08",
+        "commits": 11
+      },
+      {
+        "date": "2026-06-09",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-10",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-11",
+        "commits": 9
+      },
+      {
+        "date": "2026-06-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-15",
+        "commits": 5
+      },
+      {
+        "date": "2026-06-16",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-17",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-25",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-30",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-02",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-06",
+        "commits": 5
+      },
+      {
+        "date": "2026-07-07",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-08",
+        "commits": 8
+      }
+    ],
+    "sessions7d": 38,
     "issuesClosed7d": 5
   },
   "theme": {
-    "hue": 34
+    "hue": 262
   },
   "flair": {
     "line": {
-      "en": "Squashed the 'unknown' host bug, met its duplicate-listing cousin.",
-      "fr": "Écrasé le bug des hôtes 'unknown', rencontré son cousin en double."
+      "en": "The matview refreshes hourly; sales reps don't. The overlay wins.",
+      "fr": "La matview rafraîchit à l'heure ; les reps, non. L'overlay gagne."
     }
   }
 }
