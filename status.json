@@ -15,8 +15,8 @@
       "fr": "De la chasse au bug à l'infrastructure"
     },
     "blurb": {
-      "en": "The CRM cockpit grew a memory — a full audit trail plus a live status overlay — while a Florida-wide Furnished Finder re-scrape spun up from a CSV of every listing we hold there.",
-      "fr": "Le cockpit CRM s'est doté d'une mémoire — journal d'audit complet + overlay de statut en direct — pendant qu'un re-scrape Furnished Finder de toute la Floride démarrait."
+      "en": "The CRM cockpit grew a memory — a full audit trail plus a live status overlay — while a Florida-wide re-scrape spun up across both Airbnb and Furnished Finder.",
+      "fr": "Le cockpit CRM s'est doté d'une mémoire — journal d'audit complet + overlay de statut en direct — pendant qu'un re-scrape de toute la Floride démarrait, Airbnb et Furnished Finder."
     }
   },
   "now": [
@@ -34,8 +34,8 @@
     },
     {
       "text": {
-        "en": "Florida-wide FF re-scrape — CSV of every listing feeding the refresh dashboard",
-        "fr": "Re-scrape FF de toute la Floride — CSV de chaque annonce vers le dashboard"
+        "en": "Florida-wide re-scrape, Airbnb + FF — CSVs feeding the refresh dashboard",
+        "fr": "Re-scrape de toute la Floride, Airbnb + FF — CSV vers le dashboard"
       }
     },
     {
@@ -105,8 +105,8 @@
   ],
   "story": {
     "text": {
-      "en": "It started as a bug report — CRM hosts showing the same listing twice. By afternoon the fix had grown into a memory for the cockpit: every status change, note and follow-up lands in an append-only host_activity_events log (migration 065), and a live_contact overlay shows rep marks instantly instead of after the hourly matview bake. Meanwhile, a CSV of every Florida listing kicked off a state-wide FF re-scrape.",
-      "fr": "Tout a commencé par un bug — des hôtes du CRM affichant deux fois la même annonce. En après-midi, le correctif était devenu la mémoire du cockpit : chaque changement de statut, note et suivi s'inscrit au journal host_activity_events (migration 065), et l'overlay live_contact affiche les marques des reps sans attendre la matview horaire. En parallèle, un CSV des annonces de Floride a lancé un re-scrape complet."
+      "en": "It started as a bug report — CRM hosts showing the same listing twice. By afternoon the fix had grown into a memory for the cockpit: every status change, note and follow-up lands in an append-only host_activity_events log, and a live_contact overlay shows rep marks instantly instead of after the hourly matview bake. Meanwhile, Florida listings — Airbnb and Furnished Finder both — kicked off a state-wide re-scrape.",
+      "fr": "Tout a commencé par un bug — des hôtes du CRM affichant deux fois la même annonce. En après-midi, le correctif était devenu la mémoire du cockpit : chaque statut, note et suivi s'inscrit au journal host_activity_events, et l'overlay live_contact affiche les marques des reps sans attendre la matview horaire. En parallèle, les annonces de Floride — Airbnb et Furnished Finder — ont lancé un re-scrape complet."
     }
   },
   "screenshot": {
