@@ -1,98 +1,136 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-08T11:10:00-04:00",
+  "updatedAt": "2026-07-08T11:28:00-04:00",
   "status": {
-    "emoji": "🚢",
-    "tone": "shipping",
+    "emoji": "🛠️",
+    "tone": "building",
     "text": {
-      "en": "Shipping FF host cross-matching",
-      "fr": "Livraison du croisement d'hôtes FF"
+      "en": "Building the team cockpit + this page",
+      "fr": "Cockpit d'équipe + cette page"
     }
   },
   "focus": {
     "title": {
-      "en": "Merging FF hosts with their Airbnb identities",
-      "fr": "Fusionner les hôtes FF avec leurs identités Airbnb"
+      "en": "From identity graph to sales cockpit",
+      "fr": "Du graphe d'identités au cockpit de vente"
     },
     "blurb": {
-      "en": "The hosts table now cross-matches FF hosts against Airbnb profiles — avatars, listing titles and real portfolio sizes included.",
-      "fr": "La table des hôtes croise maintenant les hôtes FF avec les profils Airbnb — avatars, titres d'annonces et vrais portfolios inclus."
+      "en": "FF↔Airbnb host cross-matching shipped this week; now building sales-rep KPIs into /hosts — and giving the pipeline a public heartbeat: this page.",
+      "fr": "Le croisement d'hôtes FF↔Airbnb est livré; place aux KPI des reps dans /hosts — et à un pouls public pour le pipeline : cette page."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Hardening the FF↔Airbnb identity matcher",
-        "fr": "Solidifier le matcher d'identités FF↔Airbnb"
+        "en": "Team tab: sales-rep KPIs and leaderboard on /hosts",
+        "fr": "Onglet Équipe : KPI des reps et classement dans /hosts"
+      },
+      "linear": {
+        "id": "DAT-615",
+        "url": "https://linear.app/sinistar/issue/DAT-615/hosts-add-team-tab-to-hosts-dashboard-sales-rep-activity-kpis-and",
+        "state": "started",
+        "stateLabel": { "en": "In Progress", "fr": "En cours" }
       }
     },
     {
       "text": {
-        "en": "Building a public daily status page (this one!)",
-        "fr": "Construire une page de statut quotidienne publique (celle-ci!)"
+        "en": "App-wide activity tracking for the admin dashboard",
+        "fr": "Suivi d'activité global pour le tableau de bord admin"
+      }
+    },
+    {
+      "text": {
+        "en": "This status page — built, deployed, self-updating daily",
+        "fr": "Cette page de statut — bâtie, déployée, auto-mise à jour"
+      }
+    },
+    {
+      "text": {
+        "en": "Host-acquisition epic: identity graph → scored queue → cockpit",
+        "fr": "Épopée acquisition d'hôtes : graphe → file scorée → cockpit"
+      },
+      "linear": {
+        "id": "DAT-516",
+        "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape",
+        "state": "started",
+        "stateLabel": { "en": "In Progress", "fr": "En cours" }
       }
     }
   ],
   "goals": [
     {
       "label": {
-        "en": "Ship FF↔Airbnb host matching end-to-end",
-        "fr": "Livrer le matching d'hôtes FF↔Airbnb de bout en bout"
+        "en": "Ship the host-acquisition pipeline end-to-end",
+        "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.8
+      "progress": 0.75
     },
     {
       "label": {
-        "en": "Stand up the acquisition CRM for the hosts team",
-        "fr": "Mettre en place le CRM d'acquisition pour l'équipe hôtes"
+        "en": "Market Data API deployed via IaC + CI/CD",
+        "fr": "API Market Data déployée via IaC + CI/CD"
       },
-      "state": "on-track",
-      "progress": 0.6
+      "state": "done",
+      "progress": 1
     },
     {
       "label": {
-        "en": "Keep the realtime price pipeline healthy",
-        "fr": "Garder le pipeline de prix temps réel en santé"
+        "en": "Give sales reps KPIs, a leaderboard and outreach tools",
+        "fr": "Donner aux reps des KPI, un classement et des outils"
       },
-      "state": "at-risk",
-      "progress": 0.5
+      "state": "on-track",
+      "progress": 0.55
     }
   ],
   "shipped": [
     {
       "text": {
-        "en": "FF hosts get avatars, titles and real portfolio sizes",
-        "fr": "Les hôtes FF ont avatars, titres et vrais portfolios"
+        "en": "FF hosts cross-matched to Airbnb — avatars + real portfolios",
+        "fr": "Hôtes FF croisés avec Airbnb — avatars + vrais portfolios"
       },
       "date": "2026-07-07"
     },
     {
       "text": {
-        "en": "On-demand FF refresh in the Listings dashboard",
-        "fr": "Rafraîchissement FF sur demande dans le tableau Listings"
+        "en": "Market Data API live on GCP via IaC + CI/CD (DAT-570)",
+        "fr": "API Market Data en prod sur GCP via IaC + CI/CD (DAT-570)"
       },
-      "date": "2026-07-04"
+      "date": "2026-07-07"
+    },
+    {
+      "text": {
+        "en": "Auto-scrape kicks in when market data is insufficient (DAT-566)",
+        "fr": "Scraping auto quand les données de marché manquent (DAT-566)"
+      },
+      "date": "2026-07-07"
     }
   ],
   "story": {
     "text": {
-      "en": "The FF↔Airbnb matcher looked fine on paper but its threshold was mathematically unreachable — no merge could ever fire. Recalibrating the scoring surfaced 12 host pairs that were the same person all along, and merging them meant carefully deleting the FF row before copying names so the unique constraint wouldn't fire.",
-      "fr": "Le matcher FF↔Airbnb semblait correct sur papier, mais son seuil était mathématiquement inatteignable — aucune fusion ne pouvait se déclencher. La recalibration du score a révélé 12 paires d'hôtes qui étaient la même personne, et les fusionner exigeait de supprimer la ligne FF avant de copier les noms pour éviter la contrainte d'unicité."
+      "en": "Today the meta project shipped: this page. The obvious approach — a headless hook syncing Linear — had been failing silently for weeks with auth errors. So the daily refresh now runs inside the Claude desktop app as a 17:45 scheduled task reading Linear, git and session transcripts, and a validator gates every publish so bad JSON can never brick the page.",
+      "fr": "Aujourd'hui, le projet méta a été livré : cette page. L'approche évidente — un hook headless synchronisant Linear — échouait en silence depuis des semaines. Le rafraîchissement roule donc dans l'app Claude, en tâche planifiée à 17 h 45 : il lit Linear, git et les transcriptions de sessions, et un validateur bloque toute publication de JSON invalide."
     }
   },
-  "screenshot": null,
+  "screenshot": {
+    "src": "assets/screenshot.png",
+    "caption": {
+      "en": "Today's build: this very page",
+      "fr": "La construction du jour : cette page même"
+    },
+    "capturedAt": "2026-07-08T11:18:00-04:00"
+  },
   "activity": {
     "days": [
       { "date": "2026-07-02", "commits": 3 },
-      { "date": "2026-07-03", "commits": 5 },
-      { "date": "2026-07-04", "commits": 2 },
+      { "date": "2026-07-03", "commits": 0 },
+      { "date": "2026-07-04", "commits": 0 },
       { "date": "2026-07-05", "commits": 0 },
-      { "date": "2026-07-06", "commits": 1 },
-      { "date": "2026-07-07", "commits": 6 },
-      { "date": "2026-07-08", "commits": 2 }
+      { "date": "2026-07-06", "commits": 5 },
+      { "date": "2026-07-07", "commits": 3 },
+      { "date": "2026-07-08", "commits": 3 }
     ],
-    "sessions7d": 12,
-    "issuesClosed7d": 3
+    "sessions7d": 31,
+    "issuesClosed7d": 2
   }
 }
