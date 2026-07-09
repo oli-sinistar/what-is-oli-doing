@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updatedAt": "2026-07-08T15:10:00-04:00",
+  "version": 3,
+  "updatedAt": "2026-07-09T10:54:00-04:00",
   "status": {
     "emoji": "🧱",
     "tone": "building",
@@ -61,15 +61,12 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.82
-    },
-    {
-      "label": {
-        "en": "Market Data API deployed via IaC + CI/CD",
-        "fr": "API Market Data déployée via IaC + CI/CD"
-      },
-      "state": "done",
-      "progress": 1
+      "progress": 0.82,
+      "eta": "later",
+      "linear": {
+        "id": "DAT-516",
+        "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape"
+      }
     },
     {
       "label": {
@@ -77,7 +74,35 @@
         "fr": "Donner aux reps des KPI, un classement et des outils"
       },
       "state": "on-track",
-      "progress": 0.85
+      "progress": 0.85,
+      "eta": "this-week"
+    },
+    {
+      "label": {
+        "en": "CRM audit trail + live status overlay in production",
+        "fr": "Journal d'audit CRM + overlay de statut en prod"
+      },
+      "state": "on-track",
+      "progress": 0.7,
+      "eta": "this-week"
+    },
+    {
+      "label": {
+        "en": "Florida re-scrape landed in the dashboards",
+        "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
+      },
+      "state": "on-track",
+      "progress": 0.35,
+      "eta": "next-week"
+    },
+    {
+      "label": {
+        "en": "Market Data API deployed via IaC + CI/CD",
+        "fr": "API Market Data déployée via IaC + CI/CD"
+      },
+      "state": "done",
+      "progress": 1,
+      "eta": "shipped"
     }
   ],
   "shipped": [
@@ -112,17 +137,13 @@
   "screenshot": {
     "src": "assets/screenshot.png",
     "caption": {
-      "en": "Today's build: this very page",
-      "fr": "La construction du jour : cette page même"
+      "en": "Today: the goals card becomes a week outlook",
+      "fr": "Aujourd'hui : les objectifs deviennent un aperçu hebdo"
     },
-    "capturedAt": "2026-07-08T12:03:50-04:00"
+    "capturedAt": "2026-07-09T10:56:00-04:00"
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-04-09",
-        "commits": 0
-      },
       {
         "date": "2026-04-10",
         "commits": 0
@@ -481,7 +502,11 @@
       },
       {
         "date": "2026-07-08",
-        "commits": 9
+        "commits": 10
+      },
+      {
+        "date": "2026-07-09",
+        "commits": 0
       }
     ],
     "sessions7d": 38,

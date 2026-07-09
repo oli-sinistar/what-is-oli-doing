@@ -24,13 +24,20 @@
       commits: "commits 7d",
       sessions: "sessions",
       closed: "closed",
-      vsWeek: "vs last wk",
+      vsWeek: "w/w",
       streak: (n) => `🔥 ${n}-day streak`,
       heatLabel: "Commit activity — last 13 weeks",
       commitWord: (n) => `${n} commit${n === 1 ? "" : "s"}`,
       onTrack: "on track",
       atRisk: "at risk",
       goalDone: "done",
+      etaThisWeek: "closes this week",
+      etaNextWeek: "next week",
+      etaOngoing: "ongoing",
+      etaShipped: "shipped",
+      sumClosing: (n, d) => `${n} closing by ${d}`,
+      sumOngoing: (n) => `${n} ongoing`,
+      sumShipped: (n) => `${n} shipped`,
     },
     fr: {
       title: "Que fait Oli?",
@@ -51,13 +58,20 @@
       commits: "commits 7j",
       sessions: "sessions",
       closed: "réglés",
-      vsWeek: "vs sem. passée",
+      vsWeek: "s/s",
       streak: (n) => `🔥 série de ${n} jours`,
       heatLabel: "Activité de commits — 13 dernières semaines",
       commitWord: (n) => `${n} commit${n === 1 ? "" : "s"}`,
       onTrack: "en bonne voie",
       atRisk: "à risque",
       goalDone: "atteint",
+      etaThisWeek: "clôture cette semaine",
+      etaNextWeek: "semaine prochaine",
+      etaOngoing: "en continu",
+      etaShipped: "livré",
+      sumClosing: (n, d) => `${n} à clôturer d'ici ${d}`,
+      sumOngoing: (n) => `${n} en cours`,
+      sumShipped: (n) => `${n} livré${n === 1 ? "" : "s"}`,
     },
   };
 
@@ -211,10 +225,46 @@
     return svg;
   }
 
+  function fridayOfWeek() {
+    const d = new Date(data.updatedAt);
+    d.setDate(d.getDate() + ((5 - d.getDay() + 7) % 7));
+    return d.toLocaleDateString(locale(), { weekday: "short", month: "short", day: "numeric" });
+  }
+
+  function etaChip(g) {
+    const chip = document.createElement("span");
+    chip.className = "goal-eta";
+    if (g.state === "done") {
+      chip.classList.add("eta-done");
+      chip.textContent = `✓ ${t("etaShipped")}`;
+    } else if (g.eta === "this-week") {
+      chip.classList.add(g.state === "at-risk" ? "eta-risk" : "eta-now");
+      chip.textContent = `${g.state === "at-risk" ? "⚠" : "⚑"} ${t("etaThisWeek")}`;
+    } else {
+      chip.classList.add(g.state === "at-risk" ? "eta-risk" : "eta-later");
+      chip.textContent = g.state === "at-risk" ? `⚠ ${t("atRisk")}` : t(g.eta === "next-week" ? "etaNextWeek" : "etaOngoing");
+    }
+    return chip;
+  }
+
   function renderGoals() {
     const ul = $("goals-list");
     ul.textContent = "";
-    (data.goals || []).forEach((g) => {
+    const rank = (g) => (g.state === "done" ? 3 : { "this-week": 0, "next-week": 1, later: 2 }[g.eta] ?? 2);
+    const goals = [...(data.goals || [])].sort((a, b) => rank(a) - rank(b));
+
+    const closing = goals.filter((g) => g.state !== "done" && g.eta === "this-week").length;
+    const shipped = goals.filter((g) => g.state === "done").length;
+    const ongoing = goals.length - closing - shipped;
+    $("goals-summary").textContent = [
+      closing ? t("sumClosing")(closing, fridayOfWeek()) : null,
+      ongoing ? t("sumOngoing")(ongoing) : null,
+      shipped ? t("sumShipped")(shipped) : null,
+    ]
+      .filter(Boolean)
+      .join(" · ");
+
+    goals.forEach((g) => {
       const li = document.createElement("li");
       const color = GOAL_COLORS[g.state] || GOAL_COLORS["on-track"];
       li.style.setProperty("--gc", color);
@@ -223,13 +273,15 @@
       row.appendChild(ringSvg(g.progress, color));
       const meta = document.createElement("div");
       meta.className = "goal-meta";
-      const label = document.createElement("span");
+      const label = document.createElement(g.linear ? "a" : "span");
       label.className = "goal-label";
       label.textContent = L(g.label);
-      const state = document.createElement("span");
-      state.className = "goal-state";
-      state.textContent = t(GOAL_LABEL_KEYS[g.state] || "onTrack");
-      meta.append(label, state);
+      if (g.linear) {
+        label.href = g.linear.url;
+        label.target = "_blank";
+        label.rel = "noopener";
+      }
+      meta.append(label, etaChip(g));
       row.appendChild(meta);
       li.appendChild(row);
       ul.appendChild(li);
@@ -542,7 +594,7 @@
       const res = await fetch("status.json", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       data = await res.json();
-      if (data.version !== 2) throw new Error(`unknown schema version ${data.version}`);
+      if (data.version !== 3) throw new Error(`unknown schema version ${data.version}`);
       document.documentElement.style.setProperty("--hue", String(data.theme.hue));
       render();
     } catch (e) {

@@ -48,7 +48,7 @@ const localYmd = (d = new Date()) =>
 const today = localYmd();
 
 // --- top level ---
-if (doc.version !== 2) err("version", `must be 2, got ${JSON.stringify(doc.version)}`);
+if (doc.version !== 3) err("version", `must be 3, got ${JSON.stringify(doc.version)}`);
 
 // --- theme (daily AI art direction) ---
 if (!doc.theme || typeof doc.theme !== "object") err("theme", "missing");
@@ -94,15 +94,27 @@ else
     }
   });
 
-// --- goals ---
-if (!Array.isArray(doc.goals) || doc.goals.length < 1 || doc.goals.length > 3)
-  err("goals", "must be an array of 1–3 items");
+// --- goals (management week-outlook view) ---
+const GOAL_ETAS = ["this-week", "next-week", "later", "shipped"];
+if (!Array.isArray(doc.goals) || doc.goals.length < 1 || doc.goals.length > 5)
+  err("goals", "must be an array of 1–5 items");
 else
   doc.goals.forEach((g, i) => {
     leaf(`goals[${i}].label`, g.label, 60);
     if (!GOAL_STATES.includes(g.state)) err(`goals[${i}].state`, `must be one of ${GOAL_STATES.join("|")}`);
     if (typeof g.progress !== "number" || g.progress < 0 || g.progress > 1)
       err(`goals[${i}].progress`, "must be a number in [0, 1]");
+    if (!GOAL_ETAS.includes(g.eta)) err(`goals[${i}].eta`, `must be one of ${GOAL_ETAS.join("|")}`);
+    if (g.state === "done" && g.eta !== "shipped") err(`goals[${i}].eta`, 'must be "shipped" when state is done');
+    if (g.state !== "done" && g.eta === "shipped") err(`goals[${i}].eta`, '"shipped" requires state done');
+    if ("linear" in g) {
+      if (!g.linear || typeof g.linear !== "object") err(`goals[${i}].linear`, "must be an object or omitted");
+      else {
+        if (!isStr(g.linear.id) || !/^[A-Z]+-\d+$/.test(g.linear.id)) err(`goals[${i}].linear.id`, "bad issue id");
+        if (!isStr(g.linear.url) || !g.linear.url.startsWith("https://linear.app/"))
+          err(`goals[${i}].linear.url`, "must be a linear.app URL");
+      }
+    }
   });
 
 // --- shipped ---
@@ -152,4 +164,4 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
-console.log(`VALID — ${path} passes the v2 contract${allowStale ? " (freshness checks skipped)" : ""}.`);
+console.log(`VALID — ${path} passes the v3 contract${allowStale ? " (freshness checks skipped)" : ""}.`);

@@ -439,20 +439,30 @@ body::before, body::after {
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* ---- goals: radial rings ---- */
+/* ---- goals: week-outlook rings ---- */
+.goals-summary {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin: -4px 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: none;
+}
 .goals-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 14px;
+  gap: 10px;
   overflow: hidden;
   min-height: 0;
   flex: 1;
 }
-.goals-list li:nth-child(n + 4) { display: none; }
-.goal-row { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.goal-ring { flex: none; width: 62px; height: 62px; }
+.goals-list li:nth-child(n + 6) { display: none; }
+.goal-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.goal-ring { flex: none; width: 50px; height: 50px; }
 .goal-ring .track { stroke: rgb(255 255 255 / 0.09); }
 .goal-ring .bar {
   stroke: var(--gc);
@@ -463,28 +473,37 @@ body::before, body::after {
   fill: var(--text);
   font: 600 0.72rem var(--font-mono);
 }
-.goal-meta { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.goal-meta { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
 .goal-label {
   font-weight: 550;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
 }
-.goal-state {
+a.goal-label:hover { text-decoration: underline; text-underline-offset: 3px; }
+.goal-eta {
   align-self: flex-start;
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.62rem;
+  font-weight: 650;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   padding: 2px 8px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--gc) 16%, transparent);
-  color: var(--gc);
   white-space: nowrap;
 }
+.eta-now {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: color-mix(in srgb, var(--accent) 68%, white);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.eta-risk { background: rgb(251 191 36 / 0.16); color: var(--amber); }
+.eta-later { border: 1px solid var(--card-border); color: var(--muted); }
+.eta-done { background: rgb(52 211 153 / 0.14); color: var(--green); }
 
 /* ---- now ---- */
 .now-list {
