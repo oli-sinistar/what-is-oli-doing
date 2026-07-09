@@ -24,3 +24,7 @@ Pure static — no framework, no build step, zero npm dependencies. `index.html`
 - Local preview: the `.claude/launch.json` config serves the folder on port 4173 (`npx serve`).
 
 The page's freshness badge turns amber after 36 h and red after 72 h — that's the user-visible alarm if the schedule misses a day (it only runs while the Claude desktop app is open).
+
+## Quick notes
+
+`oli <anything>` in any terminal appends a timestamped line to `TODAY.md` (gitignored). The nightly agent treats these as the highest-priority evidence — they anchor the story, mark things shipped, and adjust goal ETAs — then archives them to `.notes-archive/` and wipes the file after a verified publish. `#dailynote` in any Claude session or Cursor chat does the same thing.

@@ -2,3 +2,5 @@
 .DS_Store
 node_modules/
 .env*
+TODAY.md
+.notes-archive/
