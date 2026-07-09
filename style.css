@@ -375,6 +375,20 @@ body::before, body::after {
   text-overflow: ellipsis;
   padding: 0 8px;
 }
+.shot-dots { display: flex; gap: 5px; flex: none; }
+.shot-dots button {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: rgb(255 255 255 / 0.22);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.shot-dots button[aria-selected="true"] {
+  background: var(--accent);
+  transform: scale(1.25);
+}
 .shot-body { flex: 1; position: relative; min-height: 0; overflow: hidden; }
 .shot-body img {
   position: absolute;
@@ -383,7 +397,10 @@ body::before, body::after {
   height: 100%;
   object-fit: cover;
   object-position: top left;
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
+.shot-body img.active { opacity: 1; }
 .shot-placeholder {
   position: absolute;
   inset: 10px;

@@ -48,7 +48,7 @@ const localYmd = (d = new Date()) =>
 const today = localYmd();
 
 // --- top level ---
-if (doc.version !== 3) err("version", `must be 3, got ${JSON.stringify(doc.version)}`);
+if (doc.version !== 4) err("version", `must be 4, got ${JSON.stringify(doc.version)}`);
 
 // --- theme (daily AI art direction) ---
 if (!doc.theme || typeof doc.theme !== "object") err("theme", "missing");
@@ -129,16 +129,16 @@ else
 if (!doc.story || typeof doc.story !== "object") err("story", "missing");
 else leaf("story.text", doc.story.text, 420);
 
-// --- screenshot ---
-if (doc.screenshot !== null) {
-  if (!doc.screenshot || typeof doc.screenshot !== "object") err("screenshot", "must be null or an object");
-  else {
-    if (!isStr(doc.screenshot.src) || !doc.screenshot.src.startsWith("assets/"))
-      err("screenshot.src", "must be a path under assets/");
-    leaf("screenshot.caption", doc.screenshot.caption, 80);
-    isoDate("screenshot.capturedAt", doc.screenshot.capturedAt);
-  }
-}
+// --- screenshots (0–4, first is shown by default) ---
+if (!Array.isArray(doc.screenshots) || doc.screenshots.length > 4)
+  err("screenshots", "must be an array of 0–4 items");
+else
+  doc.screenshots.forEach((s, i) => {
+    if (!s || typeof s !== "object") return err(`screenshots[${i}]`, "must be an object");
+    if (!isStr(s.src) || !s.src.startsWith("assets/")) err(`screenshots[${i}].src`, "must be a path under assets/");
+    leaf(`screenshots[${i}].caption`, s.caption, 80);
+    isoDate(`screenshots[${i}].capturedAt`, s.capturedAt);
+  });
 
 // --- activity ---
 if (!doc.activity || typeof doc.activity !== "object") err("activity", "missing");
@@ -164,4 +164,4 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
-console.log(`VALID — ${path} passes the v3 contract${allowStale ? " (freshness checks skipped)" : ""}.`);
+console.log(`VALID — ${path} passes the v4 contract${allowStale ? " (freshness checks skipped)" : ""}.`);

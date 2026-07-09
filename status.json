@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "updatedAt": "2026-07-09T10:54:00-04:00",
+  "version": 4,
+  "updatedAt": "2026-07-09T11:38:00-04:00",
   "status": {
     "emoji": "🧱",
     "tone": "building",
@@ -133,14 +133,6 @@
       "en": "It started as a bug report — CRM hosts showing the same listing twice. By afternoon the fix had grown into a memory for the cockpit: every status change, note and follow-up lands in an append-only host_activity_events log, and a live_contact overlay shows rep marks instantly instead of after the hourly matview bake. Meanwhile, Florida listings — Airbnb and Furnished Finder both — kicked off a state-wide re-scrape.",
       "fr": "Tout a commencé par un bug — des hôtes du CRM affichant deux fois la même annonce. En après-midi, le correctif était devenu la mémoire du cockpit : chaque statut, note et suivi s'inscrit au journal host_activity_events, et l'overlay live_contact affiche les marques des reps sans attendre la matview horaire. En parallèle, les annonces de Floride — Airbnb et Furnished Finder — ont lancé un re-scrape complet."
     }
-  },
-  "screenshot": {
-    "src": "assets/screenshot.png",
-    "caption": {
-      "en": "Today: the goals card becomes a week outlook",
-      "fr": "Aujourd'hui : les objectifs deviennent un aperçu hebdo"
-    },
-    "capturedAt": "2026-07-09T10:56:00-04:00"
   },
   "activity": {
     "calendar": [
@@ -520,5 +512,23 @@
       "en": "The CRM finally remembers who did what. Florida, you're getting re-scraped.",
       "fr": "Le CRM se souvient enfin de qui a fait quoi. La Floride, on te re-scrape."
     }
-  }
+  },
+  "screenshots": [
+    {
+      "src": "assets/shot-1.png",
+      "caption": {
+        "en": "Live: the Team tab shipped yesterday (names blurred)",
+        "fr": "En direct : l'onglet Équipe livré hier (noms floutés)"
+      },
+      "capturedAt": "2026-07-09T11:38:00-04:00"
+    },
+    {
+      "src": "assets/shot-2.png",
+      "caption": {
+        "en": "The goals card becomes a week outlook",
+        "fr": "Les objectifs deviennent un aperçu hebdo"
+      },
+      "capturedAt": "2026-07-09T10:56:00-04:00"
+    }
+  ]
 }

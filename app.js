@@ -166,12 +166,46 @@
     }
   }
 
+  let shotIdx = 0;
+  let shotTimer = null;
+
+  function stopShotRotation() {
+    if (shotTimer) clearInterval(shotTimer);
+    shotTimer = null;
+  }
+
+  function startShotRotation() {
+    stopShotRotation();
+    const shots = data?.screenshots || [];
+    if (shots.length > 1 && !reduceMotion) {
+      shotTimer = setInterval(() => setShot((shotIdx + 1) % shots.length), 7000);
+    }
+  }
+
+  function setShot(i) {
+    shotIdx = i;
+    const shots = data.screenshots || [];
+    const shot = shots[i];
+    if (!shot) return;
+    $("shot-body").querySelectorAll("img").forEach((img, j) => img.classList.toggle("active", j === i));
+    $("shot-dots").querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+    $("shot-caption").textContent = L(shot.caption);
+    const badge = $("shot-badge");
+    const capDay = shot.capturedAt.slice(0, 10);
+    badge.hidden = false;
+    badge.textContent = t("captured")(fmtDay(capDay));
+    badge.classList.toggle("stale", capDay < data.updatedAt.slice(0, 10));
+  }
+
   function renderShot() {
     const body = $("shot-body");
     body.querySelectorAll("img, .shot-placeholder").forEach((n) => n.remove());
+    const dots = $("shot-dots");
+    dots.textContent = "";
     const badge = $("shot-badge");
-    const shot = data.screenshot;
-    if (!shot) {
+    const shots = data.screenshots || [];
+    stopShotRotation();
+    if (!shots.length) {
       $("shot-caption").textContent = "—";
       badge.hidden = true;
       const ph = document.createElement("div");
@@ -180,15 +214,27 @@
       body.appendChild(ph);
       return;
     }
-    $("shot-caption").textContent = L(shot.caption);
-    const img = document.createElement("img");
-    img.src = `${shot.src}?v=${encodeURIComponent(shot.capturedAt)}`;
-    img.alt = L(shot.caption);
-    body.prepend(img);
-    const capDay = shot.capturedAt.slice(0, 10);
-    badge.hidden = false;
-    badge.textContent = t("captured")(fmtDay(capDay));
-    badge.classList.toggle("stale", capDay < data.updatedAt.slice(0, 10));
+    shotIdx = Math.min(shotIdx, shots.length - 1);
+    shots.forEach((shot, i) => {
+      const img = document.createElement("img");
+      img.src = `${shot.src}?v=${encodeURIComponent(shot.capturedAt)}`;
+      img.alt = L(shot.caption);
+      img.loading = i === 0 ? "eager" : "lazy";
+      body.insertBefore(img, badge);
+      if (shots.length > 1) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-label", `${i + 1}/${shots.length}`);
+        dot.addEventListener("click", () => {
+          setShot(i);
+          startShotRotation();
+        });
+        dots.appendChild(dot);
+      }
+    });
+    setShot(shotIdx);
+    startShotRotation();
   }
 
   function ringSvg(progress, color) {
@@ -594,7 +640,7 @@
       const res = await fetch("status.json", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       data = await res.json();
-      if (data.version !== 3) throw new Error(`unknown schema version ${data.version}`);
+      if (data.version !== 4) throw new Error(`unknown schema version ${data.version}`);
       document.documentElement.style.setProperty("--hue", String(data.theme.hue));
       render();
     } catch (e) {
@@ -602,6 +648,10 @@
       $("error-overlay").hidden = false;
     }
   }
+
+  const shotCard = document.querySelector(".area-shot");
+  shotCard.addEventListener("mouseenter", stopShotRotation);
+  shotCard.addEventListener("mouseleave", startShotRotation);
 
   renderChrome();
   startClock();
