@@ -1,41 +1,59 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-09T11:38:00-04:00",
+  "updatedAt": "2026-07-13T09:35:00-04:00",
   "status": {
-    "emoji": "🧱",
-    "tone": "building",
+    "emoji": "🚀",
+    "tone": "shipping",
     "text": {
-      "en": "Wiring the CRM audit trail",
-      "fr": "Câblage du journal d'audit du CRM"
+      "en": "Weekend ships, Monday quiet so far",
+      "fr": "Weekend productif, lundi tranquille"
     }
   },
   "focus": {
     "title": {
-      "en": "From bug hunt to infrastructure",
-      "fr": "De la chasse au bug à l'infrastructure"
+      "en": "Two weekend builds: host-match safeguard + coverage watcher",
+      "fr": "Deux chantiers du weekend : garde-fou anti-hôte + veilleur"
     },
     "blurb": {
-      "en": "The CRM cockpit grew a memory — a full audit trail plus a live status overlay — while a Florida-wide re-scrape spun up across both Airbnb and Furnished Finder.",
-      "fr": "Le cockpit CRM s'est doté d'une mémoire — journal d'audit complet + overlay de statut en direct — pendant qu'un re-scrape de toute la Floride démarrait, Airbnb et Furnished Finder."
+      "en": "Thursday closed the Team tab. Friday was off. The weekend shipped two features: a matcher recognizing hosts already on Sinistar's roster, and a watcher flagging housing shortfalls on new requests.",
+      "fr": "Jeudi a bouclé l'onglet Équipe. Vendredi, congé. Le weekend a livré en douce deux features : un matcher qui repère les hôtes déjà chez Sinistar, et un veilleur qui détecte les manques de logement."
     }
   },
   "now": [
     {
       "text": {
-        "en": "host_activity_events audit trail behind every contact/follow-up/outreach write",
-        "fr": "Journal host_activity_events derrière chaque contact, suivi et prospection"
+        "en": "\"Already a Sinistar host\" recognition — badge, outreach block, drawer view",
+        "fr": "Reconnaissance « déjà hôte Sinistar » — badge, blocage, vue dédiée"
+      },
+      "linear": {
+        "id": "DAT-618",
+        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps",
+        "state": "review",
+        "stateLabel": {
+          "en": "Code Review",
+          "fr": "Révision de code"
+        }
       }
     },
     {
       "text": {
-        "en": "Live contact-state overlay — rep marks show instantly, no matview lag",
-        "fr": "Overlay d'état en direct — les marques des reps sans attendre la matview"
+        "en": "Deploy the host-match safeguard to prod — IAM grant + first-run verify",
+        "fr": "Déployer le garde-fou en prod — droit IAM + vérif du 1er run"
+      },
+      "linear": {
+        "id": "DAT-619",
+        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
+        "state": "todo",
+        "stateLabel": {
+          "en": "Todo",
+          "fr": "À faire"
+        }
       }
     },
     {
       "text": {
-        "en": "Florida-wide re-scrape, Airbnb + FF — CSVs feeding the refresh dashboard",
-        "fr": "Re-scrape de toute la Floride, Airbnb + FF — CSV vers le dashboard"
+        "en": "15-minute coverage watcher — live, flagging housing shortfalls on new requests",
+        "fr": "Veilleur de couverture aux 15 min — en direct, détecte les manques de logement"
       }
     },
     {
@@ -61,7 +79,7 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.82,
+      "progress": 0.85,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -70,21 +88,34 @@
     },
     {
       "label": {
-        "en": "Give sales reps KPIs, a leaderboard and outreach tools",
-        "fr": "Donner aux reps des KPI, un classement et des outils"
+        "en": "\"Sinistar host\" safeguard — stop pitching existing partners",
+        "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
       },
       "state": "on-track",
       "progress": 0.85,
+      "eta": "this-week",
+      "linear": {
+        "id": "DAT-618",
+        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps"
+      }
+    },
+    {
+      "label": {
+        "en": "Coverage watcher closing housing shortfalls automatically",
+        "fr": "Le veilleur comble les manques de logement automatiquement"
+      },
+      "state": "on-track",
+      "progress": 0.8,
       "eta": "this-week"
     },
     {
       "label": {
-        "en": "CRM audit trail + live status overlay in production",
-        "fr": "Journal d'audit CRM + overlay de statut en prod"
+        "en": "Give sales reps KPIs, a leaderboard and outreach tools",
+        "fr": "Donner aux reps des KPI, un classement et des outils"
       },
-      "state": "on-track",
-      "progress": 0.7,
-      "eta": "this-week"
+      "state": "done",
+      "progress": 1,
+      "eta": "shipped"
     },
     {
       "label": {
@@ -92,435 +123,153 @@
         "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
       },
       "state": "on-track",
-      "progress": 0.35,
+      "progress": 0.4,
       "eta": "next-week"
-    },
-    {
-      "label": {
-        "en": "Market Data API deployed via IaC + CI/CD",
-        "fr": "API Market Data déployée via IaC + CI/CD"
-      },
-      "state": "done",
-      "progress": 1,
-      "eta": "shipped"
     }
   ],
   "shipped": [
     {
       "text": {
-        "en": "Team tab closed out (DAT-615) — per-rep KPIs, leaderboard, conversion funnel",
-        "fr": "Onglet Équipe bouclé (DAT-615) — KPI par rep, classement, entonnoir"
+        "en": "Coverage watcher live — 15-min scan for housing shortfalls on new requests",
+        "fr": "Veilleur de couverture en direct — scan aux 15 min des manques de logement"
       },
-      "date": "2026-07-08"
+      "date": "2026-07-12"
     },
     {
       "text": {
-        "en": "Status page v2 glow-up — daily hue theming, flair line, 13-week heatmap",
-        "fr": "Refonte v2 de la page statut — teinte du jour, phrase flair, heatmap 13 sem."
+        "en": "\"Sinistar host\" matcher built + live-verified — blocks re-pitching own hosts",
+        "fr": "Matcher « déjà hôte Sinistar » construit + vérifié — bloque le re-démarchage"
       },
-      "date": "2026-07-08"
+      "date": "2026-07-12"
     },
     {
       "text": {
-        "en": "Fixed FF-only hosts stuck on 'unknown' type via bulk host_type backfill",
-        "fr": "Hôtes FF bloqués sur 'unknown' corrigés par un backfill de host_type"
+        "en": "Per-agent stats panel — leaderboard accordion + My Stats disclosure",
+        "fr": "Panneau de stats par agent — classement + volet Mes statistiques"
       },
-      "date": "2026-07-08"
+      "date": "2026-07-09"
     }
   ],
   "story": {
     "text": {
-      "en": "It started as a bug report — CRM hosts showing the same listing twice. By afternoon the fix had grown into a memory for the cockpit: every status change, note and follow-up lands in an append-only host_activity_events log, and a live_contact overlay shows rep marks instantly instead of after the hourly matview bake. Meanwhile, Florida listings — Airbnb and Furnished Finder both — kicked off a state-wide re-scrape.",
-      "fr": "Tout a commencé par un bug — des hôtes du CRM affichant deux fois la même annonce. En après-midi, le correctif était devenu la mémoire du cockpit : chaque statut, note et suivi s'inscrit au journal host_activity_events, et l'overlay live_contact affiche les marques des reps sans attendre la matview horaire. En parallèle, les annonces de Floride — Airbnb et Furnished Finder — ont lancé un re-scrape complet."
+      "en": "Thursday wrapped the Team tab's last piece, a per-rep stats panel, and gave the status page a glow-up. Friday was a real day off. The weekend then quietly landed two production features: a matcher that stamps scraped hosts already on Sinistar's roster so reps stop pitching existing partners, and a 15-minute watcher that scans new relocation requests for shortfalls and drafts outreach on its own.",
+      "fr": "Jeudi a bouclé le dernier morceau de l'onglet Équipe, un panneau de stats par rep, et a refait le look de la page de statut. Vendredi, vraie journée de congé. La fin de semaine a livré en douce deux features en prod : un matcher qui repère les hôtes déjà chez Sinistar pour arrêter de les re-solliciter, et un veilleur aux 15 minutes qui détecte les manques de logement et rédige les relances tout seul."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-04-10",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-11",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-14",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-15",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-16",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-17",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-20",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-21",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-22",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-23",
-        "commits": 3
-      },
-      {
-        "date": "2026-04-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-25",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-26",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-27",
-        "commits": 2
-      },
-      {
-        "date": "2026-04-28",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-29",
-        "commits": 2
-      },
-      {
-        "date": "2026-04-30",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-01",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-02",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-03",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-04",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-06",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-07",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-08",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-09",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-10",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-11",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-14",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-15",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-16",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-17",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-20",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-21",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-22",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-23",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-25",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-26",
-        "commits": 3
-      },
-      {
-        "date": "2026-05-27",
-        "commits": 6
-      },
-      {
-        "date": "2026-05-28",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-29",
-        "commits": 5
-      },
-      {
-        "date": "2026-05-30",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-31",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-01",
-        "commits": 6
-      },
-      {
-        "date": "2026-06-02",
-        "commits": 1
-      },
-      {
-        "date": "2026-06-03",
-        "commits": 4
-      },
-      {
-        "date": "2026-06-04",
-        "commits": 2
-      },
-      {
-        "date": "2026-06-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-06",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-07",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-08",
-        "commits": 11
-      },
-      {
-        "date": "2026-06-09",
-        "commits": 3
-      },
-      {
-        "date": "2026-06-10",
-        "commits": 1
-      },
-      {
-        "date": "2026-06-11",
-        "commits": 9
-      },
-      {
-        "date": "2026-06-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-14",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-15",
-        "commits": 5
-      },
-      {
-        "date": "2026-06-16",
-        "commits": 4
-      },
-      {
-        "date": "2026-06-17",
-        "commits": 2
-      },
-      {
-        "date": "2026-06-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-20",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-21",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-22",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-23",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-25",
-        "commits": 3
-      },
-      {
-        "date": "2026-06-26",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-27",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-28",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-29",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-30",
-        "commits": 4
-      },
-      {
-        "date": "2026-07-01",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-02",
-        "commits": 3
-      },
-      {
-        "date": "2026-07-03",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-04",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-06",
-        "commits": 5
-      },
-      {
-        "date": "2026-07-07",
-        "commits": 3
-      },
-      {
-        "date": "2026-07-08",
-        "commits": 10
-      },
-      {
-        "date": "2026-07-09",
-        "commits": 0
-      }
+      { "date": "2026-04-14", "commits": 0 },
+      { "date": "2026-04-15", "commits": 0 },
+      { "date": "2026-04-16", "commits": 0 },
+      { "date": "2026-04-17", "commits": 0 },
+      { "date": "2026-04-18", "commits": 0 },
+      { "date": "2026-04-19", "commits": 0 },
+      { "date": "2026-04-20", "commits": 0 },
+      { "date": "2026-04-21", "commits": 0 },
+      { "date": "2026-04-22", "commits": 0 },
+      { "date": "2026-04-23", "commits": 3 },
+      { "date": "2026-04-24", "commits": 0 },
+      { "date": "2026-04-25", "commits": 0 },
+      { "date": "2026-04-26", "commits": 0 },
+      { "date": "2026-04-27", "commits": 2 },
+      { "date": "2026-04-28", "commits": 0 },
+      { "date": "2026-04-29", "commits": 2 },
+      { "date": "2026-04-30", "commits": 1 },
+      { "date": "2026-05-01", "commits": 0 },
+      { "date": "2026-05-02", "commits": 0 },
+      { "date": "2026-05-03", "commits": 0 },
+      { "date": "2026-05-04", "commits": 0 },
+      { "date": "2026-05-05", "commits": 0 },
+      { "date": "2026-05-06", "commits": 0 },
+      { "date": "2026-05-07", "commits": 0 },
+      { "date": "2026-05-08", "commits": 0 },
+      { "date": "2026-05-09", "commits": 0 },
+      { "date": "2026-05-10", "commits": 0 },
+      { "date": "2026-05-11", "commits": 2 },
+      { "date": "2026-05-12", "commits": 0 },
+      { "date": "2026-05-13", "commits": 0 },
+      { "date": "2026-05-14", "commits": 1 },
+      { "date": "2026-05-15", "commits": 0 },
+      { "date": "2026-05-16", "commits": 0 },
+      { "date": "2026-05-17", "commits": 0 },
+      { "date": "2026-05-18", "commits": 0 },
+      { "date": "2026-05-19", "commits": 0 },
+      { "date": "2026-05-20", "commits": 0 },
+      { "date": "2026-05-21", "commits": 0 },
+      { "date": "2026-05-22", "commits": 1 },
+      { "date": "2026-05-23", "commits": 0 },
+      { "date": "2026-05-24", "commits": 0 },
+      { "date": "2026-05-25", "commits": 2 },
+      { "date": "2026-05-26", "commits": 3 },
+      { "date": "2026-05-27", "commits": 6 },
+      { "date": "2026-05-28", "commits": 2 },
+      { "date": "2026-05-29", "commits": 5 },
+      { "date": "2026-05-30", "commits": 0 },
+      { "date": "2026-05-31", "commits": 0 },
+      { "date": "2026-06-01", "commits": 6 },
+      { "date": "2026-06-02", "commits": 1 },
+      { "date": "2026-06-03", "commits": 4 },
+      { "date": "2026-06-04", "commits": 2 },
+      { "date": "2026-06-05", "commits": 0 },
+      { "date": "2026-06-06", "commits": 0 },
+      { "date": "2026-06-07", "commits": 0 },
+      { "date": "2026-06-08", "commits": 11 },
+      { "date": "2026-06-09", "commits": 3 },
+      { "date": "2026-06-10", "commits": 1 },
+      { "date": "2026-06-11", "commits": 9 },
+      { "date": "2026-06-12", "commits": 0 },
+      { "date": "2026-06-13", "commits": 0 },
+      { "date": "2026-06-14", "commits": 0 },
+      { "date": "2026-06-15", "commits": 5 },
+      { "date": "2026-06-16", "commits": 4 },
+      { "date": "2026-06-17", "commits": 2 },
+      { "date": "2026-06-18", "commits": 0 },
+      { "date": "2026-06-19", "commits": 0 },
+      { "date": "2026-06-20", "commits": 0 },
+      { "date": "2026-06-21", "commits": 0 },
+      { "date": "2026-06-22", "commits": 0 },
+      { "date": "2026-06-23", "commits": 0 },
+      { "date": "2026-06-24", "commits": 0 },
+      { "date": "2026-06-25", "commits": 3 },
+      { "date": "2026-06-26", "commits": 0 },
+      { "date": "2026-06-27", "commits": 0 },
+      { "date": "2026-06-28", "commits": 0 },
+      { "date": "2026-06-29", "commits": 0 },
+      { "date": "2026-06-30", "commits": 4 },
+      { "date": "2026-07-01", "commits": 0 },
+      { "date": "2026-07-02", "commits": 3 },
+      { "date": "2026-07-03", "commits": 0 },
+      { "date": "2026-07-04", "commits": 0 },
+      { "date": "2026-07-05", "commits": 0 },
+      { "date": "2026-07-06", "commits": 5 },
+      { "date": "2026-07-07", "commits": 3 },
+      { "date": "2026-07-08", "commits": 10 },
+      { "date": "2026-07-09", "commits": 4 },
+      { "date": "2026-07-10", "commits": 0 },
+      { "date": "2026-07-11", "commits": 0 },
+      { "date": "2026-07-12", "commits": 0 },
+      { "date": "2026-07-13", "commits": 0 }
     ],
-    "sessions7d": 38,
-    "issuesClosed7d": 5
+    "sessions7d": 35,
+    "issuesClosed7d": 6
   },
   "theme": {
-    "hue": 262
+    "hue": 150
   },
   "flair": {
     "line": {
-      "en": "The CRM finally remembers who did what. Florida, you're getting re-scraped.",
-      "fr": "Le CRM se souvient enfin de qui a fait quoi. La Floride, on te re-scrape."
+      "en": "Took Friday off, then \"relaxed\" by shipping two production features all weekend.",
+      "fr": "Vendredi de congé, puis un weekend « relax » à livrer deux features en prod."
     }
   },
   "screenshots": [
     {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "Live: the Team tab shipped yesterday (names blurred)",
-        "fr": "En direct : l'onglet Équipe livré hier (noms floutés)"
+        "en": "The acquisition CRM — 163k hosts deep, mid auto-refresh (names blurred)",
+        "fr": "Le CRM d'acquisition — 163k hôtes, en plein auto-refresh (noms flous)"
       },
-      "capturedAt": "2026-07-09T11:38:00-04:00"
+      "capturedAt": "2026-07-13T09:28:00-04:00"
     },
     {
       "src": "assets/shot-2.png",
