@@ -1,25 +1,40 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-13T09:35:00-04:00",
+  "updatedAt": "2026-07-14T09:35:00-04:00",
   "status": {
-    "emoji": "🚀",
-    "tone": "shipping",
+    "emoji": "🔍",
+    "tone": "debugging",
     "text": {
-      "en": "Weekend ships, Monday quiet so far",
-      "fr": "Weekend productif, lundi tranquille"
+      "en": "Chasing an IAM grant before deploy",
+      "fr": "À la chasse d'un droit IAM manquant"
     }
   },
   "focus": {
     "title": {
-      "en": "Two weekend builds: host-match safeguard + coverage watcher",
-      "fr": "Deux chantiers du weekend : garde-fou anti-hôte + veilleur"
+      "en": "Sinistar-host safeguard: built, stuck on IAM and a closed PR",
+      "fr": "Garde-fou hôte Sinistar : prêt, coincé entre IAM et une PR fermée"
     },
     "blurb": {
-      "en": "Thursday closed the Team tab. Friday was off. The weekend shipped two features: a matcher recognizing hosts already on Sinistar's roster, and a watcher flagging housing shortfalls on new requests.",
-      "fr": "Jeudi a bouclé l'onglet Équipe. Vendredi, congé. Le weekend a livré en douce deux features : un matcher qui repère les hôtes déjà chez Sinistar, et un veilleur qui détecte les manques de logement."
+      "en": "The safeguard's BigQuery grant was confirmed, a PR opened, then closed unmerged. Today re-verifies the prod service account before deploying; the coverage watcher keeps clearing its shortfall queue.",
+      "fr": "Le droit BigQuery du garde-fou était confirmé, une PR ouverte, puis fermée sans fusion. Aujourd'hui on revalide le compte de service en prod avant de déployer; le veilleur vide sa file de manques."
     }
   },
   "now": [
+    {
+      "text": {
+        "en": "Real secrets tracked in a staging env file — gitignore gap",
+        "fr": "Vrais secrets suivis dans un fichier env de staging — trou du gitignore"
+      },
+      "linear": {
+        "id": "DAT-620",
+        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data",
+        "state": "backlog",
+        "stateLabel": {
+          "en": "Backlog",
+          "fr": "Boîte de réception"
+        }
+      }
+    },
     {
       "text": {
         "en": "\"Already a Sinistar host\" recognition — badge, outreach block, drawer view",
@@ -37,38 +52,23 @@
     },
     {
       "text": {
-        "en": "Deploy the host-match safeguard to prod — IAM grant + first-run verify",
-        "fr": "Déployer le garde-fou en prod — droit IAM + vérif du 1er run"
+        "en": "Verifying the BigQuery IAM grant before deploying the safeguard to prod",
+        "fr": "Vérification du droit IAM BigQuery avant de déployer le garde-fou en prod"
       },
       "linear": {
         "id": "DAT-619",
         "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
-        "state": "todo",
-        "stateLabel": {
-          "en": "Todo",
-          "fr": "À faire"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "15-minute coverage watcher — live, flagging housing shortfalls on new requests",
-        "fr": "Veilleur de couverture aux 15 min — en direct, détecte les manques de logement"
-      }
-    },
-    {
-      "text": {
-        "en": "Host-acquisition epic: identity graph → scored queue → cockpit",
-        "fr": "Épopée acquisition d'hôtes : graphe → file scorée → cockpit"
-      },
-      "linear": {
-        "id": "DAT-516",
-        "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape",
         "state": "started",
         "stateLabel": {
           "en": "In Progress",
           "fr": "En cours"
         }
+      }
+    },
+    {
+      "text": {
+        "en": "Coverage watcher grinding through a 13-region shortfall backlog",
+        "fr": "Le veilleur de couverture digère une file de 13 régions en manque"
       }
     }
   ],
@@ -105,17 +105,21 @@
         "fr": "Le veilleur comble les manques de logement automatiquement"
       },
       "state": "on-track",
-      "progress": 0.8,
+      "progress": 0.9,
       "eta": "this-week"
     },
     {
       "label": {
-        "en": "Give sales reps KPIs, a leaderboard and outreach tools",
-        "fr": "Donner aux reps des KPI, un classement et des outils"
+        "en": "Fix real secrets tracked in a staging env file",
+        "fr": "Corriger les secrets suivis dans un fichier env de staging"
       },
-      "state": "done",
-      "progress": 1,
-      "eta": "shipped"
+      "state": "at-risk",
+      "progress": 0.05,
+      "eta": "this-week",
+      "linear": {
+        "id": "DAT-620",
+        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data"
+      }
     },
     {
       "label": {
@@ -130,17 +134,10 @@
   "shipped": [
     {
       "text": {
-        "en": "Coverage watcher live — 15-min scan for housing shortfalls on new requests",
-        "fr": "Veilleur de couverture en direct — scan aux 15 min des manques de logement"
+        "en": "Coverage watcher's first real outreach run — 3 shortfalls researched and emailed",
+        "fr": "Premier vrai envoi du veilleur de couverture — 3 manques cherchés et envoyés"
       },
-      "date": "2026-07-12"
-    },
-    {
-      "text": {
-        "en": "\"Sinistar host\" matcher built + live-verified — blocks re-pitching own hosts",
-        "fr": "Matcher « déjà hôte Sinistar » construit + vérifié — bloque le re-démarchage"
-      },
-      "date": "2026-07-12"
+      "date": "2026-07-13"
     },
     {
       "text": {
@@ -152,8 +149,8 @@
   ],
   "story": {
     "text": {
-      "en": "Thursday wrapped the Team tab's last piece, a per-rep stats panel, and gave the status page a glow-up. Friday was a real day off. The weekend then quietly landed two production features: a matcher that stamps scraped hosts already on Sinistar's roster so reps stop pitching existing partners, and a 15-minute watcher that scans new relocation requests for shortfalls and drafts outreach on its own.",
-      "fr": "Jeudi a bouclé le dernier morceau de l'onglet Équipe, un panneau de stats par rep, et a refait le look de la page de statut. Vendredi, vraie journée de congé. La fin de semaine a livré en douce deux features en prod : un matcher qui repère les hôtes déjà chez Sinistar pour arrêter de les re-solliciter, et un veilleur aux 15 minutes qui détecte les manques de logement et rédige les relances tout seul."
+      "en": "The \"already a Sinistar host\" safeguard hit a snag yesterday: BigQuery grant confirmed, PR opened, then closed unmerged, deploy stalled. This morning resumed the investigation, re-checking the service account's real prod access before pushing live. Overnight the coverage watcher kept clearing its queue, backed by a redesigned email and a contact-memory script so it never re-researches the same host.",
+      "fr": "Le garde-fou « déjà hôte Sinistar » a coincé hier : droit BigQuery confirmé, PR ouverte puis fermée sans fusion, déploiement bloqué. Ce matin, on reprend l'enquête sur le vrai accès prod du compte de service avant de le lancer. La nuit, le veilleur a continué de vider sa file, épaulé par un courriel refait et un script mémoire des contacts pour ne jamais re-chercher le même hôte."
     }
   },
   "activity": {
@@ -248,18 +245,19 @@
       { "date": "2026-07-10", "commits": 0 },
       { "date": "2026-07-11", "commits": 0 },
       { "date": "2026-07-12", "commits": 0 },
-      { "date": "2026-07-13", "commits": 0 }
+      { "date": "2026-07-13", "commits": 3 },
+      { "date": "2026-07-14", "commits": 1 }
     ],
-    "sessions7d": 35,
+    "sessions7d": 108,
     "issuesClosed7d": 6
   },
   "theme": {
-    "hue": 150
+    "hue": 38
   },
   "flair": {
     "line": {
-      "en": "Took Friday off, then \"relaxed\" by shipping two production features all weekend.",
-      "fr": "Vendredi de congé, puis un weekend « relax » à livrer deux features en prod."
+      "en": "Closed the PR, kept the receipts: still chasing that IAM grant.",
+      "fr": "PR fermée, reçus gardés : toujours à la chasse du droit IAM."
     }
   },
   "screenshots": [
