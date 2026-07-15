@@ -1,37 +1,37 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-14T09:35:00-04:00",
+  "updatedAt": "2026-07-15T09:35:00-04:00",
   "status": {
-    "emoji": "🔍",
-    "tone": "debugging",
+    "emoji": "⏳",
+    "tone": "thinking",
     "text": {
-      "en": "Chasing an IAM grant before deploy",
-      "fr": "À la chasse d'un droit IAM manquant"
+      "en": "Quiet morning, still stuck on IAM",
+      "fr": "Matin calme, toujours coincé sur IAM"
     }
   },
   "focus": {
     "title": {
-      "en": "Sinistar-host safeguard: built, stuck on IAM and a closed PR",
-      "fr": "Garde-fou hôte Sinistar : prêt, coincé entre IAM et une PR fermée"
+      "en": "Hosts CRM keeps getting sharper while the safeguard deploy stalls",
+      "fr": "Le CRM d'hôtes s'affine pendant que le déploiement du garde-fou stagne"
     },
     "blurb": {
-      "en": "The safeguard's BigQuery grant was confirmed, a PR opened, then closed unmerged. Today re-verifies the prod service account before deploying; the coverage watcher keeps clearing its shortfall queue.",
-      "fr": "Le droit BigQuery du garde-fou était confirmé, une PR ouverte, puis fermée sans fusion. Aujourd'hui on revalide le compte de service en prod avant de déployer; le veilleur vide sa file de manques."
+      "en": "Last night landed a faster hosts list (code-split drawer, cached last page) and tone-matched status chips, still uncommitted. The safeguard has sat in code review two days; the IAM grant hasn't moved.",
+      "fr": "Hier soir : liste d'hôtes plus rapide (tiroir découpé, page en cache) et puces de statut assorties, encore non commitées. Le garde-fou stagne en révision depuis deux jours; le droit IAM n'a pas bougé."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Real secrets tracked in a staging env file — gitignore gap",
-        "fr": "Vrais secrets suivis dans un fichier env de staging — trou du gitignore"
+        "en": "Hosts list load time: code-splitting the drawer, caching the last page",
+        "fr": "Chargement de la liste d'hôtes : découpage du code, dernière page en cache"
       },
       "linear": {
-        "id": "DAT-620",
-        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data",
-        "state": "backlog",
+        "id": "DAT-622",
+        "url": "https://linear.app/sinistar/issue/DAT-622/host-acquisition-hosts-list-initial-load-performance-composite-sort",
+        "state": "started",
         "stateLabel": {
-          "en": "Backlog",
-          "fr": "Boîte de réception"
+          "en": "In Progress",
+          "fr": "En cours"
         }
       }
     },
@@ -52,8 +52,8 @@
     },
     {
       "text": {
-        "en": "Verifying the BigQuery IAM grant before deploying the safeguard to prod",
-        "fr": "Vérification du droit IAM BigQuery avant de déployer le garde-fou en prod"
+        "en": "BigQuery IAM grant for the prod deploy — no movement since the PR closed",
+        "fr": "Droit IAM BigQuery pour le déploiement — aucun mouvement depuis la PR"
       },
       "linear": {
         "id": "DAT-619",
@@ -67,8 +67,17 @@
     },
     {
       "text": {
-        "en": "Coverage watcher grinding through a 13-region shortfall backlog",
-        "fr": "Le veilleur de couverture digère une file de 13 régions en manque"
+        "en": "Staging secrets fix: AUTH_TOKEN cleaned up, CUBE/Decodo/Maps keys still exposed",
+        "fr": "Secrets de staging : AUTH_TOKEN nettoyé, clés CUBE/Decodo/Maps encore exposées"
+      },
+      "linear": {
+        "id": "DAT-620",
+        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data",
+        "state": "started",
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
       }
     }
   ],
@@ -91,7 +100,7 @@
         "en": "\"Sinistar host\" safeguard — stop pitching existing partners",
         "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
       },
-      "state": "on-track",
+      "state": "at-risk",
       "progress": 0.85,
       "eta": "this-week",
       "linear": {
@@ -105,7 +114,7 @@
         "fr": "Le veilleur comble les manques de logement automatiquement"
       },
       "state": "on-track",
-      "progress": 0.9,
+      "progress": 0.92,
       "eta": "this-week"
     },
     {
@@ -114,7 +123,7 @@
         "fr": "Corriger les secrets suivis dans un fichier env de staging"
       },
       "state": "at-risk",
-      "progress": 0.05,
+      "progress": 0.3,
       "eta": "this-week",
       "linear": {
         "id": "DAT-620",
@@ -149,14 +158,12 @@
   ],
   "story": {
     "text": {
-      "en": "The \"already a Sinistar host\" safeguard hit a snag yesterday: BigQuery grant confirmed, PR opened, then closed unmerged, deploy stalled. This morning resumed the investigation, re-checking the service account's real prod access before pushing live. Overnight the coverage watcher kept clearing its queue, backed by a redesigned email and a contact-memory script so it never re-researches the same host.",
-      "fr": "Le garde-fou « déjà hôte Sinistar » a coincé hier : droit BigQuery confirmé, PR ouverte puis fermée sans fusion, déploiement bloqué. Ce matin, on reprend l'enquête sur le vrai accès prod du compte de service avant de le lancer. La nuit, le veilleur a continué de vider sa file, épaulé par un courriel refait et un script mémoire des contacts pour ne jamais re-chercher le même hôte."
+      "en": "Today opened quiet: no new commits, no fresh notes, IAM saga unmoved since the PR closed two days ago. The working tree still holds last night's polish — the hosts list code-splits its drawer and caches the last page, and status marks became tone-matched chips with a real delete-a-contact flow. None of it is committed. Overnight, the coverage watcher kept grinding its region backlog alone, 15 minutes at a time.",
+      "fr": "Journée tranquille : aucun commit, aucune note fraîche, le dossier IAM n'a pas bougé depuis la fermeture de la PR il y a deux jours. L'arbre de travail garde le polissage d'hier soir — tiroir découpé, dernière page en cache, statuts devenus des puces assorties au ton, vrai flux de suppression de contact. Rien n'est commité. La nuit, le veilleur a vidé sa file de régions tout seul, 15 minutes à la fois."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-14", "commits": 0 },
-      { "date": "2026-04-15", "commits": 0 },
       { "date": "2026-04-16", "commits": 0 },
       { "date": "2026-04-17", "commits": 0 },
       { "date": "2026-04-18", "commits": 0 },
@@ -246,18 +253,19 @@
       { "date": "2026-07-11", "commits": 0 },
       { "date": "2026-07-12", "commits": 0 },
       { "date": "2026-07-13", "commits": 3 },
-      { "date": "2026-07-14", "commits": 1 }
+      { "date": "2026-07-14", "commits": 1 },
+      { "date": "2026-07-15", "commits": 0 }
     ],
-    "sessions7d": 108,
-    "issuesClosed7d": 6
+    "sessions7d": 167,
+    "issuesClosed7d": 4
   },
   "theme": {
-    "hue": 38
+    "hue": 205
   },
   "flair": {
     "line": {
-      "en": "Closed the PR, kept the receipts: still chasing that IAM grant.",
-      "fr": "PR fermée, reçus gardés : toujours à la chasse du droit IAM."
+      "en": "The IAM grant ghosted us; the coverage watcher never sleeps.",
+      "fr": "Le droit IAM nous a ghostés; le veilleur, lui, ne dort jamais."
     }
   },
   "screenshots": [
