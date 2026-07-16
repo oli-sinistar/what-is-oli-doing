@@ -1,29 +1,44 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-15T09:35:00-04:00",
+  "updatedAt": "2026-07-16T09:04:51-04:00",
   "status": {
-    "emoji": "⏳",
+    "emoji": "🔍",
     "tone": "thinking",
     "text": {
-      "en": "Quiet morning, still stuck on IAM",
-      "fr": "Matin calme, toujours coincé sur IAM"
+      "en": "Root-causing Montreal, IAM still stuck",
+      "fr": "Montréal disséqué, IAM toujours coincé"
     }
   },
   "focus": {
     "title": {
-      "en": "Hosts CRM keeps getting sharper while the safeguard deploy stalls",
-      "fr": "Le CRM d'hôtes s'affine pendant que le déploiement du garde-fou stagne"
+      "en": "Montreal match reality check lands as the IAM stall hits day three",
+      "fr": "Le bilan du matching montréalais tombe, l'IAM stagne toujours"
     },
     "blurb": {
-      "en": "Last night landed a faster hosts list (code-split drawer, cached last page) and tone-matched status chips, still uncommitted. The safeguard has sat in code review two days; the IAM grant hasn't moved.",
-      "fr": "Hier soir : liste d'hôtes plus rapide (tiroir découpé, page en cache) et puces de statut assorties, encore non commitées. Le garde-fou stagne en révision depuis deux jours; le droit IAM n'a pas bougé."
+      "en": "The matcher works as designed — the gap is data coverage, not code. DAT-619's IAM grant hasn't moved since Tuesday, while a rewritten outreach sequence and the digest's first live run shipped quietly.",
+      "fr": "Le matcher fonctionne comme prévu — l'écart est une question de couverture, pas de code. Le droit IAM de DAT-619 n'a pas bougé depuis mardi, pendant qu'une relance repensée et le digest ont atterri."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Hosts list load time: code-splitting the drawer, caching the last page",
-        "fr": "Chargement de la liste d'hôtes : découpage du code, dernière page en cache"
+        "en": "Host outreach v3 — reply-branched sequence with a future-demand pivot block",
+        "fr": "Relance v3 — séquence à branches de réponse avec bloc de pivot demande-future"
+      },
+      "linear": {
+        "id": "DAT-623",
+        "url": "https://linear.app/sinistar/issue/DAT-623/host-acquisition-host-outreach-v3-reply-branched-sequence-airbnb-brand",
+        "state": "started",
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
+      }
+    },
+    {
+      "text": {
+        "en": "Hosts list load time: sort index live in prod, rest still uncommitted",
+        "fr": "Chargement de la liste d'hôtes : index en prod, le reste non commité"
       },
       "linear": {
         "id": "DAT-622",
@@ -37,23 +52,8 @@
     },
     {
       "text": {
-        "en": "\"Already a Sinistar host\" recognition — badge, outreach block, drawer view",
-        "fr": "Reconnaissance « déjà hôte Sinistar » — badge, blocage, vue dédiée"
-      },
-      "linear": {
-        "id": "DAT-618",
-        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps",
-        "state": "review",
-        "stateLabel": {
-          "en": "Code Review",
-          "fr": "Révision de code"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "BigQuery IAM grant for the prod deploy — no movement since the PR closed",
-        "fr": "Droit IAM BigQuery pour le déploiement — aucun mouvement depuis la PR"
+        "en": "BigQuery IAM grant for the prod deploy — third day with no movement",
+        "fr": "Droit IAM BigQuery pour le déploiement — troisième jour sans mouvement"
       },
       "linear": {
         "id": "DAT-619",
@@ -67,16 +67,16 @@
     },
     {
       "text": {
-        "en": "Staging secrets fix: AUTH_TOKEN cleaned up, CUBE/Decodo/Maps keys still exposed",
-        "fr": "Secrets de staging : AUTH_TOKEN nettoyé, clés CUBE/Decodo/Maps encore exposées"
+        "en": "\"Already a Sinistar host\" recognition — still in code review",
+        "fr": "Reconnaissance « déjà hôte Sinistar » — toujours en révision de code"
       },
       "linear": {
-        "id": "DAT-620",
-        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data",
-        "state": "started",
+        "id": "DAT-618",
+        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps",
+        "state": "review",
         "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
+          "en": "Code Review",
+          "fr": "Révision de code"
         }
       }
     }
@@ -102,7 +102,7 @@
       },
       "state": "at-risk",
       "progress": 0.85,
-      "eta": "this-week",
+      "eta": "next-week",
       "linear": {
         "id": "DAT-618",
         "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps"
@@ -113,9 +113,9 @@
         "en": "Coverage watcher closing housing shortfalls automatically",
         "fr": "Le veilleur comble les manques de logement automatiquement"
       },
-      "state": "on-track",
-      "progress": 0.92,
-      "eta": "this-week"
+      "state": "done",
+      "progress": 1,
+      "eta": "shipped"
     },
     {
       "label": {
@@ -124,7 +124,7 @@
       },
       "state": "at-risk",
       "progress": 0.3,
-      "eta": "this-week",
+      "eta": "next-week",
       "linear": {
         "id": "DAT-620",
         "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data"
@@ -143,28 +143,34 @@
   "shipped": [
     {
       "text": {
+        "en": "Agenda-digest's first live scheduled run — shadow mode, real follow-up data",
+        "fr": "Premier envoi réel du digest d'agenda — mode fantôme, vraies données de suivi"
+      },
+      "date": "2026-07-16"
+    },
+    {
+      "text": {
+        "en": "Coverage watcher fully drained its 13-region shortfall backlog to zero",
+        "fr": "Le veilleur a vidé sa file de 13 manques de logement jusqu'à zéro"
+      },
+      "date": "2026-07-15"
+    },
+    {
+      "text": {
         "en": "Coverage watcher's first real outreach run — 3 shortfalls researched and emailed",
         "fr": "Premier vrai envoi du veilleur de couverture — 3 manques cherchés et envoyés"
       },
       "date": "2026-07-13"
-    },
-    {
-      "text": {
-        "en": "Per-agent stats panel — leaderboard accordion + My Stats disclosure",
-        "fr": "Panneau de stats par agent — classement + volet Mes statistiques"
-      },
-      "date": "2026-07-09"
     }
   ],
   "story": {
     "text": {
-      "en": "Today opened quiet: no new commits, no fresh notes, IAM saga unmoved since the PR closed two days ago. The working tree still holds last night's polish — the hosts list code-splits its drawer and caches the last page, and status marks became tone-matched chips with a real delete-a-contact flow. None of it is committed. Overnight, the coverage watcher kept grinding its region backlog alone, 15 minutes at a time.",
-      "fr": "Journée tranquille : aucun commit, aucune note fraîche, le dossier IAM n'a pas bougé depuis la fermeture de la PR il y a deux jours. L'arbre de travail garde le polissage d'hier soir — tiroir découpé, dernière page en cache, statuts devenus des puces assorties au ton, vrai flux de suppression de contact. Rien n'est commité. La nuit, le veilleur a vidé sa file de régions tout seul, 15 minutes à la fois."
+      "en": "Oli asked point-blank if host-matching works in Montreal. Answer: 151 matches nationwide, just 1 in Montreal — not a bug, a funnel problem: only 5% of our Montreal housings carry an Airbnb listing ID to match against. Meanwhile DAT-618's IAM grant sat untouched a third day, even as a rewritten outreach sequence and the agenda-digest's first live run shipped quietly around it.",
+      "fr": "Oli a demandé sans détour si le matching d'hôtes marche à Montréal. Réponse : 151 matches au pays, 1 seul à Montréal — pas un bug, un problème d'entonnoir : à peine 5% de nos logements montréalais ont un ID Airbnb à matcher. Le droit IAM de DAT-618 stagne depuis trois jours, même si une relance repensée et le premier envoi réel du digest d'agenda ont atterri discrètement."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-16", "commits": 0 },
       { "date": "2026-04-17", "commits": 0 },
       { "date": "2026-04-18", "commits": 0 },
       { "date": "2026-04-19", "commits": 0 },
@@ -254,21 +260,30 @@
       { "date": "2026-07-12", "commits": 0 },
       { "date": "2026-07-13", "commits": 3 },
       { "date": "2026-07-14", "commits": 1 },
-      { "date": "2026-07-15", "commits": 0 }
+      { "date": "2026-07-15", "commits": 1 },
+      { "date": "2026-07-16", "commits": 0 }
     ],
-    "sessions7d": 167,
-    "issuesClosed7d": 4
+    "sessions7d": 218,
+    "issuesClosed7d": 1
   },
   "theme": {
-    "hue": 205
+    "hue": 172
   },
   "flair": {
     "line": {
-      "en": "The IAM grant ghosted us; the coverage watcher never sleeps.",
-      "fr": "Le droit IAM nous a ghostés; le veilleur, lui, ne dort jamais."
+      "en": "5% of Montreal has an Airbnb ID; 100% of the IAM grant remains missing.",
+      "fr": "5% de Montréal a un ID Airbnb; l'octroi IAM, lui, reste à 0%."
     }
   },
   "screenshots": [
+    {
+      "src": "assets/shot-3.png",
+      "caption": {
+        "en": "Team performance dashboard — 19 hosts touched, 5 follow-ups done today",
+        "fr": "Tableau de performance d'équipe — 19 hôtes touchés, 5 suivis faits aujourd'hui"
+      },
+      "capturedAt": "2026-07-16T09:04:51-04:00"
+    },
     {
       "src": "assets/shot-1.png",
       "caption": {
@@ -276,14 +291,6 @@
         "fr": "Le CRM d'acquisition — 163k hôtes, en plein auto-refresh (noms flous)"
       },
       "capturedAt": "2026-07-13T09:28:00-04:00"
-    },
-    {
-      "src": "assets/shot-2.png",
-      "caption": {
-        "en": "The goals card becomes a week outlook",
-        "fr": "Les objectifs deviennent un aperçu hebdo"
-      },
-      "capturedAt": "2026-07-09T10:56:00-04:00"
     }
   ]
 }
