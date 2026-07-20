@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-20T09:45:00-04:00",
+  "updatedAt": "2026-07-20T12:41:50-04:00",
   "status": {
     "emoji": "🐝",
     "tone": "shipping",
@@ -135,12 +135,19 @@
         "en": "Florida re-scrape landed in the dashboards",
         "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
       },
-      "state": "at-risk",
-      "progress": 0.4,
-      "eta": "later"
+      "state": "done",
+      "progress": 1,
+      "eta": "shipped"
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Florida re-scrape landed in the dashboards",
+        "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
+      },
+      "date": "2026-07-20"
+    },
     {
       "text": {
         "en": "Host market sweep's first live run — 22 contacts, survived an agent crash",
@@ -154,13 +161,6 @@
         "fr": "Premier envoi réel du digest d'agenda — mode fantôme, vraies données de suivi"
       },
       "date": "2026-07-16"
-    },
-    {
-      "text": {
-        "en": "Coverage watcher fully drained its 13-region shortfall backlog to zero",
-        "fr": "Le veilleur a vidé sa file de 13 manques de logement jusqu'à zéro"
-      },
-      "date": "2026-07-15"
     }
   ],
   "story": {
