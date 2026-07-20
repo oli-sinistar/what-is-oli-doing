@@ -1,22 +1,22 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-16T09:04:51-04:00",
+  "updatedAt": "2026-07-20T09:45:00-04:00",
   "status": {
-    "emoji": "🔍",
-    "tone": "thinking",
+    "emoji": "🐝",
+    "tone": "shipping",
     "text": {
-      "en": "Root-causing Montreal, IAM still stuck",
-      "fr": "Montréal disséqué, IAM toujours coincé"
+      "en": "Market sweep survived its first crash",
+      "fr": "Le balayage survit à son premier pépin"
     }
   },
   "focus": {
     "title": {
-      "en": "Montreal match reality check lands as the IAM stall hits day three",
-      "fr": "Le bilan du matching montréalais tombe, l'IAM stagne toujours"
+      "en": "Host market sweep survives its first crash and ships anyway",
+      "fr": "Le balayage d'hôtes survit à son premier plantage et livre quand même"
     },
     "blurb": {
-      "en": "The matcher works as designed — the gap is data coverage, not code. DAT-619's IAM grant hasn't moved since Tuesday, while a rewritten outreach sequence and the digest's first live run shipped quietly.",
-      "fr": "Le matcher fonctionne comme prévu — l'écart est une question de couverture, pas de code. Le droit IAM de DAT-619 n'a pas bougé depuis mardi, pendant qu'une relance repensée et le digest ont atterri."
+      "en": "A crash-safe ledger got its first live test: a session limit killed 5 of 6 research agents mid-run, batch resumed and shipped. Now running hourly on its own. IAM grant blocking deploy stalled a week.",
+      "fr": "Le registre anti-pépin passe son premier test réel : 5 agents sur 6 meurent en plein milieu, le lot reprend, l'envoi a lieu. Roule seul, chaque heure. Le droit IAM stagne depuis une semaine."
     }
   },
   "now": [
@@ -52,8 +52,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — third day with no movement",
-        "fr": "Droit IAM BigQuery pour le déploiement — troisième jour sans mouvement"
+        "en": "BigQuery IAM grant for the prod deploy — a full week with no movement",
+        "fr": "Droit IAM BigQuery pour le déploiement — une semaine complète sans bouger"
       },
       "linear": {
         "id": "DAT-619",
@@ -135,12 +135,19 @@
         "en": "Florida re-scrape landed in the dashboards",
         "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
       },
-      "state": "on-track",
+      "state": "at-risk",
       "progress": 0.4,
-      "eta": "next-week"
+      "eta": "later"
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Host market sweep's first live run — 22 contacts, survived an agent crash",
+        "fr": "Premier envoi du balayage d'hôtes — 22 contacts malgré un plantage d'agent"
+      },
+      "date": "2026-07-17"
+    },
     {
       "text": {
         "en": "Agenda-digest's first live scheduled run — shadow mode, real follow-up data",
@@ -154,27 +161,16 @@
         "fr": "Le veilleur a vidé sa file de 13 manques de logement jusqu'à zéro"
       },
       "date": "2026-07-15"
-    },
-    {
-      "text": {
-        "en": "Coverage watcher's first real outreach run — 3 shortfalls researched and emailed",
-        "fr": "Premier vrai envoi du veilleur de couverture — 3 manques cherchés et envoyés"
-      },
-      "date": "2026-07-13"
     }
   ],
   "story": {
     "text": {
-      "en": "Oli asked point-blank if host-matching works in Montreal. Answer: 151 matches nationwide, just 1 in Montreal — not a bug, a funnel problem: only 5% of our Montreal housings carry an Airbnb listing ID to match against. Meanwhile DAT-618's IAM grant sat untouched a third day, even as a rewritten outreach sequence and the agenda-digest's first live run shipped quietly around it.",
-      "fr": "Oli a demandé sans détour si le matching d'hôtes marche à Montréal. Réponse : 151 matches au pays, 1 seul à Montréal — pas un bug, un problème d'entonnoir : à peine 5% de nos logements montréalais ont un ID Airbnb à matcher. Le droit IAM de DAT-618 stagne depuis trois jours, même si une relance repensée et le premier envoi réel du digest d'agenda ont atterri discrètement."
+      "en": "Built a new hourly “host market sweep” to work Pennsylvania's 9,698 hosts for off-Airbnb contacts — then it survived its first real crash: a session limit killed 5 of 6 research agents mid-run, but the ledger caught it, resumed the survivors, and still shipped 22 external contacts + 48 CRM rows. Runs solo, hourly, since. The IAM grant blocking prod deploy hasn't moved in a week.",
+      "fr": "Un nouveau « balayage horaire des hôtes » ratisse les 9 698 hôtes de Pennsylvanie pour des contacts hors Airbnb — puis il a survécu à son premier vrai plantage : une limite de session a tué 5 agents sur 6 en plein milieu, mais le registre a tout rattrapé, relancé les survivants, et livré 22 contacts + 48 fiches CRM. Tourne seul, chaque heure, depuis. Le droit IAM bloquant le déploiement stagne depuis une semaine."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-17", "commits": 0 },
-      { "date": "2026-04-18", "commits": 0 },
-      { "date": "2026-04-19", "commits": 0 },
-      { "date": "2026-04-20", "commits": 0 },
       { "date": "2026-04-21", "commits": 0 },
       { "date": "2026-04-22", "commits": 0 },
       { "date": "2026-04-23", "commits": 3 },
@@ -261,36 +257,40 @@
       { "date": "2026-07-13", "commits": 3 },
       { "date": "2026-07-14", "commits": 1 },
       { "date": "2026-07-15", "commits": 1 },
-      { "date": "2026-07-16", "commits": 0 }
+      { "date": "2026-07-16", "commits": 1 },
+      { "date": "2026-07-17", "commits": 0 },
+      { "date": "2026-07-18", "commits": 0 },
+      { "date": "2026-07-19", "commits": 0 },
+      { "date": "2026-07-20", "commits": 1 }
     ],
-    "sessions7d": 218,
-    "issuesClosed7d": 1
+    "sessions7d": 353,
+    "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 172
+    "hue": 155
   },
   "flair": {
     "line": {
-      "en": "5% of Montreal has an Airbnb ID; 100% of the IAM grant remains missing.",
-      "fr": "5% de Montréal a un ID Airbnb; l'octroi IAM, lui, reste à 0%."
+      "en": "5 of 6 research agents died mid-run; the ledger didn't even blink.",
+      "fr": "5 agents sur 6 sont morts en plein vol; le registre, lui, n'a pas cillé."
     }
   },
   "screenshots": [
     {
-      "src": "assets/shot-3.png",
-      "caption": {
-        "en": "Team performance dashboard — 19 hosts touched, 5 follow-ups done today",
-        "fr": "Tableau de performance d'équipe — 19 hôtes touchés, 5 suivis faits aujourd'hui"
-      },
-      "capturedAt": "2026-07-16T09:04:51-04:00"
-    },
-    {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "The acquisition CRM — 163k hosts deep, mid auto-refresh (names blurred)",
-        "fr": "Le CRM d'acquisition — 163k hôtes, en plein auto-refresh (noms flous)"
+        "en": "Team dashboard — 65 hosts contacted, 8 replies over the trailing 30 days",
+        "fr": "Tableau d'équipe — 65 hôtes contactés, 8 réponses sur 30 jours"
       },
-      "capturedAt": "2026-07-13T09:28:00-04:00"
+      "capturedAt": "2026-07-20T09:35:00-04:00"
+    },
+    {
+      "src": "assets/shot-2.png",
+      "caption": {
+        "en": "The acquisition CRM — 164k hosts deep, names blurred",
+        "fr": "Le CRM d'acquisition — 164k hôtes, noms floutés"
+      },
+      "capturedAt": "2026-07-20T09:36:00-04:00"
     }
   ]
 }
