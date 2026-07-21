@@ -1,22 +1,22 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-20T12:41:50-04:00",
+  "updatedAt": "2026-07-21T09:54:35-04:00",
   "status": {
-    "emoji": "🐝",
-    "tone": "shipping",
+    "emoji": "🔧",
+    "tone": "debugging",
     "text": {
-      "en": "Market sweep survived its first crash",
-      "fr": "Le balayage survit à son premier pépin"
+      "en": "Two bugs fixed, nothing shipped yet",
+      "fr": "Deux bugs réglés, rien de livré"
     }
   },
   "focus": {
     "title": {
-      "en": "Host market sweep survives its first crash and ships anyway",
-      "fr": "Le balayage d'hôtes survit à son premier plantage et livre quand même"
+      "en": "A five-session bug hunt across the CRM — tested, nothing committed",
+      "fr": "Une chasse aux bugs sur cinq sessions — testé, mais rien de commité"
     },
     "blurb": {
-      "en": "A crash-safe ledger got its first live test: a session limit killed 5 of 6 research agents mid-run, batch resumed and shipped. Now running hourly on its own. IAM grant blocking deploy stalled a week.",
-      "fr": "Le registre anti-pépin passe son premier test réel : 5 agents sur 6 meurent en plein milieu, le lot reprend, l'envoi a lieu. Roule seul, chaque heure. Le droit IAM stagne depuis une semaine."
+      "en": "Contact attribution and a self-poisoning exclusion rule both got fixed in one evening. Rep-stats drill-down and cross-rep visibility are tested — still uncommitted. IAM grant now a full week stalled.",
+      "fr": "L'attribution des contacts et une règle d'exclusion qui se mordait la queue sont réglées. Stats par rep et visibilité entre reps sont testées, non commitées. Le droit IAM stagne depuis une semaine."
     }
   },
   "now": [
@@ -52,8 +52,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — a full week with no movement",
-        "fr": "Droit IAM BigQuery pour le déploiement — une semaine complète sans bouger"
+        "en": "BigQuery IAM grant for the prod deploy — a full week gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — une semaine complète, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -110,12 +110,12 @@
     },
     {
       "label": {
-        "en": "Coverage watcher closing housing shortfalls automatically",
-        "fr": "Le veilleur comble les manques de logement automatiquement"
+        "en": "Team-visibility & attribution fixes — ready to deploy",
+        "fr": "Visibilité d'équipe et attribution — prêtes à déployer"
       },
-      "state": "done",
-      "progress": 1,
-      "eta": "shipped"
+      "state": "at-risk",
+      "progress": 0.6,
+      "eta": "next-week"
     },
     {
       "label": {
@@ -165,114 +165,387 @@
   ],
   "story": {
     "text": {
-      "en": "Built a new hourly “host market sweep” to work Pennsylvania's 9,698 hosts for off-Airbnb contacts — then it survived its first real crash: a session limit killed 5 of 6 research agents mid-run, but the ledger caught it, resumed the survivors, and still shipped 22 external contacts + 48 CRM rows. Runs solo, hourly, since. The IAM grant blocking prod deploy hasn't moved in a week.",
-      "fr": "Un nouveau « balayage horaire des hôtes » ratisse les 9 698 hôtes de Pennsylvanie pour des contacts hors Airbnb — puis il a survécu à son premier vrai plantage : une limite de session a tué 5 agents sur 6 en plein milieu, mais le registre a tout rattrapé, relancé les survivants, et livré 22 contacts + 48 fiches CRM. Tourne seul, chaque heure, depuis. Le droit IAM bloquant le déploiement stagne depuis une semaine."
+      "en": "The market sweep's own status write could blacklist itself: a host marked in_review after a failed send got quietly excluded from every future retry. The same evening turned up a second bug — contact credit froze to whoever touched a host first, even after a teammate closed the deal. Both are fixed, tests green, but five sessions of work are still sitting uncommitted on the branch.",
+      "fr": "Le balayage d'hôtes pouvait se mettre sur sa propre liste noire : un hôte marqué in_review après un envoi raté se faisait discrètement exclure de toutes les relances futures. La même soirée a révélé un 2e bug — le crédit d'un contact restait figé sur le premier rep à y toucher, même après qu'un collègue eut fermé la vente. Les deux sont réglés, les tests passent, mais cinq sessions dorment encore, non commitées."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-21", "commits": 0 },
-      { "date": "2026-04-22", "commits": 0 },
-      { "date": "2026-04-23", "commits": 3 },
-      { "date": "2026-04-24", "commits": 0 },
-      { "date": "2026-04-25", "commits": 0 },
-      { "date": "2026-04-26", "commits": 0 },
-      { "date": "2026-04-27", "commits": 2 },
-      { "date": "2026-04-28", "commits": 0 },
-      { "date": "2026-04-29", "commits": 2 },
-      { "date": "2026-04-30", "commits": 1 },
-      { "date": "2026-05-01", "commits": 0 },
-      { "date": "2026-05-02", "commits": 0 },
-      { "date": "2026-05-03", "commits": 0 },
-      { "date": "2026-05-04", "commits": 0 },
-      { "date": "2026-05-05", "commits": 0 },
-      { "date": "2026-05-06", "commits": 0 },
-      { "date": "2026-05-07", "commits": 0 },
-      { "date": "2026-05-08", "commits": 0 },
-      { "date": "2026-05-09", "commits": 0 },
-      { "date": "2026-05-10", "commits": 0 },
-      { "date": "2026-05-11", "commits": 2 },
-      { "date": "2026-05-12", "commits": 0 },
-      { "date": "2026-05-13", "commits": 0 },
-      { "date": "2026-05-14", "commits": 1 },
-      { "date": "2026-05-15", "commits": 0 },
-      { "date": "2026-05-16", "commits": 0 },
-      { "date": "2026-05-17", "commits": 0 },
-      { "date": "2026-05-18", "commits": 0 },
-      { "date": "2026-05-19", "commits": 0 },
-      { "date": "2026-05-20", "commits": 0 },
-      { "date": "2026-05-21", "commits": 0 },
-      { "date": "2026-05-22", "commits": 1 },
-      { "date": "2026-05-23", "commits": 0 },
-      { "date": "2026-05-24", "commits": 0 },
-      { "date": "2026-05-25", "commits": 2 },
-      { "date": "2026-05-26", "commits": 3 },
-      { "date": "2026-05-27", "commits": 6 },
-      { "date": "2026-05-28", "commits": 2 },
-      { "date": "2026-05-29", "commits": 5 },
-      { "date": "2026-05-30", "commits": 0 },
-      { "date": "2026-05-31", "commits": 0 },
-      { "date": "2026-06-01", "commits": 6 },
-      { "date": "2026-06-02", "commits": 1 },
-      { "date": "2026-06-03", "commits": 4 },
-      { "date": "2026-06-04", "commits": 2 },
-      { "date": "2026-06-05", "commits": 0 },
-      { "date": "2026-06-06", "commits": 0 },
-      { "date": "2026-06-07", "commits": 0 },
-      { "date": "2026-06-08", "commits": 11 },
-      { "date": "2026-06-09", "commits": 3 },
-      { "date": "2026-06-10", "commits": 1 },
-      { "date": "2026-06-11", "commits": 9 },
-      { "date": "2026-06-12", "commits": 0 },
-      { "date": "2026-06-13", "commits": 0 },
-      { "date": "2026-06-14", "commits": 0 },
-      { "date": "2026-06-15", "commits": 5 },
-      { "date": "2026-06-16", "commits": 4 },
-      { "date": "2026-06-17", "commits": 2 },
-      { "date": "2026-06-18", "commits": 0 },
-      { "date": "2026-06-19", "commits": 0 },
-      { "date": "2026-06-20", "commits": 0 },
-      { "date": "2026-06-21", "commits": 0 },
-      { "date": "2026-06-22", "commits": 0 },
-      { "date": "2026-06-23", "commits": 0 },
-      { "date": "2026-06-24", "commits": 0 },
-      { "date": "2026-06-25", "commits": 3 },
-      { "date": "2026-06-26", "commits": 0 },
-      { "date": "2026-06-27", "commits": 0 },
-      { "date": "2026-06-28", "commits": 0 },
-      { "date": "2026-06-29", "commits": 0 },
-      { "date": "2026-06-30", "commits": 4 },
-      { "date": "2026-07-01", "commits": 0 },
-      { "date": "2026-07-02", "commits": 3 },
-      { "date": "2026-07-03", "commits": 0 },
-      { "date": "2026-07-04", "commits": 0 },
-      { "date": "2026-07-05", "commits": 0 },
-      { "date": "2026-07-06", "commits": 5 },
-      { "date": "2026-07-07", "commits": 3 },
-      { "date": "2026-07-08", "commits": 10 },
-      { "date": "2026-07-09", "commits": 4 },
-      { "date": "2026-07-10", "commits": 0 },
-      { "date": "2026-07-11", "commits": 0 },
-      { "date": "2026-07-12", "commits": 0 },
-      { "date": "2026-07-13", "commits": 3 },
-      { "date": "2026-07-14", "commits": 1 },
-      { "date": "2026-07-15", "commits": 1 },
-      { "date": "2026-07-16", "commits": 1 },
-      { "date": "2026-07-17", "commits": 0 },
-      { "date": "2026-07-18", "commits": 0 },
-      { "date": "2026-07-19", "commits": 0 },
-      { "date": "2026-07-20", "commits": 1 }
+      {
+        "date": "2026-04-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-23",
+        "commits": 3
+      },
+      {
+        "date": "2026-04-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-27",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-04-29",
+        "commits": 2
+      },
+      {
+        "date": "2026-04-30",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-11",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-22",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-25",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-26",
+        "commits": 3
+      },
+      {
+        "date": "2026-05-27",
+        "commits": 6
+      },
+      {
+        "date": "2026-05-28",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-29",
+        "commits": 5
+      },
+      {
+        "date": "2026-05-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-31",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-01",
+        "commits": 6
+      },
+      {
+        "date": "2026-06-02",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-03",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-04",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-08",
+        "commits": 11
+      },
+      {
+        "date": "2026-06-09",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-10",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-11",
+        "commits": 9
+      },
+      {
+        "date": "2026-06-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-15",
+        "commits": 5
+      },
+      {
+        "date": "2026-06-16",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-17",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-25",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-30",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-02",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-06",
+        "commits": 5
+      },
+      {
+        "date": "2026-07-07",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-08",
+        "commits": 10
+      },
+      {
+        "date": "2026-07-09",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-13",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-15",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-16",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-20",
+        "commits": 2
+      },
+      {
+        "date": "2026-07-21",
+        "commits": 0
+      }
     ],
-    "sessions7d": 353,
+    "sessions7d": 278,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 155
+    "hue": 28
   },
   "flair": {
     "line": {
-      "en": "5 of 6 research agents died mid-run; the ledger didn't even blink.",
-      "fr": "5 agents sur 6 sont morts en plein vol; le registre, lui, n'a pas cillé."
+      "en": "The market sweep almost blacklisted itself — even bots drown in paperwork.",
+      "fr": "Le balayage a failli se blacklister — les robots aussi se noient dans la paperasse."
     }
   },
   "screenshots": [
