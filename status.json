@@ -1,25 +1,31 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-21T09:54:35-04:00",
+  "updatedAt": "2026-07-23T09:25:00-04:00",
   "status": {
     "emoji": "🔧",
-    "tone": "debugging",
+    "tone": "building",
     "text": {
-      "en": "Two bugs fixed, nothing shipped yet",
-      "fr": "Deux bugs réglés, rien de livré"
+      "en": "Hardening yesterday's Gmail rollout",
+      "fr": "Solidifier le lancement Gmail d'hier"
     }
   },
   "focus": {
     "title": {
-      "en": "A five-session bug hunt across the CRM — tested, nothing committed",
-      "fr": "Une chasse aux bugs sur cinq sessions — testé, mais rien de commité"
+      "en": "Host comms go live: per-rep Gmail replaces domain-wide delegation",
+      "fr": "Les comms hôtes démarrent : Gmail par rep remplace la délégation"
     },
     "blurb": {
-      "en": "Contact attribution and a self-poisoning exclusion rule both got fixed in one evening. Rep-stats drill-down and cross-rep visibility are tested — still uncommitted. IAM grant now a full week stalled.",
-      "fr": "L'attribution des contacts et une règle d'exclusion qui se mordait la queue sont réglées. Stats par rep et visibilité entre reps sont testées, non commitées. Le droit IAM stagne depuis une semaine."
+      "en": "Yesterday shipped per-rep Gmail OAuth and channel-aware follow-up policy — 334 tests green. Today wires suppression into Gmail replies. The BigQuery IAM grant blocking prod deploy is 10 days stuck.",
+      "fr": "Hier : OAuth Gmail par rep et politique de relance par canal — 334 tests verts. Aujourd'hui : la liste de suppression branchée sur Gmail. Le droit IAM BigQuery bloque le déploiement depuis 10 jours."
     }
   },
   "now": [
+    {
+      "text": {
+        "en": "Host comms: per-rep Gmail OAuth shipped, wiring suppression into replies",
+        "fr": "Comms hôtes : OAuth Gmail par rep livré, liste de suppression en cours"
+      }
+    },
     {
       "text": {
         "en": "Host outreach v3 — reply-branched sequence with a future-demand pivot block",
@@ -28,6 +34,21 @@
       "linear": {
         "id": "DAT-623",
         "url": "https://linear.app/sinistar/issue/DAT-623/host-acquisition-host-outreach-v3-reply-branched-sequence-airbnb-brand",
+        "state": "started",
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
+      }
+    },
+    {
+      "text": {
+        "en": "BigQuery IAM grant for the prod deploy — 10 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 10 jours, toujours coincé"
+      },
+      "linear": {
+        "id": "DAT-619",
+        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
         "state": "started",
         "stateLabel": {
           "en": "In Progress",
@@ -47,36 +68,6 @@
         "stateLabel": {
           "en": "In Progress",
           "fr": "En cours"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "BigQuery IAM grant for the prod deploy — a full week gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — une semaine complète, toujours coincé"
-      },
-      "linear": {
-        "id": "DAT-619",
-        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
-        "state": "started",
-        "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "\"Already a Sinistar host\" recognition — still in code review",
-        "fr": "Reconnaissance « déjà hôte Sinistar » — toujours en révision de code"
-      },
-      "linear": {
-        "id": "DAT-618",
-        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps",
-        "state": "review",
-        "stateLabel": {
-          "en": "Code Review",
-          "fr": "Révision de code"
         }
       }
     }
@@ -101,8 +92,8 @@
         "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
       },
       "state": "at-risk",
-      "progress": 0.85,
-      "eta": "next-week",
+      "progress": 0.9,
+      "eta": "later",
       "linear": {
         "id": "DAT-618",
         "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps"
@@ -143,6 +134,13 @@
   "shipped": [
     {
       "text": {
+        "en": "\"Already a Sinistar host\" safeguard — code complete, deploy still pending",
+        "fr": "Garde-fou « déjà hôte Sinistar » — code complet, déploiement en attente"
+      },
+      "date": "2026-07-22"
+    },
+    {
+      "text": {
         "en": "Florida re-scrape landed in the dashboards",
         "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
       },
@@ -154,416 +152,136 @@
         "fr": "Premier envoi du balayage d'hôtes — 22 contacts malgré un plantage d'agent"
       },
       "date": "2026-07-17"
-    },
-    {
-      "text": {
-        "en": "Agenda-digest's first live scheduled run — shadow mode, real follow-up data",
-        "fr": "Premier envoi réel du digest d'agenda — mode fantôme, vraies données de suivi"
-      },
-      "date": "2026-07-16"
     }
   ],
   "story": {
     "text": {
-      "en": "The market sweep's own status write could blacklist itself: a host marked in_review after a failed send got quietly excluded from every future retry. The same evening turned up a second bug — contact credit froze to whoever touched a host first, even after a teammate closed the deal. Both are fixed, tests green, but five sessions of work are still sitting uncommitted on the branch.",
-      "fr": "Le balayage d'hôtes pouvait se mettre sur sa propre liste noire : un hôte marqué in_review après un envoi raté se faisait discrètement exclure de toutes les relances futures. La même soirée a révélé un 2e bug — le crédit d'un contact restait figé sur le premier rep à y toucher, même après qu'un collègue eut fermé la vente. Les deux sont réglés, les tests passent, mais cinq sessions dorment encore, non commitées."
+      "en": "Yesterday's marathon session ripped out domain-wide Gmail delegation for a per-rep OAuth handshake, then taught the CRM to branch follow-up rules by contact channel — 334 tests green, 22 new for OAuth alone. Today closed a compliance gap: Gmail replies now check the same do-not-contact list as outreach email. None of it is live — the 4th feature stacked behind the BigQuery IAM grant, stuck 10 days.",
+      "fr": "La session marathon d'hier a remplacé la délégation Gmail globale par une connexion OAuth par rep, puis a appris au CRM à adapter ses relances selon le canal — 334 tests verts, dont 22 pour l'OAuth seul. Aujourd'hui : combler un trou de conformité, les réponses Gmail vérifient la même liste d'exclusion que les courriels. Rien n'est en prod — la 4e fonctionnalité qui attend derrière l'octroi IAM, bloqué 10 jours."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-04-22",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-23",
-        "commits": 3
-      },
-      {
-        "date": "2026-04-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-25",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-26",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-27",
-        "commits": 2
-      },
-      {
-        "date": "2026-04-28",
-        "commits": 0
-      },
-      {
-        "date": "2026-04-29",
-        "commits": 2
-      },
-      {
-        "date": "2026-04-30",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-01",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-02",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-03",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-04",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-06",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-07",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-08",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-09",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-10",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-11",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-14",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-15",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-16",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-17",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-20",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-21",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-22",
-        "commits": 1
-      },
-      {
-        "date": "2026-05-23",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-25",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-26",
-        "commits": 3
-      },
-      {
-        "date": "2026-05-27",
-        "commits": 6
-      },
-      {
-        "date": "2026-05-28",
-        "commits": 2
-      },
-      {
-        "date": "2026-05-29",
-        "commits": 5
-      },
-      {
-        "date": "2026-05-30",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-31",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-01",
-        "commits": 6
-      },
-      {
-        "date": "2026-06-02",
-        "commits": 1
-      },
-      {
-        "date": "2026-06-03",
-        "commits": 4
-      },
-      {
-        "date": "2026-06-04",
-        "commits": 2
-      },
-      {
-        "date": "2026-06-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-06",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-07",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-08",
-        "commits": 11
-      },
-      {
-        "date": "2026-06-09",
-        "commits": 3
-      },
-      {
-        "date": "2026-06-10",
-        "commits": 1
-      },
-      {
-        "date": "2026-06-11",
-        "commits": 9
-      },
-      {
-        "date": "2026-06-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-14",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-15",
-        "commits": 5
-      },
-      {
-        "date": "2026-06-16",
-        "commits": 4
-      },
-      {
-        "date": "2026-06-17",
-        "commits": 2
-      },
-      {
-        "date": "2026-06-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-20",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-21",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-22",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-23",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-24",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-25",
-        "commits": 3
-      },
-      {
-        "date": "2026-06-26",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-27",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-28",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-29",
-        "commits": 0
-      },
-      {
-        "date": "2026-06-30",
-        "commits": 4
-      },
-      {
-        "date": "2026-07-01",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-02",
-        "commits": 3
-      },
-      {
-        "date": "2026-07-03",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-04",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-06",
-        "commits": 5
-      },
-      {
-        "date": "2026-07-07",
-        "commits": 3
-      },
-      {
-        "date": "2026-07-08",
-        "commits": 10
-      },
-      {
-        "date": "2026-07-09",
-        "commits": 4
-      },
-      {
-        "date": "2026-07-10",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-11",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-13",
-        "commits": 3
-      },
-      {
-        "date": "2026-07-14",
-        "commits": 1
-      },
-      {
-        "date": "2026-07-15",
-        "commits": 1
-      },
-      {
-        "date": "2026-07-16",
-        "commits": 1
-      },
-      {
-        "date": "2026-07-17",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-18",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-19",
-        "commits": 0
-      },
-      {
-        "date": "2026-07-20",
-        "commits": 2
-      },
-      {
-        "date": "2026-07-21",
-        "commits": 0
-      }
+      { "date": "2026-04-24", "commits": 0 },
+      { "date": "2026-04-25", "commits": 0 },
+      { "date": "2026-04-26", "commits": 0 },
+      { "date": "2026-04-27", "commits": 2 },
+      { "date": "2026-04-28", "commits": 0 },
+      { "date": "2026-04-29", "commits": 2 },
+      { "date": "2026-04-30", "commits": 1 },
+      { "date": "2026-05-01", "commits": 0 },
+      { "date": "2026-05-02", "commits": 0 },
+      { "date": "2026-05-03", "commits": 0 },
+      { "date": "2026-05-04", "commits": 0 },
+      { "date": "2026-05-05", "commits": 0 },
+      { "date": "2026-05-06", "commits": 0 },
+      { "date": "2026-05-07", "commits": 0 },
+      { "date": "2026-05-08", "commits": 0 },
+      { "date": "2026-05-09", "commits": 0 },
+      { "date": "2026-05-10", "commits": 0 },
+      { "date": "2026-05-11", "commits": 2 },
+      { "date": "2026-05-12", "commits": 0 },
+      { "date": "2026-05-13", "commits": 0 },
+      { "date": "2026-05-14", "commits": 1 },
+      { "date": "2026-05-15", "commits": 0 },
+      { "date": "2026-05-16", "commits": 0 },
+      { "date": "2026-05-17", "commits": 0 },
+      { "date": "2026-05-18", "commits": 0 },
+      { "date": "2026-05-19", "commits": 0 },
+      { "date": "2026-05-20", "commits": 0 },
+      { "date": "2026-05-21", "commits": 0 },
+      { "date": "2026-05-22", "commits": 1 },
+      { "date": "2026-05-23", "commits": 0 },
+      { "date": "2026-05-24", "commits": 0 },
+      { "date": "2026-05-25", "commits": 2 },
+      { "date": "2026-05-26", "commits": 3 },
+      { "date": "2026-05-27", "commits": 6 },
+      { "date": "2026-05-28", "commits": 2 },
+      { "date": "2026-05-29", "commits": 5 },
+      { "date": "2026-05-30", "commits": 0 },
+      { "date": "2026-05-31", "commits": 0 },
+      { "date": "2026-06-01", "commits": 6 },
+      { "date": "2026-06-02", "commits": 1 },
+      { "date": "2026-06-03", "commits": 4 },
+      { "date": "2026-06-04", "commits": 2 },
+      { "date": "2026-06-05", "commits": 0 },
+      { "date": "2026-06-06", "commits": 0 },
+      { "date": "2026-06-07", "commits": 0 },
+      { "date": "2026-06-08", "commits": 11 },
+      { "date": "2026-06-09", "commits": 3 },
+      { "date": "2026-06-10", "commits": 1 },
+      { "date": "2026-06-11", "commits": 9 },
+      { "date": "2026-06-12", "commits": 0 },
+      { "date": "2026-06-13", "commits": 0 },
+      { "date": "2026-06-14", "commits": 0 },
+      { "date": "2026-06-15", "commits": 5 },
+      { "date": "2026-06-16", "commits": 4 },
+      { "date": "2026-06-17", "commits": 2 },
+      { "date": "2026-06-18", "commits": 0 },
+      { "date": "2026-06-19", "commits": 0 },
+      { "date": "2026-06-20", "commits": 0 },
+      { "date": "2026-06-21", "commits": 0 },
+      { "date": "2026-06-22", "commits": 0 },
+      { "date": "2026-06-23", "commits": 0 },
+      { "date": "2026-06-24", "commits": 0 },
+      { "date": "2026-06-25", "commits": 3 },
+      { "date": "2026-06-26", "commits": 0 },
+      { "date": "2026-06-27", "commits": 0 },
+      { "date": "2026-06-28", "commits": 0 },
+      { "date": "2026-06-29", "commits": 0 },
+      { "date": "2026-06-30", "commits": 4 },
+      { "date": "2026-07-01", "commits": 0 },
+      { "date": "2026-07-02", "commits": 3 },
+      { "date": "2026-07-03", "commits": 0 },
+      { "date": "2026-07-04", "commits": 0 },
+      { "date": "2026-07-05", "commits": 0 },
+      { "date": "2026-07-06", "commits": 5 },
+      { "date": "2026-07-07", "commits": 3 },
+      { "date": "2026-07-08", "commits": 10 },
+      { "date": "2026-07-09", "commits": 4 },
+      { "date": "2026-07-10", "commits": 0 },
+      { "date": "2026-07-11", "commits": 0 },
+      { "date": "2026-07-12", "commits": 0 },
+      { "date": "2026-07-13", "commits": 3 },
+      { "date": "2026-07-14", "commits": 1 },
+      { "date": "2026-07-15", "commits": 1 },
+      { "date": "2026-07-16", "commits": 1 },
+      { "date": "2026-07-17", "commits": 0 },
+      { "date": "2026-07-18", "commits": 0 },
+      { "date": "2026-07-19", "commits": 0 },
+      { "date": "2026-07-20", "commits": 5 },
+      { "date": "2026-07-21", "commits": 1 },
+      { "date": "2026-07-22", "commits": 10 },
+      { "date": "2026-07-23", "commits": 1 }
     ],
-    "sessions7d": 278,
-    "issuesClosed7d": 0
+    "sessions7d": 305,
+    "issuesClosed7d": 1
   },
   "theme": {
-    "hue": 28
+    "hue": 258
   },
   "flair": {
     "line": {
-      "en": "The market sweep almost blacklisted itself — even bots drown in paperwork.",
-      "fr": "Le balayage a failli se blacklister — les robots aussi se noient dans la paperasse."
+      "en": "Every rep now has their own Gmail key — and it already knows who not to email.",
+      "fr": "Chaque rep a maintenant sa propre clé Gmail — qui sait déjà qui ne pas contacter."
     }
   },
   "screenshots": [
     {
-      "src": "assets/shot-1.png",
-      "caption": {
-        "en": "Team dashboard — 65 hosts contacted, 8 replies over the trailing 30 days",
-        "fr": "Tableau d'équipe — 65 hôtes contactés, 8 réponses sur 30 jours"
-      },
-      "capturedAt": "2026-07-20T09:35:00-04:00"
-    },
-    {
       "src": "assets/shot-2.png",
       "caption": {
-        "en": "The acquisition CRM — 164k hosts deep, names blurred",
-        "fr": "Le CRM d'acquisition — 164k hôtes, noms floutés"
+        "en": "The new Connect Gmail settings page — self-serve, per-rep OAuth",
+        "fr": "La nouvelle page Connexion Gmail — OAuth par rep, en libre-service"
       },
-      "capturedAt": "2026-07-20T09:36:00-04:00"
+      "capturedAt": "2026-07-23T09:15:00-04:00"
+    },
+    {
+      "src": "assets/shot-1.png",
+      "caption": {
+        "en": "Team dashboard — 130 hosts touched, 111 contacted, 2 wins over 30 days",
+        "fr": "Tableau d'équipe — 130 hôtes touchés, 111 contactés, 2 gains sur 30 jours"
+      },
+      "capturedAt": "2026-07-23T09:10:00-04:00"
     }
   ]
 }
