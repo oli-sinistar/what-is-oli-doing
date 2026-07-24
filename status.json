@@ -1,29 +1,29 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-23T09:25:00-04:00",
+  "updatedAt": "2026-07-24T09:32:00-04:00",
   "status": {
-    "emoji": "🔧",
-    "tone": "building",
+    "emoji": "🔍",
+    "tone": "debugging",
     "text": {
-      "en": "Hardening yesterday's Gmail rollout",
-      "fr": "Solidifier le lancement Gmail d'hier"
+      "en": "A duplicated secret was blocking deploy",
+      "fr": "Un secret dupliqué qui bloquait tout"
     }
   },
   "focus": {
     "title": {
-      "en": "Host comms go live: per-rep Gmail replaces domain-wide delegation",
-      "fr": "Les comms hôtes démarrent : Gmail par rep remplace la délégation"
+      "en": "Per-rep Gmail rollout: closing compliance gaps, chasing deploy bugs",
+      "fr": "Déploiement Gmail par rep : combler la conformité, chasser les bugs"
     },
     "blurb": {
-      "en": "Yesterday shipped per-rep Gmail OAuth and channel-aware follow-up policy — 334 tests green. Today wires suppression into Gmail replies. The BigQuery IAM grant blocking prod deploy is 10 days stuck.",
-      "fr": "Hier : OAuth Gmail par rep et politique de relance par canal — 334 tests verts. Aujourd'hui : la liste de suppression branchée sur Gmail. Le droit IAM BigQuery bloque le déploiement depuis 10 jours."
+      "en": "A stray duplicate secret blocked last night's Cloud Run deploy; fixed. Suppression checks now cover Gmail replies too. DAT-619's IAM grant is 11 days stuck.",
+      "fr": "Un secret dupliqué a bloqué le déploiement hier soir; réglé. La suppression couvre maintenant les réponses Gmail. Le droit IAM de DAT-619 est coincé depuis 11 jours."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Host comms: per-rep Gmail OAuth shipped, wiring suppression into replies",
-        "fr": "Comms hôtes : OAuth Gmail par rep livré, liste de suppression en cours"
+        "en": "Host comms: suppression wired into Gmail replies, deploy blocker fixed",
+        "fr": "Comms hôtes : suppression branchée sur Gmail, bloqueur de déploiement réglé"
       }
     },
     {
@@ -43,8 +43,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 10 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 10 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 11 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 11 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -134,8 +134,15 @@
   "shipped": [
     {
       "text": {
-        "en": "\"Already a Sinistar host\" safeguard — code complete, deploy still pending",
-        "fr": "Garde-fou « déjà hôte Sinistar » — code complet, déploiement en attente"
+        "en": "\"Email in app\" deep link for outreach — one button from report to sent",
+        "fr": "Lien direct « courriel dans l'appli » — un seul bouton du rapport à l'envoi"
+      },
+      "date": "2026-07-23"
+    },
+    {
+      "text": {
+        "en": "Per-rep Gmail OAuth \"Connect Gmail\" replaces domain-wide delegation",
+        "fr": "OAuth Gmail par rep « Connecter Gmail » remplace la délégation globale"
       },
       "date": "2026-07-22"
     },
@@ -145,24 +152,16 @@
         "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
       },
       "date": "2026-07-20"
-    },
-    {
-      "text": {
-        "en": "Host market sweep's first live run — 22 contacts, survived an agent crash",
-        "fr": "Premier envoi du balayage d'hôtes — 22 contacts malgré un plantage d'agent"
-      },
-      "date": "2026-07-17"
     }
   ],
   "story": {
     "text": {
-      "en": "Yesterday's marathon session ripped out domain-wide Gmail delegation for a per-rep OAuth handshake, then taught the CRM to branch follow-up rules by contact channel — 334 tests green, 22 new for OAuth alone. Today closed a compliance gap: Gmail replies now check the same do-not-contact list as outreach email. None of it is live — the 4th feature stacked behind the BigQuery IAM grant, stuck 10 days.",
-      "fr": "La session marathon d'hier a remplacé la délégation Gmail globale par une connexion OAuth par rep, puis a appris au CRM à adapter ses relances selon le canal — 334 tests verts, dont 22 pour l'OAuth seul. Aujourd'hui : combler un trou de conformité, les réponses Gmail vérifient la même liste d'exclusion que les courriels. Rien n'est en prod — la 4e fonctionnalité qui attend derrière l'octroi IAM, bloqué 10 jours."
+      "en": "Yesterday evening's Gmail rollout hit a wall: Cloud Run rejected the deploy because GMAIL_OAUTH_CLIENT_ID was defined twice — once as a secret, once pasted in plain. Found it, removed the stray line, redeployed clean. Then wired the same do-not-contact list Mandrill outreach checks into Gmail replies, so an opted-out host can't be reached through the new channel either. Both fixes sit uncommitted this morning.",
+      "fr": "Le déploiement Gmail d'hier soir a buté sur un mur : Cloud Run refusait car GMAIL_OAUTH_CLIENT_ID était défini deux fois — en secret et en clair. Trouvé, retiré, redéployé proprement. Puis la liste de suppression déjà utilisée par Mandrill a été branchée sur les réponses Gmail, pour qu'un hôte désabonné ne soit pas rejoint par ce canal non plus. Les deux correctifs dorment non commités ce matin."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-24", "commits": 0 },
       { "date": "2026-04-25", "commits": 0 },
       { "date": "2026-04-26", "commits": 0 },
       { "date": "2026-04-27", "commits": 2 },
@@ -249,39 +248,40 @@
       { "date": "2026-07-17", "commits": 0 },
       { "date": "2026-07-18", "commits": 0 },
       { "date": "2026-07-19", "commits": 0 },
-      { "date": "2026-07-20", "commits": 5 },
+      { "date": "2026-07-20", "commits": 2 },
       { "date": "2026-07-21", "commits": 1 },
       { "date": "2026-07-22", "commits": 10 },
-      { "date": "2026-07-23", "commits": 1 }
+      { "date": "2026-07-23", "commits": 2 },
+      { "date": "2026-07-24", "commits": 0 }
     ],
-    "sessions7d": 305,
-    "issuesClosed7d": 1
+    "sessions7d": 308,
+    "issuesClosed7d": 2
   },
   "theme": {
-    "hue": 258
+    "hue": 28
   },
   "flair": {
     "line": {
-      "en": "Every rep now has their own Gmail key — and it already knows who not to email.",
-      "fr": "Chaque rep a maintenant sa propre clé Gmail — qui sait déjà qui ne pas contacter."
+      "en": "Turns out a secret can have an identity crisis too — it just needed one name, not two.",
+      "fr": "Même un secret peut faire une crise d'identité — un seul nom aurait suffi."
     }
   },
   "screenshots": [
     {
       "src": "assets/shot-2.png",
       "caption": {
-        "en": "The new Connect Gmail settings page — self-serve, per-rep OAuth",
-        "fr": "La nouvelle page Connexion Gmail — OAuth par rep, en libre-service"
+        "en": "Team dashboard — 177 hosts touched, 148 contacted, 3 wins in 30 days",
+        "fr": "Tableau d'équipe — 177 hôtes touchés, 148 contactés, 3 gains en 30 jours"
       },
-      "capturedAt": "2026-07-23T09:15:00-04:00"
+      "capturedAt": "2026-07-24T09:25:00-04:00"
     },
     {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "Team dashboard — 130 hosts touched, 111 contacted, 2 wins over 30 days",
-        "fr": "Tableau d'équipe — 130 hôtes touchés, 111 contactés, 2 gains sur 30 jours"
+        "en": "The Connect Gmail settings page — one rep, one mailbox, one OAuth token",
+        "fr": "La page Connexion Gmail — un rep, une boîte courriel, un jeton OAuth"
       },
-      "capturedAt": "2026-07-23T09:10:00-04:00"
+      "capturedAt": "2026-07-24T09:20:00-04:00"
     }
   ]
 }
