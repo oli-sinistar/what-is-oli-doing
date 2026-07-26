@@ -1,29 +1,38 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-24T09:32:00-04:00",
+  "updatedAt": "2026-07-25T16:15:00-04:00",
   "status": {
-    "emoji": "🔍",
-    "tone": "debugging",
+    "emoji": "📦",
+    "tone": "shipping",
     "text": {
-      "en": "A duplicated secret was blocking deploy",
-      "fr": "Un secret dupliqué qui bloquait tout"
+      "en": "Market data landed in manage",
+      "fr": "Les données de marché sont dans manage"
     }
   },
   "focus": {
     "title": {
-      "en": "Per-rep Gmail rollout: closing compliance gaps, chasing deploy bugs",
-      "fr": "Déploiement Gmail par rep : combler la conformité, chasser les bugs"
+      "en": "Market data tab ships in manage; Gmail rollout closes its last gap",
+      "fr": "L'onglet données de marché arrive dans manage; le Gmail se referme"
     },
     "blurb": {
-      "en": "A stray duplicate secret blocked last night's Cloud Run deploy; fixed. Suppression checks now cover Gmail replies too. DAT-619's IAM grant is 11 days stuck.",
-      "fr": "Un secret dupliqué a bloqué le déploiement hier soir; réglé. La suppression couvre maintenant les réponses Gmail. Le droit IAM de DAT-619 est coincé depuis 11 jours."
+      "en": "manage renders coverage-watch's review in the stay view, linking to the full map. Gmail's composer handles its own OAuth callback now. Five ops toggles stand between the build and a live rep.",
+      "fr": "manage affiche la review de coverage-watch dans la vue du séjour, avec un lien vers la carte. Le compositeur Gmail gère son propre retour OAuth. Cinq interrupteurs séparent le build d'un rep en vrai."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Host comms: suppression wired into Gmail replies, deploy blocker fixed",
-        "fr": "Comms hôtes : suppression branchée sur Gmail, bloqueur de déploiement réglé"
+        "en": "Market data tab in manage — reads coverage-watch reviews, links the map",
+        "fr": "Onglet données de marché dans manage — lit les reviews de coverage-watch"
+      },
+      "linear": {
+        "id": "DAT-582",
+        "url": "https://linear.app/sinistar/issue/DAT-582/available-market-data-live-endpoint-with-checkin-checkout",
+        "state": "started",
+        "stateLabel": {
+          "en": "In Progress",
+          "fr": "En cours"
+        }
       }
     },
     {
@@ -43,8 +52,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 11 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 11 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 12 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 12 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -79,7 +88,7 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.85,
+      "progress": 0.87,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -123,15 +132,26 @@
     },
     {
       "label": {
-        "en": "Florida re-scrape landed in the dashboards",
-        "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
+        "en": "Market data tab live for reps in manage",
+        "fr": "Onglet données de marché en direct pour les reps dans manage"
       },
-      "state": "done",
-      "progress": 1,
-      "eta": "shipped"
+      "state": "on-track",
+      "progress": 0.75,
+      "eta": "next-week",
+      "linear": {
+        "id": "DAT-582",
+        "url": "https://linear.app/sinistar/issue/DAT-582/available-market-data-live-endpoint-with-checkin-checkout"
+      }
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Market data tab lands in manage, reading coverage-watch reviews",
+        "fr": "L'onglet données de marché arrive dans manage, lisant coverage-watch"
+      },
+      "date": "2026-07-24"
+    },
     {
       "text": {
         "en": "\"Email in app\" deep link for outreach — one button from report to sent",
@@ -145,24 +165,16 @@
         "fr": "OAuth Gmail par rep « Connecter Gmail » remplace la délégation globale"
       },
       "date": "2026-07-22"
-    },
-    {
-      "text": {
-        "en": "Florida re-scrape landed in the dashboards",
-        "fr": "Re-scrape de la Floride intégré aux tableaux de bord"
-      },
-      "date": "2026-07-20"
     }
   ],
   "story": {
     "text": {
-      "en": "Yesterday evening's Gmail rollout hit a wall: Cloud Run rejected the deploy because GMAIL_OAUTH_CLIENT_ID was defined twice — once as a secret, once pasted in plain. Found it, removed the stray line, redeployed clean. Then wired the same do-not-contact list Mandrill outreach checks into Gmail replies, so an opted-out host can't be reached through the new channel either. Both fixes sit uncommitted this morning.",
-      "fr": "Le déploiement Gmail d'hier soir a buté sur un mur : Cloud Run refusait car GMAIL_OAUTH_CLIENT_ID était défini deux fois — en secret et en clair. Trouvé, retiré, redéployé proprement. Puis la liste de suppression déjà utilisée par Mandrill a été branchée sur les réponses Gmail, pour qu'un hôte désabonné ne soit pas rejoint par ce canal non plus. Les deux correctifs dorment non commités ce matin."
+      "en": "Yesterday's build added a Market data tab beside Housings and Hotels on the stay view: coverage-watch's saved review — supply verdict, outreach plan, live Airbnb prices — in a sandboxed iframe, with a button out to the full map. Same day, Gmail's composer learned to handle its own OAuth callback instead of dead-ending reps mid-send. Five ops toggles still stand between the build and a rep seeing it live.",
+      "fr": "Le build d'hier a ajouté un onglet Données de marché à côté d'Habitations et Hôtels : la review de coverage-watch — verdict d'offre, plan de relance, prix Airbnb — dans un iframe sandboxé, avec un bouton vers la carte. Le même jour, le compositeur Gmail a appris à gérer son propre retour OAuth au lieu de laisser les reps en plan en plein envoi. Cinq interrupteurs séparent encore le build d'un rep qui le voit en vrai."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-25", "commits": 0 },
       { "date": "2026-04-26", "commits": 0 },
       { "date": "2026-04-27", "commits": 2 },
       { "date": "2026-04-28", "commits": 0 },
@@ -252,18 +264,19 @@
       { "date": "2026-07-21", "commits": 1 },
       { "date": "2026-07-22", "commits": 10 },
       { "date": "2026-07-23", "commits": 2 },
-      { "date": "2026-07-24", "commits": 0 }
+      { "date": "2026-07-24", "commits": 3 },
+      { "date": "2026-07-25", "commits": 0 }
     ],
-    "sessions7d": 308,
+    "sessions7d": 276,
     "issuesClosed7d": 2
   },
   "theme": {
-    "hue": 28
+    "hue": 150
   },
   "flair": {
     "line": {
-      "en": "Turns out a secret can have an identity crisis too — it just needed one name, not two.",
-      "fr": "Même un secret peut faire une crise d'identité — un seul nom aurait suffi."
+      "en": "Turns out you can just... iframe someone else's homework. Zero manage deploys required.",
+      "fr": "Il suffisait d'iframer le devoir de quelqu'un d'autre. Zéro déploiement de manage requis."
     }
   },
   "screenshots": [
@@ -278,10 +291,10 @@
     {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "The Connect Gmail settings page — one rep, one mailbox, one OAuth token",
-        "fr": "La page Connexion Gmail — un rep, une boîte courriel, un jeton OAuth"
+        "en": "The Connect Gmail settings page, now handling its own OAuth callback",
+        "fr": "La page Connexion Gmail, qui gère maintenant son propre retour OAuth"
       },
-      "capturedAt": "2026-07-24T09:20:00-04:00"
+      "capturedAt": "2026-07-25T11:21:00-04:00"
     }
   ]
 }
