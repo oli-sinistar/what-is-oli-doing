@@ -1,22 +1,22 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-25T16:15:00-04:00",
+  "updatedAt": "2026-07-27T09:59:01-04:00",
   "status": {
-    "emoji": "📦",
-    "tone": "shipping",
+    "emoji": "🌦️",
+    "tone": "thinking",
     "text": {
-      "en": "Market data landed in manage",
-      "fr": "Les données de marché sont dans manage"
+      "en": "Quiet weekend, Monday just starting",
+      "fr": "Fin de semaine calme, lundi commence"
     }
   },
   "focus": {
     "title": {
-      "en": "Market data tab ships in manage; Gmail rollout closes its last gap",
-      "fr": "L'onglet données de marché arrive dans manage; le Gmail se referme"
+      "en": "Friday's ships hold; DAT-618's IAM blocker hits day 13",
+      "fr": "Les livraisons tiennent; le bloqueur IAM de DAT-618 atteint 13 jours"
     },
     "blurb": {
-      "en": "manage renders coverage-watch's review in the stay view, linking to the full map. Gmail's composer handles its own OAuth callback now. Five ops toggles stand between the build and a live rep.",
-      "fr": "manage affiche la review de coverage-watch dans la vue du séjour, avec un lien vers la carte. Le compositeur Gmail gère son propre retour OAuth. Cinq interrupteurs séparent le build d'un rep en vrai."
+      "en": "No commits since Friday. Market data tab & Gmail OAuth hold steady. Same blocker: DAT-619's BigQuery IAM grant still ungranted, so DAT-618's Sinistar-host safeguard, done July 22, isn't live in prod.",
+      "fr": "Aucun commit depuis vendredi. Onglet marché et OAuth Gmail tiennent. Même bloqueur: le droit IAM de DAT-619 n'est pas accordé, donc le garde-fou de DAT-618, prêt le 22 juillet, n'est pas en prod."
     }
   },
   "now": [
@@ -52,8 +52,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 12 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 12 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 13 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 13 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -88,7 +88,7 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.87,
+      "progress": 0.88,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -101,11 +101,11 @@
         "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
       },
       "state": "at-risk",
-      "progress": 0.9,
+      "progress": 0.92,
       "eta": "later",
       "linear": {
-        "id": "DAT-618",
-        "url": "https://linear.app/sinistar/issue/DAT-618/host-acquisition-already-a-sinistar-host-recognition-identity-stamps"
+        "id": "DAT-619",
+        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam"
       }
     },
     {
@@ -124,7 +124,7 @@
       },
       "state": "at-risk",
       "progress": 0.3,
-      "eta": "next-week",
+      "eta": "later",
       "linear": {
         "id": "DAT-620",
         "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data"
@@ -169,14 +169,12 @@
   ],
   "story": {
     "text": {
-      "en": "Yesterday's build added a Market data tab beside Housings and Hotels on the stay view: coverage-watch's saved review — supply verdict, outreach plan, live Airbnb prices — in a sandboxed iframe, with a button out to the full map. Same day, Gmail's composer learned to handle its own OAuth callback instead of dead-ending reps mid-send. Five ops toggles still stand between the build and a rep seeing it live.",
-      "fr": "Le build d'hier a ajouté un onglet Données de marché à côté d'Habitations et Hôtels : la review de coverage-watch — verdict d'offre, plan de relance, prix Airbnb — dans un iframe sandboxé, avec un bouton vers la carte. Le même jour, le compositeur Gmail a appris à gérer son propre retour OAuth au lieu de laisser les reps en plan en plein envoi. Cinq interrupteurs séparent encore le build d'un rep qui le voit en vrai."
+      "en": "Friday closed with the market data tab live in manage and Gmail's composer handling its own OAuth callback. The weekend stayed quiet — zero commits, and Monday morning opens the same way. The blocker hasn't moved either: the BigQuery IAM grant DAT-619 needs to deploy DAT-618's \"already a Sinistar host\" safeguard is still ungranted, so code that's been done since July 22 still can't stamp a single host in production.",
+      "fr": "Vendredi s'est terminé avec l'onglet marché en direct dans manage et Gmail gérant son propre retour OAuth. La fin de semaine est restée tranquille — zéro commit, lundi matin pareil. Le bloqueur n'a pas bougé : le droit IAM BigQuery dont DAT-619 a besoin pour déployer le garde-fou « déjà hôte Sinistar » de DAT-618 n'est toujours pas accordé, donc du code prêt depuis le 22 juillet ne stampe encore aucun hôte en prod."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-26", "commits": 0 },
-      { "date": "2026-04-27", "commits": 2 },
       { "date": "2026-04-28", "commits": 0 },
       { "date": "2026-04-29", "commits": 2 },
       { "date": "2026-04-30", "commits": 1 },
@@ -265,18 +263,20 @@
       { "date": "2026-07-22", "commits": 10 },
       { "date": "2026-07-23", "commits": 2 },
       { "date": "2026-07-24", "commits": 3 },
-      { "date": "2026-07-25", "commits": 0 }
+      { "date": "2026-07-25", "commits": 0 },
+      { "date": "2026-07-26", "commits": 1 },
+      { "date": "2026-07-27", "commits": 0 }
     ],
-    "sessions7d": 276,
+    "sessions7d": 248,
     "issuesClosed7d": 2
   },
   "theme": {
-    "hue": 150
+    "hue": 220
   },
   "flair": {
     "line": {
-      "en": "Turns out you can just... iframe someone else's homework. Zero manage deploys required.",
-      "fr": "Il suffisait d'iframer le devoir de quelqu'un d'autre. Zéro déploiement de manage requis."
+      "en": "The weekend took two days off. The IAM ticket has now taken thirteen.",
+      "fr": "La fin de semaine a pris deux jours de congé. Le ticket IAM, lui, en est à treize."
     }
   },
   "screenshots": [
