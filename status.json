@@ -1,44 +1,44 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-27T09:59:01-04:00",
+  "updatedAt": "2026-07-28T06:58:00-04:00",
   "status": {
-    "emoji": "🌦️",
-    "tone": "thinking",
+    "emoji": "🛠️",
+    "tone": "shipping",
     "text": {
-      "en": "Quiet weekend, Monday just starting",
-      "fr": "Fin de semaine calme, lundi commence"
+      "en": "DAT-582 now covers every case",
+      "fr": "DAT-582 couvre chaque dossier"
     }
   },
   "focus": {
     "title": {
-      "en": "Friday's ships hold; DAT-618's IAM blocker hits day 13",
-      "fr": "Les livraisons tiennent; le bloqueur IAM de DAT-618 atteint 13 jours"
+      "en": "Coverage watch drops its shortcut; DAT-619's IAM grant hits day 14",
+      "fr": "Le raccourci du coverage watch tombe; IAM de DAT-619 atteint 14 jours"
     },
     "blurb": {
-      "en": "No commits since Friday. Market data tab & Gmail OAuth hold steady. Same blocker: DAT-619's BigQuery IAM grant still ungranted, so DAT-618's Sinistar-host safeguard, done July 22, isn't live in prod.",
-      "fr": "Aucun commit depuis vendredi. Onglet marché et OAuth Gmail tiennent. Même bloqueur: le droit IAM de DAT-619 n'est pas accordé, donc le garde-fou de DAT-618, prêt le 22 juillet, n'est pas en prod."
+      "en": "DAT-582 used to stop once 5 affordable homes sat in radius — only shortfalls got a slate. Now every case gets the full pass, feeding the Market data tab (PR #8414). DAT-619's IAM grant still stuck.",
+      "fr": "DAT-582 s'arrêtait dès 5 logements abordables dans le rayon — seuls les manques avaient une liste. Chaque dossier reçoit l'analyse complète pour l'onglet marché (PR #8414). IAM DAT-619 toujours coincé"
     }
   },
   "now": [
     {
       "text": {
-        "en": "Market data tab in manage — reads coverage-watch reviews, links the map",
-        "fr": "Onglet données de marché dans manage — lit les reviews de coverage-watch"
+        "en": "Market data tab — coverage watch now reviews every case, not just shortfalls",
+        "fr": "Onglet marché — coverage watch analyse chaque dossier, pas juste les manques"
       },
       "linear": {
         "id": "DAT-582",
         "url": "https://linear.app/sinistar/issue/DAT-582/available-market-data-live-endpoint-with-checkin-checkout",
-        "state": "started",
+        "state": "review",
         "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
+          "en": "Code Review",
+          "fr": "Révision de code"
         }
       }
     },
     {
       "text": {
-        "en": "Host outreach v3 — reply-branched sequence with a future-demand pivot block",
-        "fr": "Relance v3 — séquence à branches de réponse avec bloc de pivot demande-future"
+        "en": "Host outreach v3 — drafts now sign with the actual sender, not one hardcoded rep",
+        "fr": "Relance v3 — les courriels signent le vrai expéditeur, pas un rep codé en dur"
       },
       "linear": {
         "id": "DAT-623",
@@ -52,8 +52,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 13 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 13 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 14 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 14 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -136,7 +136,7 @@
         "fr": "Onglet données de marché en direct pour les reps dans manage"
       },
       "state": "on-track",
-      "progress": 0.75,
+      "progress": 0.85,
       "eta": "next-week",
       "linear": {
         "id": "DAT-582",
@@ -145,6 +145,13 @@
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Coverage watch reviews every case now — full coverage for the Market data tab",
+        "fr": "Coverage watch analyse chaque dossier — couverture complète de l'onglet marché"
+      },
+      "date": "2026-07-27"
+    },
     {
       "text": {
         "en": "Market data tab lands in manage, reading coverage-watch reviews",
@@ -158,24 +165,16 @@
         "fr": "Lien direct « courriel dans l'appli » — un seul bouton du rapport à l'envoi"
       },
       "date": "2026-07-23"
-    },
-    {
-      "text": {
-        "en": "Per-rep Gmail OAuth \"Connect Gmail\" replaces domain-wide delegation",
-        "fr": "OAuth Gmail par rep « Connecter Gmail » remplace la délégation globale"
-      },
-      "date": "2026-07-22"
     }
   ],
   "story": {
     "text": {
-      "en": "Friday closed with the market data tab live in manage and Gmail's composer handling its own OAuth callback. The weekend stayed quiet — zero commits, and Monday morning opens the same way. The blocker hasn't moved either: the BigQuery IAM grant DAT-619 needs to deploy DAT-618's \"already a Sinistar host\" safeguard is still ungranted, so code that's been done since July 22 still can't stamp a single host in production.",
-      "fr": "Vendredi s'est terminé avec l'onglet marché en direct dans manage et Gmail gérant son propre retour OAuth. La fin de semaine est restée tranquille — zéro commit, lundi matin pareil. Le bloqueur n'a pas bougé : le droit IAM BigQuery dont DAT-619 a besoin pour déployer le garde-fou « déjà hôte Sinistar » de DAT-618 n'est toujours pas accordé, donc du code prêt depuis le 22 juillet ne stampe encore aucun hôte en prod."
+      "en": "Monday pushed DAT-582 past its brief. The watcher used to stop once five affordable homes sat in a stay's radius — verdict recorded, done, only shortfalls got a slate. Now every case gets the full pass, persisted for the Market data tab (PR #8414). A smaller fix rode along: drafts had signed with one employee's name regardless of sender — now they sign the real one. Tuesday opens with the IAM grant stuck at day 14.",
+      "fr": "Lundi a fait dépasser à DAT-582 son mandat. Le watcher s'arrêtait dès cinq logements abordables dans le rayon — verdict noté, terminé, seuls les manques avaient une liste. Chaque dossier reçoit l'analyse complète, sauvegardée pour l'onglet marché (PR #8414). Un correctif au même moment : les courriels signaient du nom d'un employé peu importe l'expéditeur, ils signent le vrai. Mardi commence, IAM coincé, jour 14."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-28", "commits": 0 },
       { "date": "2026-04-29", "commits": 2 },
       { "date": "2026-04-30", "commits": 1 },
       { "date": "2026-05-01", "commits": 0 },
@@ -258,25 +257,26 @@
       { "date": "2026-07-17", "commits": 0 },
       { "date": "2026-07-18", "commits": 0 },
       { "date": "2026-07-19", "commits": 0 },
-      { "date": "2026-07-20", "commits": 2 },
+      { "date": "2026-07-20", "commits": 5 },
       { "date": "2026-07-21", "commits": 1 },
       { "date": "2026-07-22", "commits": 10 },
       { "date": "2026-07-23", "commits": 2 },
       { "date": "2026-07-24", "commits": 3 },
       { "date": "2026-07-25", "commits": 0 },
       { "date": "2026-07-26", "commits": 1 },
-      { "date": "2026-07-27", "commits": 0 }
+      { "date": "2026-07-27", "commits": 3 },
+      { "date": "2026-07-28", "commits": 1 }
     ],
-    "sessions7d": 248,
+    "sessions7d": 209,
     "issuesClosed7d": 2
   },
   "theme": {
-    "hue": 220
+    "hue": 195
   },
   "flair": {
     "line": {
-      "en": "The weekend took two days off. The IAM ticket has now taken thirteen.",
-      "fr": "La fin de semaine a pris deux jours de congé. Le ticket IAM, lui, en est à treize."
+      "en": "Coverage watch stopped playing favorites. Outreach stopped playing someone else.",
+      "fr": "Le coverage watch ne fait plus de jaloux. Les courriels n'usurpent plus personne."
     }
   },
   "screenshots": [
