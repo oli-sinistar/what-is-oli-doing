@@ -1,29 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-28T06:58:00-04:00",
+  "updatedAt": "2026-07-29T08:57:20-04:00",
   "status": {
-    "emoji": "🛠️",
+    "emoji": "🔗",
     "tone": "shipping",
     "text": {
-      "en": "DAT-582 now covers every case",
-      "fr": "DAT-582 couvre chaque dossier"
+      "en": "Host contacts finally leave a trace",
+      "fr": "Les contacts d'hôtes laissent une trace"
     }
   },
   "focus": {
     "title": {
-      "en": "Coverage watch drops its shortcut; DAT-619's IAM grant hits day 14",
-      "fr": "Le raccourci du coverage watch tombe; IAM de DAT-619 atteint 14 jours"
+      "en": "Host contacts finally remember who said no — and IAM hits day 15",
+      "fr": "Les contacts d'hôtes se souviennent des refus — IAM à 15 jours"
     },
     "blurb": {
-      "en": "DAT-582 used to stop once 5 affordable homes sat in radius — only shortfalls got a slate. Now every case gets the full pass, feeding the Market data tab (PR #8414). DAT-619's IAM grant still stuck.",
-      "fr": "DAT-582 s'arrêtait dès 5 logements abordables dans le rayon — seuls les manques avaient une liste. Chaque dossier reçoit l'analyse complète pour l'onglet marché (PR #8414). IAM DAT-619 toujours coincé"
+      "en": "Coverage-watch plans forgot outcomes, so hosts got re-pitched blind. Migration 075 now feeds every 'contact next' decision. PR #8414 sits green in review; DAT-619's IAM grant stuck at day 15.",
+      "fr": "Les plans du coverage watch oubliaient les résultats, on resollicitait les hôtes à l'aveugle. Migration 075 nourrit chaque décision « qui contacter ». PR #8414 vert en révision; IAM coincé, jour 15."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Market data tab — coverage watch now reviews every case, not just shortfalls",
-        "fr": "Onglet marché — coverage watch analyse chaque dossier, pas juste les manques"
+        "en": "Coverage-watch contacts now leave a trace in the CRM (PR #8449, draft)",
+        "fr": "Les contacts du coverage watch laissent une trace dans le CRM (PR #8449)"
+      }
+    },
+    {
+      "text": {
+        "en": "Market data tab — PR #8414 green in review, still not merged",
+        "fr": "Onglet marché — PR #8414 vert en révision, pas encore fusionné"
       },
       "linear": {
         "id": "DAT-582",
@@ -37,23 +43,8 @@
     },
     {
       "text": {
-        "en": "Host outreach v3 — drafts now sign with the actual sender, not one hardcoded rep",
-        "fr": "Relance v3 — les courriels signent le vrai expéditeur, pas un rep codé en dur"
-      },
-      "linear": {
-        "id": "DAT-623",
-        "url": "https://linear.app/sinistar/issue/DAT-623/host-acquisition-host-outreach-v3-reply-branched-sequence-airbnb-brand",
-        "state": "started",
-        "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 14 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 14 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 15 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 15 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -67,12 +58,12 @@
     },
     {
       "text": {
-        "en": "Hosts list load time: sort index live in prod, rest still uncommitted",
-        "fr": "Chargement de la liste d'hôtes : index en prod, le reste non commité"
+        "en": "Host outreach v3 — reply-branched sequence, still in progress",
+        "fr": "Relance v3 — séquence à embranchements, toujours en cours"
       },
       "linear": {
-        "id": "DAT-622",
-        "url": "https://linear.app/sinistar/issue/DAT-622/host-acquisition-hosts-list-initial-load-performance-composite-sort",
+        "id": "DAT-623",
+        "url": "https://linear.app/sinistar/issue/DAT-623/host-acquisition-host-outreach-v3-reply-branched-sequence-airbnb-brand",
         "state": "started",
         "stateLabel": {
           "en": "In Progress",
@@ -110,11 +101,11 @@
     },
     {
       "label": {
-        "en": "Team-visibility & attribution fixes — ready to deploy",
-        "fr": "Visibilité d'équipe et attribution — prêtes à déployer"
+        "en": "Host CRM attribution & outcome tracking — ready to deploy",
+        "fr": "Attribution CRM et suivi des résultats — prêts à déployer"
       },
       "state": "at-risk",
-      "progress": 0.6,
+      "progress": 0.7,
       "eta": "next-week"
     },
     {
@@ -136,7 +127,7 @@
         "fr": "Onglet données de marché en direct pour les reps dans manage"
       },
       "state": "on-track",
-      "progress": 0.85,
+      "progress": 0.87,
       "eta": "next-week",
       "linear": {
         "id": "DAT-582",
@@ -145,6 +136,13 @@
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Coverage-watch contacts merge into the CRM — outcomes reach every surface",
+        "fr": "Les contacts du coverage watch fusionnent dans le CRM — résultats partout"
+      },
+      "date": "2026-07-28"
+    },
     {
       "text": {
         "en": "Coverage watch reviews every case now — full coverage for the Market data tab",
@@ -158,19 +156,12 @@
         "fr": "L'onglet données de marché arrive dans manage, lisant coverage-watch"
       },
       "date": "2026-07-24"
-    },
-    {
-      "text": {
-        "en": "\"Email in app\" deep link for outreach — one button from report to sent",
-        "fr": "Lien direct « courriel dans l'appli » — un seul bouton du rapport à l'envoi"
-      },
-      "date": "2026-07-23"
     }
   ],
   "story": {
     "text": {
-      "en": "Monday pushed DAT-582 past its brief. The watcher used to stop once five affordable homes sat in a stay's radius — verdict recorded, done, only shortfalls got a slate. Now every case gets the full pass, persisted for the Market data tab (PR #8414). A smaller fix rode along: drafts had signed with one employee's name regardless of sender — now they sign the real one. Tuesday opens with the IAM grant stuck at day 14.",
-      "fr": "Lundi a fait dépasser à DAT-582 son mandat. Le watcher s'arrêtait dès cinq logements abordables dans le rayon — verdict noté, terminé, seuls les manques avaient une liste. Chaque dossier reçoit l'analyse complète, sauvegardée pour l'onglet marché (PR #8414). Un correctif au même moment : les courriels signaient du nom d'un employé peu importe l'expéditeur, ils signent le vrai. Mardi commence, IAM coincé, jour 14."
+      "en": "Tuesday closed a trust gap: a coverage-watch plan left no record of whether a host had room, so the next plan re-pitched someone already worked. Migration 075 and a record-contacts phase turn web-sweep leads into real host rows, feeding the answer to every surface deciding who's next. A check caught a risk first: switching branches would silently delete data-sinistar-nextjs. Wednesday opens with IAM at day 15.",
+      "fr": "Mardi a comblé un trou de confiance : un plan du coverage watch ne gardait aucune trace si un hôte avait de la place, le suivant resollicitait quelqu'un déjà travaillé. La migration 075 transforme les pistes du sweep web en vraies lignes hôtes, renvoyant la réponse à chaque décision. Une vérification a évité un risque réel : changer de branche aurait effacé data-sinistar-nextjs. Mercredi commence, IAM à 15 jours."
     }
   },
   "activity": {
@@ -257,7 +248,7 @@
       { "date": "2026-07-17", "commits": 0 },
       { "date": "2026-07-18", "commits": 0 },
       { "date": "2026-07-19", "commits": 0 },
-      { "date": "2026-07-20", "commits": 5 },
+      { "date": "2026-07-20", "commits": 2 },
       { "date": "2026-07-21", "commits": 1 },
       { "date": "2026-07-22", "commits": 10 },
       { "date": "2026-07-23", "commits": 2 },
@@ -265,18 +256,19 @@
       { "date": "2026-07-25", "commits": 0 },
       { "date": "2026-07-26", "commits": 1 },
       { "date": "2026-07-27", "commits": 3 },
-      { "date": "2026-07-28", "commits": 1 }
+      { "date": "2026-07-28", "commits": 2 },
+      { "date": "2026-07-29", "commits": 1 }
     ],
-    "sessions7d": 209,
+    "sessions7d": 250,
     "issuesClosed7d": 2
   },
   "theme": {
-    "hue": 195
+    "hue": 205
   },
   "flair": {
     "line": {
-      "en": "Coverage watch stopped playing favorites. Outreach stopped playing someone else.",
-      "fr": "Le coverage watch ne fait plus de jaloux. Les courriels n'usurpent plus personne."
+      "en": "Coverage watch used to forget faces. Now it never forgets who said no.",
+      "fr": "Le coverage watch oubliait les visages. Il n'oublie plus les refus."
     }
   },
   "screenshots": [
