@@ -1,29 +1,29 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-29T08:57:20-04:00",
+  "updatedAt": "2026-07-30T07:15:00-04:00",
   "status": {
-    "emoji": "🔗",
-    "tone": "shipping",
+    "emoji": "🔧",
+    "tone": "debugging",
     "text": {
-      "en": "Host contacts finally leave a trace",
-      "fr": "Les contacts d'hôtes laissent une trace"
+      "en": "Found what was quietly burning the disk",
+      "fr": "Trouvé ce qui brûlait le disque"
     }
   },
   "focus": {
     "title": {
-      "en": "Host contacts finally remember who said no — and IAM hits day 15",
-      "fr": "Les contacts d'hôtes se souviennent des refus — IAM à 15 jours"
+      "en": "A silent disk-I/O leak gets shut off, IAM hits day 16",
+      "fr": "Une fuite d'E/S disque silencieuse coupée, IAM à 16 jours"
     },
     "blurb": {
-      "en": "Coverage-watch plans forgot outcomes, so hosts got re-pitched blind. Migration 075 now feeds every 'contact next' decision. PR #8414 sits green in review; DAT-619's IAM grant stuck at day 15.",
-      "fr": "Les plans du coverage watch oubliaient les résultats, on resollicitait les hôtes à l'aveugle. Migration 075 nourrit chaque décision « qui contacter ». PR #8414 vert en révision; IAM coincé, jour 15."
+      "en": "A pg_cron job timed out every run since July 8th, burning disk I/O for nothing — unscheduled Wednesday. PR #8414 still sits green in review; DAT-619's IAM grant is now 16 days stuck.",
+      "fr": "Une tâche pg_cron échouait à chaque coup depuis le 8 juillet, brûlant des E/S pour rien — désactivée mercredi. La PR #8414 reste verte en révision; le droit IAM de DAT-619 est coincé depuis 16 jours."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Coverage-watch contacts now leave a trace in the CRM (PR #8449, draft)",
-        "fr": "Les contacts du coverage watch laissent une trace dans le CRM (PR #8449)"
+        "en": "CRM contact trace — PR #8449 now also kills the disk-I/O cron (draft)",
+        "fr": "Trace des contacts CRM — la PR #8449 tue aussi la tâche cron (brouillon)"
       }
     },
     {
@@ -43,8 +43,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 15 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 15 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 16 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 16 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -105,7 +105,7 @@
         "fr": "Attribution CRM et suivi des résultats — prêts à déployer"
       },
       "state": "at-risk",
-      "progress": 0.7,
+      "progress": 0.75,
       "eta": "next-week"
     },
     {
@@ -138,6 +138,13 @@
   "shipped": [
     {
       "text": {
+        "en": "Supabase disk-I/O burn stopped — the failing pg_cron refresh is unscheduled",
+        "fr": "Fin de la surchauffe d'E/S Supabase — le pg_cron défaillant est désactivé"
+      },
+      "date": "2026-07-29"
+    },
+    {
+      "text": {
         "en": "Coverage-watch contacts merge into the CRM — outcomes reach every surface",
         "fr": "Les contacts du coverage watch fusionnent dans le CRM — résultats partout"
       },
@@ -149,25 +156,16 @@
         "fr": "Coverage watch analyse chaque dossier — couverture complète de l'onglet marché"
       },
       "date": "2026-07-27"
-    },
-    {
-      "text": {
-        "en": "Market data tab lands in manage, reading coverage-watch reviews",
-        "fr": "L'onglet données de marché arrive dans manage, lisant coverage-watch"
-      },
-      "date": "2026-07-24"
     }
   ],
   "story": {
     "text": {
-      "en": "Tuesday closed a trust gap: a coverage-watch plan left no record of whether a host had room, so the next plan re-pitched someone already worked. Migration 075 and a record-contacts phase turn web-sweep leads into real host rows, feeding the answer to every surface deciding who's next. A check caught a risk first: switching branches would silently delete data-sinistar-nextjs. Wednesday opens with IAM at day 15.",
-      "fr": "Mardi a comblé un trou de confiance : un plan du coverage watch ne gardait aucune trace si un hôte avait de la place, le suivant resollicitait quelqu'un déjà travaillé. La migration 075 transforme les pistes du sweep web en vraies lignes hôtes, renvoyant la réponse à chaque décision. Une vérification a évité un risque réel : changer de branche aurait effacé data-sinistar-nextjs. Mercredi commence, IAM à 15 jours."
+      "en": "Wednesday's dig into /hosts performance found the real villain: a pg_cron job refreshed a matview every 5 minutes since July 8th, timing out every run and quietly burning disk I/O. It got unscheduled, plus a state-code search fix and a refetch throttle, all pushed to PR #8449 from a throwaway worktree so the in-progress Market data branch stayed untouched. Thursday opens quiet, IAM stuck at day 16.",
+      "fr": "La chasse aux perfs de /hosts a débusqué mercredi le vrai coupable : un pg_cron rafraîchissait une matview aux 5 minutes depuis le 8 juillet, échouant à chaque coup et brûlant des E/S pour rien. Désactivée, avec une recherche par état corrigée et un frein au refetch — poussé sur la PR #8449 depuis un worktree jetable, sans toucher la branche Market data en cours. Jeudi commence tranquille, IAM coincé à 16 jours."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-04-29", "commits": 2 },
-      { "date": "2026-04-30", "commits": 1 },
       { "date": "2026-05-01", "commits": 0 },
       { "date": "2026-05-02", "commits": 0 },
       { "date": "2026-05-03", "commits": 0 },
@@ -257,18 +255,19 @@
       { "date": "2026-07-26", "commits": 1 },
       { "date": "2026-07-27", "commits": 3 },
       { "date": "2026-07-28", "commits": 2 },
-      { "date": "2026-07-29", "commits": 1 }
+      { "date": "2026-07-29", "commits": 2 },
+      { "date": "2026-07-30", "commits": 1 }
     ],
-    "sessions7d": 250,
-    "issuesClosed7d": 2
+    "sessions7d": 314,
+    "issuesClosed7d": 1
   },
   "theme": {
-    "hue": 205
+    "hue": 32
   },
   "flair": {
     "line": {
-      "en": "Coverage watch used to forget faces. Now it never forgets who said no.",
-      "fr": "Le coverage watch oubliait les visages. Il n'oublie plus les refus."
+      "en": "The disk wasn't dying — it was just jogging the same lap every 5 minutes since July.",
+      "fr": "Le disque ne mourait pas, il tournait juste en rond toutes les 5 minutes depuis juillet."
     }
   },
   "screenshots": [
