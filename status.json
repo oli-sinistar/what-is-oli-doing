@@ -1,29 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-30T07:15:00-04:00",
+  "updatedAt": "2026-07-31T09:45:00-04:00",
   "status": {
-    "emoji": "🔧",
-    "tone": "debugging",
+    "emoji": "🚀",
+    "tone": "shipping",
     "text": {
-      "en": "Found what was quietly burning the disk",
-      "fr": "Trouvé ce qui brûlait le disque"
+      "en": "Three features out, one deploy short",
+      "fr": "Trois features, un déploiement manque"
     }
   },
   "focus": {
     "title": {
-      "en": "A silent disk-I/O leak gets shut off, IAM hits day 16",
-      "fr": "Une fuite d'E/S disque silencieuse coupée, IAM à 16 jours"
+      "en": "Emergency sweep for the Gironde fires, Send-all goes inline",
+      "fr": "Balayage d'urgence pour les feux de Gironde, Send-all inline"
     },
     "blurb": {
-      "en": "A pg_cron job timed out every run since July 8th, burning disk I/O for nothing — unscheduled Wednesday. PR #8414 still sits green in review; DAT-619's IAM grant is now 16 days stuck.",
-      "fr": "Une tâche pg_cron échouait à chaque coup depuis le 8 juillet, brûlant des E/S pour rien — désactivée mercredi. La PR #8414 reste verte en révision; le droit IAM de DAT-619 est coincé depuis 16 jours."
+      "en": "A wildfire in Gironde got its own 800-host sweep inside a day — burn zone first, prompt.ts untouched. The bulk Send-all panel is built and live server-side; the frontend still isn't.",
+      "fr": "Un feu de forêt en Gironde a eu son balayage de 800 hôtes en une journée — zone sinistrée d'abord, sans toucher à prompt.ts. Le panneau Send-all est déployé côté serveur; pas le front."
     }
   },
   "now": [
     {
       "text": {
-        "en": "CRM contact trace — PR #8449 now also kills the disk-I/O cron (draft)",
-        "fr": "Trace des contacts CRM — la PR #8449 tue aussi la tâche cron (brouillon)"
+        "en": "Gironde fire sweep — 175 hosts contacted, 625 still in the queue",
+        "fr": "Balayage feux Gironde — 175 hôtes contactés, 625 encore en file"
+      }
+    },
+    {
+      "text": {
+        "en": "Send-all panel built and migrated — waiting on a Vercel deploy",
+        "fr": "Panneau Send-all bâti et migré — en attente d'un déploiement Vercel"
       }
     },
     {
@@ -43,27 +49,12 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 16 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 16 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 17 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 17 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
         "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
-        "state": "started",
-        "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
-        }
-      }
-    },
-    {
-      "text": {
-        "en": "Host outreach v3 — reply-branched sequence, still in progress",
-        "fr": "Relance v3 — séquence à embranchements, toujours en cours"
-      },
-      "linear": {
-        "id": "DAT-623",
-        "url": "https://linear.app/sinistar/issue/DAT-623/host-acquisition-host-outreach-v3-reply-branched-sequence-airbnb-brand",
         "state": "started",
         "stateLabel": {
           "en": "In Progress",
@@ -79,7 +70,7 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.88,
+      "progress": 0.9,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -104,8 +95,8 @@
         "en": "Host CRM attribution & outcome tracking — ready to deploy",
         "fr": "Attribution CRM et suivi des résultats — prêts à déployer"
       },
-      "state": "at-risk",
-      "progress": 0.75,
+      "state": "on-track",
+      "progress": 0.9,
       "eta": "next-week"
     },
     {
@@ -138,136 +129,409 @@
   "shipped": [
     {
       "text": {
-        "en": "Supabase disk-I/O burn stopped — the failing pg_cron refresh is unscheduled",
-        "fr": "Fin de la surchauffe d'E/S Supabase — le pg_cron défaillant est désactivé"
+        "en": "Emergency Gironde wildfire sweep — 175 hosts asked about rehousing",
+        "fr": "Balayage d'urgence feux de Gironde — 175 hôtes sollicités pour reloger"
       },
-      "date": "2026-07-29"
+      "date": "2026-07-30"
     },
     {
       "text": {
-        "en": "Coverage-watch contacts merge into the CRM — outcomes reach every surface",
-        "fr": "Les contacts du coverage watch fusionnent dans le CRM — résultats partout"
+        "en": "Bulk Send-all panel — a whole batch of drafts goes out in one click",
+        "fr": "Panneau Send-all — tout un lot de brouillons part en un seul clic"
       },
-      "date": "2026-07-28"
+      "date": "2026-07-30"
     },
     {
       "text": {
-        "en": "Coverage watch reviews every case now — full coverage for the Market data tab",
-        "fr": "Coverage watch analyse chaque dossier — couverture complète de l'onglet marché"
+        "en": "Unread-replies bell and per-rep Gmail signatures on /hosts",
+        "fr": "Cloche des réponses non lues et signatures Gmail par rep sur /hosts"
       },
-      "date": "2026-07-27"
+      "date": "2026-07-30"
     }
   ],
   "story": {
     "text": {
-      "en": "Wednesday's dig into /hosts performance found the real villain: a pg_cron job refreshed a matview every 5 minutes since July 8th, timing out every run and quietly burning disk I/O. It got unscheduled, plus a state-code search fix and a refetch throttle, all pushed to PR #8449 from a throwaway worktree so the in-progress Market data branch stayed untouched. Thursday opens quiet, IAM stuck at day 16.",
-      "fr": "La chasse aux perfs de /hosts a débusqué mercredi le vrai coupable : un pg_cron rafraîchissait une matview aux 5 minutes depuis le 8 juillet, échouant à chaque coup et brûlant des E/S pour rien. Désactivée, avec une recherche par état corrigée et un frein au refetch — poussé sur la PR #8449 depuis un worktree jetable, sans toucher la branche Market data en cours. Jeudi commence tranquille, IAM coincé à 16 jours."
+      "en": "The Gironde wildfires turned Thursday into an emergency: a one-off sweep over 2,501 NAQ hosts, re-banded so 91 burn-zone communes jumped the tier order, fire context injected at runtime rather than baked into prompt.ts — 175 emailed, 8 real channels found. The bulk Send-all panel also landed (migration 078 live, functions deployed) then moved inline into the /hosts split view. Vercel hasn't picked it up yet.",
+      "fr": "Les feux de Gironde ont fait de jeudi une urgence : un balayage unique sur 2 501 hôtes NAQ, re-classé pour que 91 communes sinistrées passent devant, le contexte du feu injecté à l'exécution plutôt que gravé dans prompt.ts — 175 courriels, 8 vrais canaux trouvés. Le panneau Send-all a aussi atterri (migration 078 en prod, fonctions déployées) puis intégré au split view de /hosts. Vercel n'a pas encore suivi."
     }
   },
   "activity": {
     "calendar": [
-      { "date": "2026-05-01", "commits": 0 },
-      { "date": "2026-05-02", "commits": 0 },
-      { "date": "2026-05-03", "commits": 0 },
-      { "date": "2026-05-04", "commits": 0 },
-      { "date": "2026-05-05", "commits": 0 },
-      { "date": "2026-05-06", "commits": 0 },
-      { "date": "2026-05-07", "commits": 0 },
-      { "date": "2026-05-08", "commits": 0 },
-      { "date": "2026-05-09", "commits": 0 },
-      { "date": "2026-05-10", "commits": 0 },
-      { "date": "2026-05-11", "commits": 2 },
-      { "date": "2026-05-12", "commits": 0 },
-      { "date": "2026-05-13", "commits": 0 },
-      { "date": "2026-05-14", "commits": 1 },
-      { "date": "2026-05-15", "commits": 0 },
-      { "date": "2026-05-16", "commits": 0 },
-      { "date": "2026-05-17", "commits": 0 },
-      { "date": "2026-05-18", "commits": 0 },
-      { "date": "2026-05-19", "commits": 0 },
-      { "date": "2026-05-20", "commits": 0 },
-      { "date": "2026-05-21", "commits": 0 },
-      { "date": "2026-05-22", "commits": 1 },
-      { "date": "2026-05-23", "commits": 0 },
-      { "date": "2026-05-24", "commits": 0 },
-      { "date": "2026-05-25", "commits": 2 },
-      { "date": "2026-05-26", "commits": 3 },
-      { "date": "2026-05-27", "commits": 6 },
-      { "date": "2026-05-28", "commits": 2 },
-      { "date": "2026-05-29", "commits": 5 },
-      { "date": "2026-05-30", "commits": 0 },
-      { "date": "2026-05-31", "commits": 0 },
-      { "date": "2026-06-01", "commits": 6 },
-      { "date": "2026-06-02", "commits": 1 },
-      { "date": "2026-06-03", "commits": 4 },
-      { "date": "2026-06-04", "commits": 2 },
-      { "date": "2026-06-05", "commits": 0 },
-      { "date": "2026-06-06", "commits": 0 },
-      { "date": "2026-06-07", "commits": 0 },
-      { "date": "2026-06-08", "commits": 11 },
-      { "date": "2026-06-09", "commits": 3 },
-      { "date": "2026-06-10", "commits": 1 },
-      { "date": "2026-06-11", "commits": 9 },
-      { "date": "2026-06-12", "commits": 0 },
-      { "date": "2026-06-13", "commits": 0 },
-      { "date": "2026-06-14", "commits": 0 },
-      { "date": "2026-06-15", "commits": 5 },
-      { "date": "2026-06-16", "commits": 4 },
-      { "date": "2026-06-17", "commits": 2 },
-      { "date": "2026-06-18", "commits": 0 },
-      { "date": "2026-06-19", "commits": 0 },
-      { "date": "2026-06-20", "commits": 0 },
-      { "date": "2026-06-21", "commits": 0 },
-      { "date": "2026-06-22", "commits": 0 },
-      { "date": "2026-06-23", "commits": 0 },
-      { "date": "2026-06-24", "commits": 0 },
-      { "date": "2026-06-25", "commits": 3 },
-      { "date": "2026-06-26", "commits": 0 },
-      { "date": "2026-06-27", "commits": 0 },
-      { "date": "2026-06-28", "commits": 0 },
-      { "date": "2026-06-29", "commits": 0 },
-      { "date": "2026-06-30", "commits": 4 },
-      { "date": "2026-07-01", "commits": 0 },
-      { "date": "2026-07-02", "commits": 3 },
-      { "date": "2026-07-03", "commits": 0 },
-      { "date": "2026-07-04", "commits": 0 },
-      { "date": "2026-07-05", "commits": 0 },
-      { "date": "2026-07-06", "commits": 5 },
-      { "date": "2026-07-07", "commits": 3 },
-      { "date": "2026-07-08", "commits": 10 },
-      { "date": "2026-07-09", "commits": 4 },
-      { "date": "2026-07-10", "commits": 0 },
-      { "date": "2026-07-11", "commits": 0 },
-      { "date": "2026-07-12", "commits": 0 },
-      { "date": "2026-07-13", "commits": 3 },
-      { "date": "2026-07-14", "commits": 1 },
-      { "date": "2026-07-15", "commits": 1 },
-      { "date": "2026-07-16", "commits": 1 },
-      { "date": "2026-07-17", "commits": 0 },
-      { "date": "2026-07-18", "commits": 0 },
-      { "date": "2026-07-19", "commits": 0 },
-      { "date": "2026-07-20", "commits": 2 },
-      { "date": "2026-07-21", "commits": 1 },
-      { "date": "2026-07-22", "commits": 10 },
-      { "date": "2026-07-23", "commits": 2 },
-      { "date": "2026-07-24", "commits": 3 },
-      { "date": "2026-07-25", "commits": 0 },
-      { "date": "2026-07-26", "commits": 1 },
-      { "date": "2026-07-27", "commits": 3 },
-      { "date": "2026-07-28", "commits": 2 },
-      { "date": "2026-07-29", "commits": 2 },
-      { "date": "2026-07-30", "commits": 1 }
+      {
+        "date": "2026-05-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-11",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-22",
+        "commits": 1
+      },
+      {
+        "date": "2026-05-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-25",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-26",
+        "commits": 3
+      },
+      {
+        "date": "2026-05-27",
+        "commits": 6
+      },
+      {
+        "date": "2026-05-28",
+        "commits": 2
+      },
+      {
+        "date": "2026-05-29",
+        "commits": 5
+      },
+      {
+        "date": "2026-05-30",
+        "commits": 0
+      },
+      {
+        "date": "2026-05-31",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-01",
+        "commits": 6
+      },
+      {
+        "date": "2026-06-02",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-03",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-04",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-06",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-07",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-08",
+        "commits": 11
+      },
+      {
+        "date": "2026-06-09",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-10",
+        "commits": 1
+      },
+      {
+        "date": "2026-06-11",
+        "commits": 9
+      },
+      {
+        "date": "2026-06-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-13",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-14",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-15",
+        "commits": 5
+      },
+      {
+        "date": "2026-06-16",
+        "commits": 4
+      },
+      {
+        "date": "2026-06-17",
+        "commits": 2
+      },
+      {
+        "date": "2026-06-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-20",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-21",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-22",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-23",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-24",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-25",
+        "commits": 3
+      },
+      {
+        "date": "2026-06-26",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-27",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-28",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-29",
+        "commits": 0
+      },
+      {
+        "date": "2026-06-30",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-02",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-03",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-05",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-06",
+        "commits": 5
+      },
+      {
+        "date": "2026-07-07",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-08",
+        "commits": 10
+      },
+      {
+        "date": "2026-07-09",
+        "commits": 4
+      },
+      {
+        "date": "2026-07-10",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-11",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-13",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-14",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-15",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-16",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-17",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-18",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-19",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-20",
+        "commits": 5
+      },
+      {
+        "date": "2026-07-21",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-22",
+        "commits": 10
+      },
+      {
+        "date": "2026-07-23",
+        "commits": 2
+      },
+      {
+        "date": "2026-07-24",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-25",
+        "commits": 0
+      },
+      {
+        "date": "2026-07-26",
+        "commits": 1
+      },
+      {
+        "date": "2026-07-27",
+        "commits": 3
+      },
+      {
+        "date": "2026-07-28",
+        "commits": 2
+      },
+      {
+        "date": "2026-07-29",
+        "commits": 2
+      },
+      {
+        "date": "2026-07-30",
+        "commits": 6
+      },
+      {
+        "date": "2026-07-31",
+        "commits": 1
+      }
     ],
-    "sessions7d": 314,
-    "issuesClosed7d": 1
+    "sessions7d": 254,
+    "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 32
+    "hue": 158
   },
   "flair": {
     "line": {
-      "en": "The disk wasn't dying — it was just jogging the same lap every 5 minutes since July.",
-      "fr": "Le disque ne mourait pas, il tournait juste en rond toutes les 5 minutes depuis juillet."
+      "en": "Rewrote the batch order so the fire came first, and left prompt.ts exactly where it was.",
+      "fr": "L'ordre du lot réécrit pour que le feu passe en premier, et prompt.ts pas touché."
     }
   },
   "screenshots": [
