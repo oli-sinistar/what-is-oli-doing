@@ -1,35 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-07-31T09:45:00-04:00",
+  "updatedAt": "2026-08-03T06:20:00-04:00",
   "status": {
-    "emoji": "🚀",
-    "tone": "shipping",
+    "emoji": "🔍",
+    "tone": "debugging",
     "text": {
-      "en": "Three features out, one deploy short",
-      "fr": "Trois features, un déploiement manque"
+      "en": "Two Luxembourg questions, both closed",
+      "fr": "Deux questions sur le Luxembourg"
     }
   },
   "focus": {
     "title": {
-      "en": "Emergency sweep for the Gironde fires, Send-all goes inline",
-      "fr": "Balayage d'urgence pour les feux de Gironde, Send-all inline"
+      "en": "Luxembourg on the globe, and why the zone tool refuses it",
+      "fr": "Le Luxembourg sur le globe, et pourquoi l'outil de zones le refuse"
     },
     "blurb": {
-      "en": "A wildfire in Gironde got its own 800-host sweep inside a day — burn zone first, prompt.ts untouched. The bulk Send-all panel is built and live server-side; the frontend still isn't.",
-      "fr": "Un feu de forêt en Gironde a eu son balayage de 800 hôtes en une journée — zone sinistrée d'abord, sans toucher à prompt.ts. Le panneau Send-all est déployé côté serveur; pas le front."
+      "en": "Friday afternoon went to Luxembourg twice: the flag got stamped onto the 3D globe, and the zone tool got exonerated — it only ever supported six countries. The weekend stayed quiet.",
+      "fr": "Vendredi après-midi a viré au Luxembourg deux fois : le drapeau est estampé sur le globe 3D, et l'outil de zones est blanchi — il n'a jamais géré que six pays. Fin de semaine tranquille."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Gironde fire sweep — 175 hosts contacted, 625 still in the queue",
-        "fr": "Balayage feux Gironde — 175 hôtes contactés, 625 encore en file"
+        "en": "Luxembourg flag on the 3D globe — built, still uncommitted in the tree",
+        "fr": "Drapeau du Luxembourg sur le globe 3D — bâti, pas encore commité"
       }
     },
     {
       "text": {
-        "en": "Send-all panel built and migrated — waiting on a Vercel deploy",
-        "fr": "Panneau Send-all bâti et migré — en attente d'un déploiement Vercel"
+        "en": "Zone tool only knows CA, US, FR, CH, GB, AU — Luxembourg 400s at once",
+        "fr": "L'outil de zones ne connaît que CA, US, FR, CH, GB, AU — le LU plante"
       }
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 17 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 17 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 20 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 20 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -151,24 +151,12 @@
   ],
   "story": {
     "text": {
-      "en": "The Gironde wildfires turned Thursday into an emergency: a one-off sweep over 2,501 NAQ hosts, re-banded so 91 burn-zone communes jumped the tier order, fire context injected at runtime rather than baked into prompt.ts — 175 emailed, 8 real channels found. The bulk Send-all panel also landed (migration 078 live, functions deployed) then moved inline into the /hosts split view. Vercel hasn't picked it up yet.",
-      "fr": "Les feux de Gironde ont fait de jeudi une urgence : un balayage unique sur 2 501 hôtes NAQ, re-classé pour que 91 communes sinistrées passent devant, le contexte du feu injecté à l'exécution plutôt que gravé dans prompt.ts — 175 courriels, 8 vrais canaux trouvés. Le panneau Send-all a aussi atterri (migration 078 en prod, fonctions déployées) puis intégré au split view de /hosts. Vercel n'a pas encore suivi."
+      "en": "Two Luxembourg questions landed Friday afternoon. The zone tool skipped every circle there — not a dead creeper: ALPHA2_TO_ALPHA3 knows only six countries, so LU silently became CAN, canton names failed all six state enums, and every tile 400'd before scraping. Belgium and Germany would do the same. Meanwhile the globe got its Luxembourg tricolour, sky blue and all.",
+      "fr": "Deux questions sur le Luxembourg vendredi après-midi. L'outil de zones sautait tous les cercles — le creeper n'est pas mort : ALPHA2_TO_ALPHA3 ne connaît que six pays, donc LU devenait CAN en silence, les cantons échouaient aux six enums d'État, et chaque tuile faisait 400 avant tout scrape. La Belgique ferait pareil. Le globe, lui, a reçu son tricolore luxembourgeois."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-02",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-03",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-04",
-        "commits": 0
-      },
       {
         "date": "2026-05-05",
         "commits": 0
@@ -520,18 +508,30 @@
       {
         "date": "2026-07-31",
         "commits": 1
+      },
+      {
+        "date": "2026-08-01",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-02",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-03",
+        "commits": 1
       }
     ],
-    "sessions7d": 254,
+    "sessions7d": 237,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 158
+    "hue": 205
   },
   "flair": {
     "line": {
-      "en": "Rewrote the batch order so the fire came first, and left prompt.ts exactly where it was.",
-      "fr": "L'ordre du lot réécrit pour que le feu passe en premier, et prompt.ts pas touché."
+      "en": "The creeper wasn't down. Luxembourg was just never invited.",
+      "fr": "Le creeper n'était pas mort. Le Luxembourg n'avait jamais été invité."
     }
   },
   "screenshots": [
