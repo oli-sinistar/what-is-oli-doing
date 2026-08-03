@@ -57,8 +57,33 @@ for (const line of readFileSync(envFile, "utf8").split("\n")) {
 }
 
 const appRequire = createRequire(`${APP_DIR}/package.json`);
-const monoRequire = createRequire(`${MONO_DIR}/package.json`);
-const { chromium } = monoRequire("playwright");
+
+// `playwright` is resolved through a chain rather than from the monorepo alone.
+// History (2026-08-03): it had been installed ad-hoc in turbo-sinistar's
+// node_modules and was declared in NO package.json, so a later `npm install`
+// pruned it and every capture died with MODULE_NOT_FOUND — silently degrading
+// the daily run to [no-screenshot]. TOOLS_DIR is a dedicated dependency root
+// (~/.local/share/oli-status-capture, its own package.json) that nothing else
+// installs into, so it cannot be pruned by unrelated work. The monorepo is
+// still tried first so an existing local install keeps being used.
+const TOOLS_DIR = resolve(process.env.HOME ?? "", ".local/share/oli-status-capture");
+const requireRoots = [MONO_DIR, TOOLS_DIR];
+const loadPlaywright = () => {
+  const tried = [];
+  for (const root of requireRoots) {
+    try {
+      return createRequire(`${root}/package.json`)("playwright");
+    } catch (e) {
+      tried.push(`${root}: ${e.code ?? e.message}`);
+    }
+  }
+  console.error(
+    `setup: cannot resolve "playwright" from any dependency root.\n  ${tried.join("\n  ")}\n` +
+      `fix: cd ${TOOLS_DIR} && npm install && npx playwright install chromium`,
+  );
+  process.exit(1);
+};
+const { chromium } = loadPlaywright();
 
 async function mintCustomToken() {
   const admin = appRequire("firebase-admin");

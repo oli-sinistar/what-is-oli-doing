@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-03T06:20:00-04:00",
+  "updatedAt": "2026-08-03T11:10:00-04:00",
   "status": {
     "emoji": "🔍",
     "tone": "debugging",
@@ -519,7 +519,7 @@
       },
       {
         "date": "2026-08-03",
-        "commits": 1
+        "commits": 2
       }
     ],
     "sessions7d": 237,
@@ -536,20 +536,28 @@
   },
   "screenshots": [
     {
+      "src": "assets/shot-3.png",
+      "caption": {
+        "en": "The 3D globe — 225,776 listings, coverage lit gold over Québec and France",
+        "fr": "Le globe 3D — 225 776 annonces, couverture en or sur le Québec et la France"
+      },
+      "capturedAt": "2026-08-03T11:08:00-04:00"
+    },
+    {
+      "src": "assets/shot-4.png",
+      "caption": {
+        "en": "URL Import — the zone tool whose Draw-zone tab only accepts six countries",
+        "fr": "URL Import — l'outil de zones dont l'onglet ne gère que six pays"
+      },
+      "capturedAt": "2026-08-03T11:06:00-04:00"
+    },
+    {
       "src": "assets/shot-2.png",
       "caption": {
         "en": "Team dashboard — 177 hosts touched, 148 contacted, 3 wins in 30 days",
         "fr": "Tableau d'équipe — 177 hôtes touchés, 148 contactés, 3 gains en 30 jours"
       },
       "capturedAt": "2026-07-24T09:25:00-04:00"
-    },
-    {
-      "src": "assets/shot-1.png",
-      "caption": {
-        "en": "The Connect Gmail settings page, now handling its own OAuth callback",
-        "fr": "La page Connexion Gmail, qui gère maintenant son propre retour OAuth"
-      },
-      "capturedAt": "2026-07-25T11:21:00-04:00"
     }
   ]
 }
