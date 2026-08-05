@@ -1,35 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-03T11:10:00-04:00",
+  "updatedAt": "2026-08-05T08:10:00-04:00",
   "status": {
-    "emoji": "🔍",
-    "tone": "debugging",
+    "emoji": "📬",
+    "tone": "building",
     "text": {
-      "en": "Two Luxembourg questions, both closed",
-      "fr": "Deux questions sur le Luxembourg"
+      "en": "The replies finally have a home",
+      "fr": "Les réponses ont enfin une place"
     }
   },
   "focus": {
     "title": {
-      "en": "Luxembourg on the globe, and why the zone tool refuses it",
-      "fr": "Le Luxembourg sur le globe, et pourquoi l'outil de zones le refuse"
+      "en": "Claude now reads the host replies — and drafts the answer",
+      "fr": "Claude lit maintenant les réponses des hôtes — et rédige"
     },
     "blurb": {
-      "en": "Friday afternoon went to Luxembourg twice: the flag got stamped onto the 3D globe, and the zone tool got exonerated — it only ever supported six countries. The weekend stayed quiet.",
-      "fr": "Vendredi après-midi a viré au Luxembourg deux fois : le drapeau est estampé sur le globe 3D, et l'outil de zones est blanchi — il n'a jamais géré que six pays. Fin de semaine tranquille."
+      "en": "Replies to the bulk outreach were landing nowhere. Tuesday turned them into a triage dashboard: Claude proposes reply, forward or leave per thread; a rep confirms a whole batch in one click.",
+      "fr": "Les réponses à l'infolettre d'acquisition atterrissaient nulle part. Mardi les a virées en tableau de triage : Claude propose répondre, transférer ou laisser; un rep confirme le lot d'un clic."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Luxembourg flag on the 3D globe — built, still uncommitted in the tree",
-        "fr": "Drapeau du Luxembourg sur le globe 3D — bâti, pas encore commité"
+        "en": "AI reply triage built — Claude drafts reply / forward / leave per thread",
+        "fr": "Triage IA bâti — Claude propose répondre / transférer / laisser par fil"
       }
     },
     {
       "text": {
-        "en": "Zone tool only knows CA, US, FR, CH, GB, AU — Luxembourg 400s at once",
-        "fr": "L'outil de zones ne connaît que CA, US, FR, CH, GB, AU — le LU plante"
+        "en": "One manual fn deploy holds five streams — migration 079 and key first",
+        "fr": "Un déploiement manuel retient cinq chantiers — migration 079 puis la clé"
       }
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 20 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 20 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — 22 days gone, still stuck",
+        "fr": "Droit IAM BigQuery pour le déploiement — 22 jours, toujours coincé"
       },
       "linear": {
         "id": "DAT-619",
@@ -70,12 +70,21 @@
         "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.9,
+      "progress": 0.92,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
         "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape"
       }
+    },
+    {
+      "label": {
+        "en": "One prod fn deploy unblocks five held streams",
+        "fr": "Un déploiement prod débloque cinq chantiers retenus"
+      },
+      "state": "at-risk",
+      "progress": 0.8,
+      "eta": "this-week"
     },
     {
       "label": {
@@ -96,21 +105,8 @@
         "fr": "Attribution CRM et suivi des résultats — prêts à déployer"
       },
       "state": "on-track",
-      "progress": 0.9,
+      "progress": 0.92,
       "eta": "next-week"
-    },
-    {
-      "label": {
-        "en": "Fix real secrets tracked in a staging env file",
-        "fr": "Corriger les secrets suivis dans un fichier env de staging"
-      },
-      "state": "at-risk",
-      "progress": 0.3,
-      "eta": "later",
-      "linear": {
-        "id": "DAT-620",
-        "url": "https://linear.app/sinistar/issue/DAT-620/real-secrets-committed-in-appssinistar-data-functionsenvsinistar-data"
-      }
     },
     {
       "label": {
@@ -151,20 +147,12 @@
   ],
   "story": {
     "text": {
-      "en": "Two Luxembourg questions landed Friday afternoon. The zone tool skipped every circle there — not a dead creeper: ALPHA2_TO_ALPHA3 knows only six countries, so LU silently became CAN, canton names failed all six state enums, and every tile 400'd before scraping. Belgium and Germany would do the same. Meanwhile the globe got its Luxembourg tricolour, sky blue and all.",
-      "fr": "Deux questions sur le Luxembourg vendredi après-midi. L'outil de zones sautait tous les cercles — le creeper n'est pas mort : ALPHA2_TO_ALPHA3 ne connaît que six pays, donc LU devenait CAN en silence, les cantons échouaient aux six enums d'État, et chaque tuile faisait 400 avant tout scrape. La Belgique ferait pareil. Le globe, lui, a reçu son tricolore luxembourgeois."
+      "en": "Outreach has reached 353 hosts and 21 wrote back — into a void. Gmail ingestion was dead in prod: Pub/Sub never provisioned, and the 30-min polling fallback lived only on the branch. Tuesday built the fix and then some — a RepliesInbox where Claude proposes reply / forward / leave per thread, confirmed in bulk. Forward targets get re-validated server-side, because a host's email is untrusted input.",
+      "fr": "L'acquisition a rejoint 353 hôtes, 21 ont répondu — dans le vide. L'ingestion Gmail était morte en prod : Pub/Sub jamais provisionné, le sondage aux 30 min vivait juste sur la branche. Mardi a livré le correctif et pas mal plus : un RepliesInbox où Claude propose répondre / transférer / laisser, confirmé en lot. Les cibles de transfert sont revalidées côté serveur — un courriel d'hôte, ça ne se fait pas confiance."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-05",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-06",
-        "commits": 0
-      },
       {
         "date": "2026-05-07",
         "commits": 0
@@ -520,21 +508,45 @@
       {
         "date": "2026-08-03",
         "commits": 2
+      },
+      {
+        "date": "2026-08-04",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-05",
+        "commits": 1
       }
     ],
-    "sessions7d": 237,
+    "sessions7d": 194,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 205
+    "hue": 268
   },
   "flair": {
     "line": {
-      "en": "The creeper wasn't down. Luxembourg was just never invited.",
-      "fr": "Le creeper n'était pas mort. Le Luxembourg n'avait jamais été invité."
+      "en": "Twenty-one replies were shouting into a void. The void drafts answers now.",
+      "fr": "Vingt-et-une réponses criaient dans le vide. Le vide rédige, maintenant."
     }
   },
   "screenshots": [
+    {
+      "src": "assets/shot-2.png",
+      "caption": {
+        "en": "Team KPIs — 433 hosts touched, 353 contacted, 21 replies, 8 wins in 30 days",
+        "fr": "KPI d'équipe — 433 hôtes touchés, 353 contactés, 21 réponses, 8 gains / 30 j"
+      },
+      "capturedAt": "2026-08-05T08:01:00-04:00"
+    },
+    {
+      "src": "assets/shot-1.png",
+      "caption": {
+        "en": "Scrape diagnostics — 40,089 calls in 7 days, failures broken down by cause",
+        "fr": "Diagnostic de scrape — 40 089 appels en 7 jours, échecs classés par cause"
+      },
+      "capturedAt": "2026-08-05T08:03:00-04:00"
+    },
     {
       "src": "assets/shot-3.png",
       "caption": {
@@ -542,22 +554,6 @@
         "fr": "Le globe 3D — 225 776 annonces, couverture en or sur le Québec et la France"
       },
       "capturedAt": "2026-08-03T11:08:00-04:00"
-    },
-    {
-      "src": "assets/shot-4.png",
-      "caption": {
-        "en": "URL Import — the zone tool whose Draw-zone tab only accepts six countries",
-        "fr": "URL Import — l'outil de zones dont l'onglet ne gère que six pays"
-      },
-      "capturedAt": "2026-08-03T11:06:00-04:00"
-    },
-    {
-      "src": "assets/shot-2.png",
-      "caption": {
-        "en": "Team dashboard — 177 hosts touched, 148 contacted, 3 wins in 30 days",
-        "fr": "Tableau d'équipe — 177 hôtes touchés, 148 contactés, 3 gains en 30 jours"
-      },
-      "capturedAt": "2026-07-24T09:25:00-04:00"
     }
   ]
 }
