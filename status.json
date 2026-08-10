@@ -1,35 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-05T08:10:00-04:00",
+  "updatedAt": "2026-08-10T07:36:00-04:00",
   "status": {
-    "emoji": "📬",
-    "tone": "building",
+    "emoji": "🔎",
+    "tone": "debugging",
     "text": {
-      "en": "The replies finally have a home",
-      "fr": "Les réponses ont enfin une place"
+      "en": "A sale is not a nightly rate",
+      "fr": "Une vente, c’est pas un tarif/nuit"
     }
   },
   "focus": {
     "title": {
-      "en": "Claude now reads the host replies — and drafts the answer",
-      "fr": "Claude lit maintenant les réponses des hôtes — et rédige"
+      "en": "SeLoger is on the map — and it stopped inventing nightly rates",
+      "fr": "SeLoger est sur la carte — et invente plus de tarifs par nuit"
     },
     "blurb": {
-      "en": "Replies to the bulk outreach were landing nowhere. Tuesday turned them into a triage dashboard: Claude proposes reply, forward or leave per thread; a rep confirms a whole batch in one click.",
-      "fr": "Les réponses à l'infolettre d'acquisition atterrissaient nulle part. Mardi les a virées en tableau de triage : Claude propose répondre, transférer ou laisser; un rep confirme le lot d'un clic."
+      "en": "Thursday wired SeLoger into the discovery providers and the zone-draw run. Friday caught its sale prices masquerading as nightly rates. The weekend ran unattended — coverage watch only, zero commits.",
+      "fr": "Jeudi a branché SeLoger aux fournisseurs de découverte et au tracé de zone. Vendredi a pincé ses prix de vente déguisés en tarifs par nuit. La fin de semaine a roulé toute seule, zéro commit."
     }
   },
   "now": [
     {
       "text": {
-        "en": "AI reply triage built — Claude drafts reply / forward / leave per thread",
-        "fr": "Triage IA bâti — Claude propose répondre / transférer / laisser par fil"
+        "en": "SeLoger live in the zone-draw run — a third source on the map",
+        "fr": "SeLoger en direct dans le tracé de zone — une 3ᵉ source sur la carte"
       }
     },
     {
       "text": {
-        "en": "One manual fn deploy holds five streams — migration 079 and key first",
-        "fr": "Un déploiement manuel retient cinq chantiers — migration 079 puis la clé"
+        "en": "Sale prices no longer divided by 30 — the guard now matches RENT",
+        "fr": "Les prix de vente ne sont plus divisés par 30 — le garde teste RENT"
       }
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — 22 days gone, still stuck",
-        "fr": "Droit IAM BigQuery pour le déploiement — 22 jours, toujours coincé"
+        "en": "BigQuery IAM grant for the prod deploy — still not granted",
+        "fr": "Droit IAM BigQuery pour le déploiement prod — toujours pas accordé"
       },
       "linear": {
         "id": "DAT-619",
@@ -67,10 +67,10 @@
     {
       "label": {
         "en": "Ship the host-acquisition pipeline end-to-end",
-        "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
+        "fr": "Livrer le pipeline d’acquisition d’hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.92,
+      "progress": 0.94,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -88,7 +88,7 @@
     },
     {
       "label": {
-        "en": "\"Sinistar host\" safeguard — stop pitching existing partners",
+        "en": "«Sinistar host» safeguard — stop pitching existing partners",
         "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
       },
       "state": "at-risk",
@@ -125,54 +125,34 @@
   "shipped": [
     {
       "text": {
-        "en": "Emergency Gironde wildfire sweep — 175 hosts asked about rehousing",
-        "fr": "Balayage d'urgence feux de Gironde — 175 hôtes sollicités pour reloger"
+        "en": "Sale prices stopped rendering as nightly rates (“BUY” ≠ “SALE”)",
+        "fr": "Les prix de vente ne passent plus pour des tarifs par nuit"
       },
-      "date": "2026-07-30"
+      "date": "2026-08-07"
     },
     {
       "text": {
-        "en": "Bulk Send-all panel — a whole batch of drafts goes out in one click",
-        "fr": "Panneau Send-all — tout un lot de brouillons part en un seul clic"
+        "en": "SeLoger wired into the discovery providers and the zone-draw run",
+        "fr": "SeLoger branché aux fournisseurs de découverte et au tracé de zone"
       },
-      "date": "2026-07-30"
+      "date": "2026-08-06"
     },
     {
       "text": {
-        "en": "Unread-replies bell and per-rep Gmail signatures on /hosts",
-        "fr": "Cloche des réponses non lues et signatures Gmail par rep sur /hosts"
+        "en": "Multi-recipient Cc on reply drafts, plus a full-message viewer",
+        "fr": "Cc multiple sur les brouillons de réponse, plus un lecteur complet"
       },
-      "date": "2026-07-30"
+      "date": "2026-08-07"
     }
   ],
   "story": {
     "text": {
-      "en": "Outreach has reached 353 hosts and 21 wrote back — into a void. Gmail ingestion was dead in prod: Pub/Sub never provisioned, and the 30-min polling fallback lived only on the branch. Tuesday built the fix and then some — a RepliesInbox where Claude proposes reply / forward / leave per thread, confirmed in bulk. Forward targets get re-validated server-side, because a host's email is untrusted input.",
-      "fr": "L'acquisition a rejoint 353 hôtes, 21 ont répondu — dans le vide. L'ingestion Gmail était morte en prod : Pub/Sub jamais provisionné, le sondage aux 30 min vivait juste sur la branche. Mardi a livré le correctif et pas mal plus : un RepliesInbox où Claude propose répondre / transférer / laisser, confirmé en lot. Les cibles de transfert sont revalidées côté serveur — un courriel d'hôte, ça ne se fait pas confiance."
+      "en": "SeLoger listings reached the nightly-rate map at 13 167 and 19 950 a night. The cause: SeLoger’s own word for a sale is “BUY”, not “SALE” — the guard matched “SALE”, so every 395 010 € apartment took the rental path and got divided by 30. Friday’s fix matches positively on RENT instead, so an unrecognised value degrades to “not a rental” rather than inventing a price.",
+      "fr": "Des annonces SeLoger ont atterri sur la carte des tarifs à 13 167 et 19 950 la nuit. La cause : chez SeLoger, une vente se dit « BUY », pas « SALE » — le garde-fou cherchait « SALE », fait que chaque appart à 395 010 € prenait le chemin locatif et se faisait diviser par 30. Le correctif de vendredi teste RENT positivement : une valeur inconnue devient « pas une location » au lieu d’inventer un prix."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-07",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-08",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-09",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-10",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-11",
-        "commits": 2
-      },
       {
         "date": "2026-05-12",
         "commits": 0
@@ -516,36 +496,56 @@
       {
         "date": "2026-08-05",
         "commits": 1
+      },
+      {
+        "date": "2026-08-06",
+        "commits": 6
+      },
+      {
+        "date": "2026-08-07",
+        "commits": 1
+      },
+      {
+        "date": "2026-08-08",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-09",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-10",
+        "commits": 0
       }
     ],
-    "sessions7d": 194,
+    "sessions7d": 93,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 268
+    "hue": 28
   },
   "flair": {
     "line": {
-      "en": "Twenty-one replies were shouting into a void. The void drafts answers now.",
-      "fr": "Vingt-et-une réponses criaient dans le vide. Le vide rédige, maintenant."
+      "en": "SeLoger’s word for “sale” is “BUY”. Our guard looked for “SALE”. Math did the rest.",
+      "fr": "SeLoger dit « BUY » pour vente. Le garde cherchait « SALE ». Les maths ont fait le reste."
     }
   },
   "screenshots": [
     {
       "src": "assets/shot-2.png",
       "caption": {
-        "en": "Team KPIs — 433 hosts touched, 353 contacted, 21 replies, 8 wins in 30 days",
-        "fr": "KPI d'équipe — 433 hôtes touchés, 353 contactés, 21 réponses, 8 gains / 30 j"
+        "en": "Scrape diagnostics — 38,681 calls in 7 days, 0 in the last 24h",
+        "fr": "Diagnostic de scrape — 38 681 appels en 7 j, 0 depuis 24 h"
       },
-      "capturedAt": "2026-08-05T08:01:00-04:00"
+      "capturedAt": "2026-08-10T07:31:00-04:00"
     },
     {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "Scrape diagnostics — 40,089 calls in 7 days, failures broken down by cause",
-        "fr": "Diagnostic de scrape — 40 089 appels en 7 jours, échecs classés par cause"
+        "en": "URL Import — the paste / CSV / draw-a-zone entry point for listings",
+        "fr": "Import d’URL — l’entrée coller / CSV / tracer une zone"
       },
-      "capturedAt": "2026-08-05T08:03:00-04:00"
+      "capturedAt": "2026-08-10T07:21:00-04:00"
     },
     {
       "src": "assets/shot-3.png",
