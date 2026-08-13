@@ -1,35 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-10T07:36:00-04:00",
+  "updatedAt": "2026-08-13T07:20:00-04:00",
   "status": {
-    "emoji": "🔎",
-    "tone": "debugging",
+    "emoji": "⏳",
+    "tone": "thinking",
     "text": {
-      "en": "A sale is not a nightly rate",
-      "fr": "Une vente, c’est pas un tarif/nuit"
+      "en": "Three quiet days, one paused fix",
+      "fr": "Trois jours tranquilles, un fix en pause"
     }
   },
   "focus": {
     "title": {
-      "en": "SeLoger is on the map — and it stopped inventing nightly rates",
-      "fr": "SeLoger est sur la carte — et invente plus de tarifs par nuit"
+      "en": "SeLoger came back to the map — then the meter ran out",
+      "fr": "SeLoger est revenu sur la carte — pis le compteur a lâché"
     },
     "blurb": {
-      "en": "Thursday wired SeLoger into the discovery providers and the zone-draw run. Friday caught its sale prices masquerading as nightly rates. The weekend ran unattended — coverage watch only, zero commits.",
-      "fr": "Jeudi a branché SeLoger aux fournisseurs de découverte et au tracé de zone. Vendredi a pincé ses prix de vente déguisés en tarifs par nuit. La fin de semaine a roulé toute seule, zéro commit."
+      "en": "A too-aggressive price fix had made SeLoger invisible; abbreviated sale totals brought it back. The next steps — locality caching, keeping the raw remainder — stalled Tuesday on a spend limit.",
+      "fr": "Un correctif trop zélé avait rendu SeLoger invisible; les totaux abrégés l'ont ramené. La suite — cache de localités, garder le reste brut — a calé mardi sur une limite de dépense."
     }
   },
   "now": [
     {
       "text": {
-        "en": "SeLoger live in the zone-draw run — a third source on the map",
-        "fr": "SeLoger en direct dans le tracé de zone — une 3ᵉ source sur la carte"
+        "en": "SeLoger sales back on the map — €395k, not €13,167 a night",
+        "fr": "Ventes SeLoger de retour sur la carte — 395 k€, pas 13 167 €/nuit"
       }
     },
     {
       "text": {
-        "en": "Sale prices no longer divided by 30 — the guard now matches RENT",
-        "fr": "Les prix de vente ne sont plus divisés par 30 — le garde teste RENT"
+        "en": "raw_data is always NULL — store the remainder, not the duplicate",
+        "fr": "raw_data est toujours NULL — garder le reste, pas le doublon"
       }
     },
     {
@@ -84,7 +84,7 @@
       },
       "state": "at-risk",
       "progress": 0.8,
-      "eta": "this-week"
+      "eta": "next-week"
     },
     {
       "label": {
@@ -125,46 +125,34 @@
   "shipped": [
     {
       "text": {
-        "en": "Sale prices stopped rendering as nightly rates (“BUY” ≠ “SALE”)",
-        "fr": "Les prix de vente ne passent plus pour des tarifs par nuit"
+        "en": "SeLoger sales visible again — €395k reads as a total, not a rate",
+        "fr": "Ventes SeLoger visibles de nouveau — 395 k€ se lit comme un total"
       },
-      "date": "2026-08-07"
+      "date": "2026-08-10"
     },
     {
       "text": {
-        "en": "SeLoger wired into the discovery providers and the zone-draw run",
-        "fr": "SeLoger branché aux fournisseurs de découverte et au tracé de zone"
+        "en": "SeLoger agencies and listings now persist to the database",
+        "fr": "Les agences et annonces SeLoger sont maintenant persistées"
       },
-      "date": "2026-08-06"
+      "date": "2026-08-10"
     },
     {
       "text": {
-        "en": "Multi-recipient Cc on reply drafts, plus a full-message viewer",
-        "fr": "Cc multiple sur les brouillons de réponse, plus un lecteur complet"
+        "en": "pricing-prediction-api CI + deploy runbook merged (PR #7778)",
+        "fr": "CI et runbook de déploiement de pricing-prediction-api fusionnés"
       },
-      "date": "2026-08-07"
+      "date": "2026-08-10"
     }
   ],
   "story": {
     "text": {
-      "en": "SeLoger listings reached the nightly-rate map at 13 167 and 19 950 a night. The cause: SeLoger’s own word for a sale is “BUY”, not “SALE” — the guard matched “SALE”, so every 395 010 € apartment took the rental path and got divided by 30. Friday’s fix matches positively on RENT instead, so an unrecognised value degrades to “not a rental” rather than inventing a price.",
-      "fr": "Des annonces SeLoger ont atterri sur la carte des tarifs à 13 167 et 19 950 la nuit. La cause : chez SeLoger, une vente se dit « BUY », pas « SALE » — le garde-fou cherchait « SALE », fait que chaque appart à 395 010 € prenait le chemin locatif et se faisait diviser par 30. Le correctif de vendredi teste RENT positivement : une valeur inconnue devient « pas une location » au lieu d’inventer un prix."
+      "en": "Friday’s fix stopped SeLoger sale prices from posing as nightly rates — and also dropped sales entirely. SeLoger is mostly sale inventory, so the map went blank while 111 agencies kept landing in the database. Sales now render as abbreviated totals (€395k, €1.3M), never divided by 30. Then the follow-up question — does raw_data keep the rest? — found it always NULL, and the session hit a spend limit mid-answer.",
+      "fr": "Le correctif de vendredi a empêché les prix de vente SeLoger de passer pour des tarifs par nuit — pis il a aussi fait disparaître les ventes au complet. SeLoger, c’est surtout de la vente : la carte s’est vidée pendant que 111 agences continuaient d’entrer en base. Les ventes s’affichent maintenant en totaux abrégés (395 k€, 1,3 M€). Ensuite : raw_data est toujours NULL, et la session a frappé une limite de dépense."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-12",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-13",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-14",
-        "commits": 1
-      },
       {
         "date": "2026-05-15",
         "commits": 0
@@ -515,22 +503,42 @@
       },
       {
         "date": "2026-08-10",
+        "commits": 12
+      },
+      {
+        "date": "2026-08-11",
         "commits": 0
+      },
+      {
+        "date": "2026-08-12",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-13",
+        "commits": 1
       }
     ],
-    "sessions7d": 93,
+    "sessions7d": 77,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 28
+    "hue": 212
   },
   "flair": {
     "line": {
-      "en": "SeLoger’s word for “sale” is “BUY”. Our guard looked for “SALE”. Math did the rest.",
-      "fr": "SeLoger dit « BUY » pour vente. Le garde cherchait « SALE ». Les maths ont fait le reste."
+      "en": "Fixed the fake nightly rates so well that SeLoger vanished. Oops. Un-oopsed.",
+      "fr": "Le fix des faux tarifs a fait disparaître SeLoger au complet. Oups. Dé-oupsé."
     }
   },
   "screenshots": [
+    {
+      "src": "assets/shot-1.png",
+      "caption": {
+        "en": "URL Import — paste, CSV or draw-a-zone; the run SeLoger now feeds",
+        "fr": "Import d’URL — coller, CSV ou tracer une zone; SeLoger l’alimente"
+      },
+      "capturedAt": "2026-08-13T07:07:00-04:00"
+    },
     {
       "src": "assets/shot-2.png",
       "caption": {
@@ -538,14 +546,6 @@
         "fr": "Diagnostic de scrape — 38 681 appels en 7 j, 0 depuis 24 h"
       },
       "capturedAt": "2026-08-10T07:31:00-04:00"
-    },
-    {
-      "src": "assets/shot-1.png",
-      "caption": {
-        "en": "URL Import — the paste / CSV / draw-a-zone entry point for listings",
-        "fr": "Import d’URL — l’entrée coller / CSV / tracer une zone"
-      },
-      "capturedAt": "2026-08-10T07:21:00-04:00"
     },
     {
       "src": "assets/shot-3.png",
