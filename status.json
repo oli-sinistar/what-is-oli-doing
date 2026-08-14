@@ -1,35 +1,35 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-13T07:20:00-04:00",
+  "updatedAt": "2026-08-14T06:52:00-04:00",
   "status": {
-    "emoji": "⏳",
+    "emoji": "📝",
     "tone": "thinking",
     "text": {
-      "en": "Three quiet days, one paused fix",
-      "fr": "Trois jours tranquilles, un fix en pause"
+      "en": "Wrote it five times, kept the first",
+      "fr": "Écrit cinq fois, gardé la première"
     }
   },
   "focus": {
     "title": {
-      "en": "SeLoger came back to the map — then the meter ran out",
-      "fr": "SeLoger est revenu sur la carte — pis le compteur a lâché"
+      "en": "Five revisions later, version one won",
+      "fr": "Cinq versions plus tard, la première gagne"
     },
     "blurb": {
-      "en": "A too-aggressive price fix had made SeLoger invisible; abbreviated sale totals brought it back. The next steps — locality caching, keeping the raw remainder — stalled Tuesday on a spend limit.",
-      "fr": "Un correctif trop zélé avait rendu SeLoger invisible; les totaux abrégés l'ont ramené. La suite — cache de localités, garder le reste brut — a calé mardi sur une limite de dépense."
+      "en": "The insurer mail circled back to its most honest draft. Beside it, SeLoger finally stores the remainder it can never re-scrape — an expired listing answers 410, and the field is gone.",
+      "fr": "Le courriel à l’assureur est revenu à son brouillon le plus honnête. À côté, SeLoger garde enfin le reste qu’on ne peut pas re-scraper — une annonce expirée répond 410, pis le champ est perdu."
     }
   },
   "now": [
     {
       "text": {
-        "en": "SeLoger sales back on the map — €395k, not €13,167 a night",
-        "fr": "Ventes SeLoger de retour sur la carte — 395 k€, pas 13 167 €/nuit"
+        "en": "SeLoger keeps the remainder — 0.5 GB stored, not 3.5 GB of duplicate",
+        "fr": "SeLoger garde le reste — 0,5 Go stocké, pas 3,5 Go de doublon"
       }
     },
     {
       "text": {
-        "en": "raw_data is always NULL — store the remainder, not the duplicate",
-        "fr": "raw_data est toujours NULL — garder le reste, pas le doublon"
+        "en": "Scrapers back at full tilt — 10,531 calls in 24h, 43.5% failing",
+        "fr": "Scrapers repartis à fond — 10 531 appels en 24 h, 43,5 % en échec"
       }
     },
     {
@@ -70,7 +70,7 @@
         "fr": "Livrer le pipeline d’acquisition d’hôtes de bout en bout"
       },
       "state": "on-track",
-      "progress": 0.94,
+      "progress": 0.95,
       "eta": "later",
       "linear": {
         "id": "DAT-516",
@@ -125,38 +125,34 @@
   "shipped": [
     {
       "text": {
-        "en": "SeLoger sales visible again — €395k reads as a total, not a rate",
-        "fr": "Ventes SeLoger visibles de nouveau — 395 k€ se lit comme un total"
+        "en": "SeLoger raw_data captured, plus a cache that skips known agencies",
+        "fr": "raw_data SeLoger capturé, plus un cache qui saute les agences connues"
       },
-      "date": "2026-08-10"
+      "date": "2026-08-13"
     },
     {
       "text": {
-        "en": "SeLoger agencies and listings now persist to the database",
-        "fr": "Les agences et annonces SeLoger sont maintenant persistées"
+        "en": "reply_close — dead threads now close and invite the host to join",
+        "fr": "reply_close — les fils morts se ferment en invitant l’hôte à s’inscrire"
       },
-      "date": "2026-08-10"
+      "date": "2026-08-13"
     },
     {
       "text": {
-        "en": "pricing-prediction-api CI + deploy runbook merged (PR #7778)",
-        "fr": "CI et runbook de déploiement de pricing-prediction-api fusionnés"
+        "en": "Insurer état-des-lieux mail — two standalone files, ready to send",
+        "fr": "Courriel état des lieux à l’assureur — deux fichiers prêts à envoyer"
       },
-      "date": "2026-08-10"
+      "date": "2026-08-13"
     }
   ],
   "story": {
     "text": {
-      "en": "Friday’s fix stopped SeLoger sale prices from posing as nightly rates — and also dropped sales entirely. SeLoger is mostly sale inventory, so the map went blank while 111 agencies kept landing in the database. Sales now render as abbreviated totals (€395k, €1.3M), never divided by 30. Then the follow-up question — does raw_data keep the rest? — found it always NULL, and the session hit a spend limit mid-answer.",
-      "fr": "Le correctif de vendredi a empêché les prix de vente SeLoger de passer pour des tarifs par nuit — pis il a aussi fait disparaître les ventes au complet. SeLoger, c’est surtout de la vente : la carte s’est vidée pendant que 111 agences continuaient d’entrer en base. Les ventes s’affichent maintenant en totaux abrégés (395 k€, 1,3 M€). Ensuite : raw_data est toujours NULL, et la session a frappé une limite de dépense."
+      "en": "An insurer’s four questions about the Gironde fire-zone search became five revisions of one email in a day: day-scoped stats, Article 10.3 legalese, then anchor-link tabs that pasted into Gmail as http://127.0.0.1 — dead for the recipient. Revision five reverted to revision one: 15 replies out of 55 solicitations, 27%, stated plainly. Two standalone files, zero links.",
+      "fr": "Les quatre questions d’un assureur sur la zone incendiée en Gironde ont donné cinq versions du même courriel dans la journée : stats par vague, jargon de l’article 10.3, pis des onglets à ancres qui se collaient dans Gmail en http://127.0.0.1 — morts pour le destinataire. La cinquième est revenue à la première : 15 réponses sur 55 envois, 27 %, dit franchement."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-15",
-        "commits": 0
-      },
       {
         "date": "2026-05-16",
         "commits": 0
@@ -419,7 +415,7 @@
       },
       {
         "date": "2026-07-20",
-        "commits": 5
+        "commits": 2
       },
       {
         "date": "2026-07-21",
@@ -515,37 +511,41 @@
       },
       {
         "date": "2026-08-13",
+        "commits": 2
+      },
+      {
+        "date": "2026-08-14",
         "commits": 1
       }
     ],
-    "sessions7d": 77,
+    "sessions7d": 83,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 212
+    "hue": 38
   },
   "flair": {
     "line": {
-      "en": "Fixed the fake nightly rates so well that SeLoger vanished. Oops. Un-oopsed.",
-      "fr": "Le fix des faux tarifs a fait disparaître SeLoger au complet. Oups. Dé-oupsé."
+      "en": "Wrote the mail five times. Version one won. The tabs died in Gmail, as tabs do.",
+      "fr": "Écrit le courriel cinq fois. La première gagne. Les onglets sont morts dans Gmail."
     }
   },
   "screenshots": [
     {
       "src": "assets/shot-1.png",
       "caption": {
-        "en": "URL Import — paste, CSV or draw-a-zone; the run SeLoger now feeds",
-        "fr": "Import d’URL — coller, CSV ou tracer une zone; SeLoger l’alimente"
+        "en": "URL Import — paste, CSV or draw a zone; where a SeLoger run starts",
+        "fr": "Import d’URL — coller, CSV ou tracer une zone; le départ d’un run SeLoger"
       },
-      "capturedAt": "2026-08-13T07:07:00-04:00"
+      "capturedAt": "2026-08-14T06:44:00-04:00"
     },
     {
       "src": "assets/shot-2.png",
       "caption": {
-        "en": "Scrape diagnostics — 38,681 calls in 7 days, 0 in the last 24h",
-        "fr": "Diagnostic de scrape — 38 681 appels en 7 j, 0 depuis 24 h"
+        "en": "Scrape diagnostics — 10,531 calls in 24h, 43.5% failing, 7 bot-blocked",
+        "fr": "Diagnostic de scrape — 10 531 appels en 24 h, 43,5 % en échec, 7 bloqués"
       },
-      "capturedAt": "2026-08-10T07:31:00-04:00"
+      "capturedAt": "2026-08-14T06:46:00-04:00"
     },
     {
       "src": "assets/shot-3.png",
