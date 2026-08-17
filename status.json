@@ -1,65 +1,47 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-14T06:52:00-04:00",
+  "updatedAt": "2026-08-17T07:05:00-04:00",
   "status": {
-    "emoji": "📝",
+    "emoji": "🔎",
     "tone": "thinking",
     "text": {
-      "en": "Wrote it five times, kept the first",
-      "fr": "Écrit cinq fois, gardé la première"
+      "en": "« Covered » was not covered",
+      "fr": "« Couvert » ne l’était pas"
     }
   },
   "focus": {
     "title": {
-      "en": "Five revisions later, version one won",
-      "fr": "Cinq versions plus tard, la première gagne"
+      "en": "The watcher said covered. Nothing was bookable.",
+      "fr": "Le veilleur disait couvert. Rien n’était louable."
     },
     "blurb": {
-      "en": "The insurer mail circled back to its most honest draft. Beside it, SeLoger finally stores the remainder it can never re-scrape — an expired listing answers 410, and the field is gone.",
-      "fr": "Le courriel à l’assureur est revenu à son brouillon le plus honnête. À côté, SeLoger garde enfin le reste qu’on ne peut pas re-scraper — une annonce expirée répond 410, pis le champ est perdu."
+      "en": "Case 52285 broke the coverage watcher’s definition of “covered”. Monday opens with the fix half-written on the branch, a refresh job dead at 424/457 batches, and the prod fn deploy still held.",
+      "fr": "Le dossier 52285 a brisé la définition de « couvert » du veilleur. Lundi s’ouvre avec le correctif à moitié écrit, une job morte à 424/457 lots, pis le déploiement prod encore retenu."
     }
   },
   "now": [
     {
       "text": {
-        "en": "SeLoger keeps the remainder — 0.5 GB stored, not 3.5 GB of duplicate",
-        "fr": "SeLoger garde le reste — 0,5 Go stocké, pas 3,5 Go de doublon"
+        "en": "Coverage watch v10 — sweep un-capped, supply split by bedrooms",
+        "fr": "Veille couverture v10 — balayage sans plafond, offre ventilée par chambres"
       }
     },
     {
       "text": {
-        "en": "Scrapers back at full tilt — 10,531 calls in 24h, 43.5% failing",
-        "fr": "Scrapers repartis à fond — 10 531 appels en 24 h, 43,5 % en échec"
+        "en": "Skill and scheduled-task wrapper still 543 lines apart — edit both",
+        "fr": "Skill et wrapper de tâche : 543 lignes d’écart — modifier les deux"
       }
     },
     {
       "text": {
-        "en": "Market data tab — PR #8414 green in review, still not merged",
-        "fr": "Onglet marché — PR #8414 vert en révision, pas encore fusionné"
-      },
-      "linear": {
-        "id": "DAT-582",
-        "url": "https://linear.app/sinistar/issue/DAT-582/available-market-data-live-endpoint-with-checkin-checkout",
-        "state": "review",
-        "stateLabel": {
-          "en": "Code Review",
-          "fr": "Révision de code"
-        }
+        "en": "Refresh job 4dc0c296 died mid-run — 424/457 batches, resumable",
+        "fr": "Job de refresh 4dc0c296 morte en route — 424/457 lots, reprenable"
       }
     },
     {
       "text": {
-        "en": "BigQuery IAM grant for the prod deploy — still not granted",
-        "fr": "Droit IAM BigQuery pour le déploiement prod — toujours pas accordé"
-      },
-      "linear": {
-        "id": "DAT-619",
-        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam",
-        "state": "started",
-        "stateLabel": {
-          "en": "In Progress",
-          "fr": "En cours"
-        }
+        "en": "Prod fn deploy — BigQuery IAM grant still not granted",
+        "fr": "Déploiement fn prod — droit IAM BigQuery toujours pas accordé"
       }
     }
   ],
@@ -101,11 +83,11 @@
     },
     {
       "label": {
-        "en": "Host CRM attribution & outcome tracking — ready to deploy",
-        "fr": "Attribution CRM et suivi des résultats — prêts à déployer"
+        "en": "Coverage watch stops counting unavailable homes",
+        "fr": "La veille arrête de compter les logements indisponibles"
       },
       "state": "on-track",
-      "progress": 0.92,
+      "progress": 0.6,
       "eta": "next-week"
     },
     {
@@ -147,24 +129,12 @@
   ],
   "story": {
     "text": {
-      "en": "An insurer’s four questions about the Gironde fire-zone search became five revisions of one email in a day: day-scoped stats, Article 10.3 legalese, then anchor-link tabs that pasted into Gmail as http://127.0.0.1 — dead for the recipient. Revision five reverted to revision one: 15 replies out of 55 solicitations, 27%, stated plainly. Two standalone files, zero links.",
-      "fr": "Les quatre questions d’un assureur sur la zone incendiée en Gironde ont donné cinq versions du même courriel dans la journée : stats par vague, jargon de l’article 10.3, pis des onglets à ancres qui se collaient dans Gmail en http://127.0.0.1 — morts pour le destinataire. La cinquième est revenue à la première : 15 réponses sur 55 envois, 27 %, dit franchement."
+      "en": "Case 52285 needed a home for four near Richboro. The watcher called it covered — 26 homes nearby. Then the breakdown: seven had four-plus bedrooms, and all seven were status=unavailable. Covered meant nothing bookable. The real answer was Urgence Logis, a partner we already have, found by web sweep. v10 now un-caps the sweep and splits supply by bedrooms and status before any research runs.",
+      "fr": "Le dossier 52285 cherchait un logement pour quatre près de Richboro. Le veilleur le disait couvert — 26 logements autour. Sauf que sept avaient quatre chambres ou plus, pis les sept étaient status=unavailable. « Couvert » voulait dire rien de louable. La vraie réponse était Urgence Logis, un partenaire déjà là. La v10 ventile l’offre par chambres et statut avant toute recherche."
     }
   },
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-16",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-17",
-        "commits": 0
-      },
-      {
-        "date": "2026-05-18",
-        "commits": 0
-      },
       {
         "date": "2026-05-19",
         "commits": 0
@@ -415,7 +385,7 @@
       },
       {
         "date": "2026-07-20",
-        "commits": 2
+        "commits": 5
       },
       {
         "date": "2026-07-21",
@@ -516,21 +486,49 @@
       {
         "date": "2026-08-14",
         "commits": 1
+      },
+      {
+        "date": "2026-08-15",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-16",
+        "commits": 0
+      },
+      {
+        "date": "2026-08-17",
+        "commits": 0
       }
     ],
-    "sessions7d": 83,
+    "sessions7d": 21,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 38
+    "hue": 262
   },
   "flair": {
     "line": {
-      "en": "Wrote the mail five times. Version one won. The tabs died in Gmail, as tabs do.",
-      "fr": "Écrit le courriel cinq fois. La première gagne. Les onglets sont morts dans Gmail."
+      "en": "26 homes nearby, zero you could book. Coverage is a verb, not a count.",
+      "fr": "26 logements autour, zéro louable. La couverture, c’est un verbe, pas un compte."
     }
   },
   "screenshots": [
+    {
+      "src": "assets/shot-2.png",
+      "caption": {
+        "en": "The 3D globe — 227,714 listings, coverage lit gold over Québec and France",
+        "fr": "Le globe 3D — 227 714 annonces, couverture en or sur le Québec et la France"
+      },
+      "capturedAt": "2026-08-17T06:44:00-04:00"
+    },
+    {
+      "src": "assets/shot-3.png",
+      "caption": {
+        "en": "Refresh Listings — a job died mid-run at 424/457 batches, still resumable",
+        "fr": "Refresh Listings — une job morte à 424/457 lots, encore reprenable"
+      },
+      "capturedAt": "2026-08-17T06:58:00-04:00"
+    },
     {
       "src": "assets/shot-1.png",
       "caption": {
@@ -538,22 +536,6 @@
         "fr": "Import d’URL — coller, CSV ou tracer une zone; le départ d’un run SeLoger"
       },
       "capturedAt": "2026-08-14T06:44:00-04:00"
-    },
-    {
-      "src": "assets/shot-2.png",
-      "caption": {
-        "en": "Scrape diagnostics — 10,531 calls in 24h, 43.5% failing, 7 bot-blocked",
-        "fr": "Diagnostic de scrape — 10 531 appels en 24 h, 43,5 % en échec, 7 bloqués"
-      },
-      "capturedAt": "2026-08-14T06:46:00-04:00"
-    },
-    {
-      "src": "assets/shot-3.png",
-      "caption": {
-        "en": "The 3D globe — 225,776 listings, coverage lit gold over Québec and France",
-        "fr": "Le globe 3D — 225 776 annonces, couverture en or sur le Québec et la France"
-      },
-      "capturedAt": "2026-08-03T11:08:00-04:00"
     }
   ]
 }
