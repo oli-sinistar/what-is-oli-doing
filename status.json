@@ -1,63 +1,59 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-17T07:05:00-04:00",
+  "updatedAt": "2026-08-18T06:30:00-04:00",
   "status": {
-    "emoji": "🔎",
-    "tone": "thinking",
+    "emoji": "🔥",
+    "tone": "debugging",
     "text": {
-      "en": "« Covered » was not covered",
-      "fr": "« Couvert » ne l’était pas"
+      "en": "Live in prod, one route 500s",
+      "fr": "En prod, une route plante en 500"
     }
   },
   "focus": {
     "title": {
-      "en": "The watcher said covered. Nothing was bookable.",
-      "fr": "Le veilleur disait couvert. Rien n’était louable."
+      "en": "The platform shipped. The member link is what 500s.",
+      "fr": "La plateforme est livrée. C'est le lien membre qui plante."
     },
     "blurb": {
-      "en": "Case 52285 broke the coverage watcher’s definition of “covered”. Monday opens with the fix half-written on the branch, a refresh job dead at 424/457 batches, and the prod fn deploy still held.",
-      "fr": "Le dossier 52285 a brisé la définition de « couvert » du veilleur. Lundi s’ouvre avec le correctif à moitié écrit, une job morte à 424/457 lots, pis le déploiement prod encore retenu."
+      "en": "Six phases — roles, member links, extension loop, chat, insurer reports, demo seeder — went to prod behind migrations 088–091. Now one dynamic route stands between it and a real demo.",
+      "fr": "Six phases — rôles, liens membres, prolongations, clavardage, rapports assureur, semeur de démo — sont en prod derrière les migrations 088–091. Reste une route avant une vraie démo."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Coverage watch v10 — sweep un-capped, supply split by bedrooms",
-        "fr": "Veille couverture v10 — balayage sans plafond, offre ventilée par chambres"
+        "en": "/claim/[token] 500s in prod — no lambda log, crash precedes the route",
+        "fr": "/claim/[token] plante en 500 — aucun log lambda, crash avant la route"
       }
     },
     {
       "text": {
-        "en": "Skill and scheduled-task wrapper still 543 lines apart — edit both",
-        "fr": "Skill et wrapper de tâche : 543 lignes d’écart — modifier les deux"
+        "en": "/portal/reports won't load in prod — insurer dashboard comes back blank",
+        "fr": "/portal/reports ne charge pas en prod — tableau assureur revient vide"
       }
     },
     {
       "text": {
-        "en": "Refresh job 4dc0c296 died mid-run — 424/457 batches, resumable",
-        "fr": "Job de refresh 4dc0c296 morte en route — 424/457 lots, reprenable"
+        "en": "Seasonality averages: derive in the assembler, no pricing-API redeploy",
+        "fr": "Moyennes de saisonnalité : dans l'assembleur, sans redéployer l'API"
       }
     },
     {
       "text": {
-        "en": "Prod fn deploy — BigQuery IAM grant still not granted",
-        "fr": "Déploiement fn prod — droit IAM BigQuery toujours pas accordé"
+        "en": "SKILL v6 still has to be pasted into the Cursor Automation by hand",
+        "fr": "Le SKILL v6 reste à coller à la main dans l'automatisation Cursor"
       }
     }
   ],
   "goals": [
     {
       "label": {
-        "en": "Ship the host-acquisition pipeline end-to-end",
-        "fr": "Livrer le pipeline d’acquisition d’hôtes de bout en bout"
+        "en": "Claim platform demo-ready for the USAA pitch",
+        "fr": "Plateforme dossiers prête pour la démo USAA"
       },
-      "state": "on-track",
-      "progress": 0.95,
-      "eta": "later",
-      "linear": {
-        "id": "DAT-516",
-        "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape"
-      }
+      "state": "at-risk",
+      "progress": 0.9,
+      "eta": "this-week"
     },
     {
       "label": {
@@ -66,28 +62,6 @@
       },
       "state": "at-risk",
       "progress": 0.8,
-      "eta": "next-week"
-    },
-    {
-      "label": {
-        "en": "«Sinistar host» safeguard — stop pitching existing partners",
-        "fr": "Garde-fou « déjà hôte Sinistar » — arrêter de re-solliciter"
-      },
-      "state": "at-risk",
-      "progress": 0.92,
-      "eta": "later",
-      "linear": {
-        "id": "DAT-619",
-        "url": "https://linear.app/sinistar/issue/DAT-619/host-acquisition-deploy-dat-618-to-prod-sinistar-data-functions-iam"
-      }
-    },
-    {
-      "label": {
-        "en": "Coverage watch stops counting unavailable homes",
-        "fr": "La veille arrête de compter les logements indisponibles"
-      },
-      "state": "on-track",
-      "progress": 0.6,
       "eta": "next-week"
     },
     {
@@ -102,43 +76,87 @@
         "id": "DAT-582",
         "url": "https://linear.app/sinistar/issue/DAT-582/available-market-data-live-endpoint-with-checkin-checkout"
       }
+    },
+    {
+      "label": {
+        "en": "Coverage watch stops counting unavailable homes",
+        "fr": "La veille arrête de compter les logements indisponibles"
+      },
+      "state": "on-track",
+      "progress": 0.6,
+      "eta": "next-week"
+    },
+    {
+      "label": {
+        "en": "Ship the host-acquisition pipeline end-to-end",
+        "fr": "Livrer le pipeline d'acquisition d'hôtes de bout en bout"
+      },
+      "state": "on-track",
+      "progress": 0.95,
+      "eta": "later",
+      "linear": {
+        "id": "DAT-516",
+        "url": "https://linear.app/sinistar/issue/DAT-516/host-acquisition-epic-end-to-end-host-acquisition-pipeline-scrape"
+      }
     }
   ],
   "shipped": [
+    {
+      "text": {
+        "en": "Client claim platform in prod — member links, extensions, reports",
+        "fr": "Plateforme client en prod — liens membres, prolongations, rapports"
+      },
+      "date": "2026-08-18"
+    },
+    {
+      "text": {
+        "en": "One-click demo seeder: a whole San Antonio hail claim, seeded",
+        "fr": "Semeur de démo en un clic : tout un dossier de grêle à San Antonio"
+      },
+      "date": "2026-08-18"
+    },
     {
       "text": {
         "en": "SeLoger raw_data captured, plus a cache that skips known agencies",
         "fr": "raw_data SeLoger capturé, plus un cache qui saute les agences connues"
       },
       "date": "2026-08-13"
-    },
-    {
-      "text": {
-        "en": "reply_close — dead threads now close and invite the host to join",
-        "fr": "reply_close — les fils morts se ferment en invitant l’hôte à s’inscrire"
-      },
-      "date": "2026-08-13"
-    },
-    {
-      "text": {
-        "en": "Insurer état-des-lieux mail — two standalone files, ready to send",
-        "fr": "Courriel état des lieux à l’assureur — deux fichiers prêts à envoyer"
-      },
-      "date": "2026-08-13"
     }
   ],
   "story": {
     "text": {
-      "en": "Case 52285 needed a home for four near Richboro. The watcher called it covered — 26 homes nearby. Then the breakdown: seven had four-plus bedrooms, and all seven were status=unavailable. Covered meant nothing bookable. The real answer was Urgence Logis, a partner we already have, found by web sweep. v10 now un-caps the sweep and splits supply by bedrooms and status before any research runs.",
-      "fr": "Le dossier 52285 cherchait un logement pour quatre près de Richboro. Le veilleur le disait couvert — 26 logements autour. Sauf que sept avaient quatre chambres ou plus, pis les sept étaient status=unavailable. « Couvert » voulait dire rien de louable. La vraie réponse était Urgence Logis, un partenaire déjà là. La v10 ventile l’offre par chambres et statut avant toute recherche."
+      "en": "The client-facing claim platform went live overnight — roles and view-as, member magic links, the extension loop, grounded chat, insurer reports, migrations 088–091. Then /claim/[token], the one page every member link points at, started 500ing in prod while /claim/preview renders fine. No lambda log at all, so the crash lands before the route. Next 14.2.5 clears the params suspect; a local prod build is running.",
+      "fr": "La plateforme client des dossiers est passée en prod cette nuit — rôles et vue-comme, liens magiques du membre, prolongations, clavardage ancré, rapports assureur, migrations 088–091. Pis /claim/[token], la seule page visée par tous les liens membres, plante en 500, tandis que /claim/preview s'affiche bien. Aucun log lambda : le crash arrive avant la route. Next 14.2.5 écarte les params; un build prod local roule."
     }
   },
+  "screenshots": [
+    {
+      "src": "assets/shot-1.png",
+      "caption": {
+        "en": "The member view, live in prod — 32 days, plain language, no jargon",
+        "fr": "La vue membre, en prod — 32 jours, langage clair, sans jargon"
+      },
+      "capturedAt": "2026-08-18T06:20:00-04:00"
+    },
+    {
+      "src": "assets/shot-2.png",
+      "caption": {
+        "en": "The timeline canvas — ≈42 days, 20 research notes, 3 sources, 8s",
+        "fr": "Le canevas — ≈42 jours, 20 notes de recherche, 3 sources, 8 s"
+      },
+      "capturedAt": "2026-08-18T06:22:00-04:00"
+    },
+    {
+      "src": "assets/shot-3.png",
+      "caption": {
+        "en": "Refresh Listings — a job died mid-run at 424/457 batches, still resumable",
+        "fr": "Refresh Listings — une job morte à 424/457 lots, encore reprenable"
+      },
+      "capturedAt": "2026-08-17T06:58:00-04:00"
+    }
+  ],
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-19",
-        "commits": 0
-      },
       {
         "date": "2026-05-20",
         "commits": 0
@@ -497,45 +515,23 @@
       },
       {
         "date": "2026-08-17",
-        "commits": 0
+        "commits": 1
+      },
+      {
+        "date": "2026-08-18",
+        "commits": 1
       }
     ],
-    "sessions7d": 21,
+    "sessions7d": 22,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 262
+    "hue": 24
   },
   "flair": {
     "line": {
-      "en": "26 homes nearby, zero you could book. Coverage is a verb, not a count.",
-      "fr": "26 logements autour, zéro louable. La couverture, c’est un verbe, pas un compte."
+      "en": "Every member link points at one route. That route chose today to 500.",
+      "fr": "Tous les liens membres visent une seule route. Elle a planté aujourd'hui."
     }
-  },
-  "screenshots": [
-    {
-      "src": "assets/shot-2.png",
-      "caption": {
-        "en": "The 3D globe — 227,714 listings, coverage lit gold over Québec and France",
-        "fr": "Le globe 3D — 227 714 annonces, couverture en or sur le Québec et la France"
-      },
-      "capturedAt": "2026-08-17T06:44:00-04:00"
-    },
-    {
-      "src": "assets/shot-3.png",
-      "caption": {
-        "en": "Refresh Listings — a job died mid-run at 424/457 batches, still resumable",
-        "fr": "Refresh Listings — une job morte à 424/457 lots, encore reprenable"
-      },
-      "capturedAt": "2026-08-17T06:58:00-04:00"
-    },
-    {
-      "src": "assets/shot-1.png",
-      "caption": {
-        "en": "URL Import — paste, CSV or draw a zone; where a SeLoger run starts",
-        "fr": "Import d’URL — coller, CSV ou tracer une zone; le départ d’un run SeLoger"
-      },
-      "capturedAt": "2026-08-14T06:44:00-04:00"
-    }
-  ]
+  }
 }
