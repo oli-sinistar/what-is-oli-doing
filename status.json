@@ -1,41 +1,41 @@
 {
   "version": 4,
-  "updatedAt": "2026-08-19T07:10:00-04:00",
+  "updatedAt": "2026-08-20T06:20:00-04:00",
   "status": {
-    "emoji": "🎨",
+    "emoji": "🌟",
     "tone": "building",
     "text": {
-      "en": "Making the claim tool feel Sinistar",
-      "fr": "L'outil prend les couleurs de Sinistar"
+      "en": "Stella steps into the real form",
+      "fr": "Stella entre dans le vrai formulaire"
     }
   },
   "focus": {
     "title": {
-      "en": "Two prod-only crashes fixed, then the tool learned sinistar",
-      "fr": "Deux plantages réglés, pis l'outil a appris à parler sinistar"
+      "en": "Stella's estimate moved into the customer's own form",
+      "fr": "L'estimation de Stella entre dans le formulaire du client"
     },
     "blurb": {
-      "en": "Undici and a bare req.query stopped the demo cold — both shipped. Then a full identity pass: ClaimTimeline, the pitch cockpit, Portal and ClaimChat rebuilt on sinistar.ca surfaces.",
-      "fr": "Undici pis un req.query nu bloquaient la démo — les deux sont livrés. Ensuite, une passe d'identité complète : ClaimTimeline, le cockpit, Portal pis ClaimChat refaits façon sinistar.ca."
+      "en": "The stay-length estimate left the admin tool and landed inline in the sinistar.ca relocation form — then forked into two variants: estimate right away, or ask a few questions first.",
+      "fr": "L'estimation de durée a quitté l'outil admin pour le formulaire de relocalisation de sinistar.ca — pis elle s'est dédoublée : estimer tout de suite, ou poser quelques questions avant."
     }
   },
   "now": [
     {
       "text": {
-        "en": "Inline Stella estimate in the sinistar.ca form — built, behind an LD flag",
-        "fr": "Estimation Stella dans le formulaire sinistar.ca — derrière un flag LD"
+        "en": "Two estimate variants live side by side: ask nothing vs ask first",
+        "fr": "Deux variantes côte à côte : rien demander ou demander avant"
       }
     },
     {
       "text": {
-        "en": "Nudge modal and cockpit scroll: shipped, still unseen in a browser",
-        "fr": "Modale de nudge pis défilement du cockpit : livrés, jamais vus au navigateur"
+        "en": "PR #8601 open — the inline estimate still sits behind an LD flag",
+        "fr": "PR #8601 ouverte — l'estimation reste derrière un flag LD"
       }
     },
     {
       "text": {
-        "en": "View-as banner moved bottom-right; chat dock stacks above it",
-        "fr": "Bandeau « voir comme » en bas à droite; le chat s'empile par-dessus"
+        "en": "The estimate stopped asking for a household size it can't see yet",
+        "fr": "L'estimation arrête de demander un ménage qu'elle voit pas encore"
       }
     },
     {
@@ -52,7 +52,7 @@
         "fr": "Plateforme dossiers prête pour la démo USAA"
       },
       "state": "on-track",
-      "progress": 0.94,
+      "progress": 0.95,
       "eta": "next-week"
     },
     {
@@ -103,6 +103,13 @@
   "shipped": [
     {
       "text": {
+        "en": "Stella's stay-length estimate now runs inside the sinistar.ca form",
+        "fr": "L'estimation de durée roule maintenant dans le formulaire sinistar.ca"
+      },
+      "date": "2026-08-19"
+    },
+    {
+      "text": {
         "en": "The claim tool looks like sinistar.ca now, down to the labels",
         "fr": "L'outil de réclamation a l'air de sinistar.ca, jusqu'aux étiquettes"
       },
@@ -114,19 +121,12 @@
         "fr": "Les deux 500 propres à la prod réglés le jour même : undici, req.query"
       },
       "date": "2026-08-18"
-    },
-    {
-      "text": {
-        "en": "Client claim platform in prod — member links, extensions, reports",
-        "fr": "Plateforme client en prod — liens membres, prolongations, rapports"
-      },
-      "date": "2026-08-18"
     }
   ],
   "story": {
     "text": {
-      "en": "Both prod-only 500s were tracked down and shipped: req.query arriving undefined inside Cloud Run, and /claim/[token] dying on \"Cannot find module 'undici'\" — a Next 14 pnpm file-tracing gap on the app's first dynamic page route. Then the whole claim tool was rebuilt to look like sinistar.ca, and the last pass through the live app caught eight uppercase kicker labels that exist nowhere on the real site.",
-      "fr": "Les deux 500 qui sortaient juste en prod sont réglés : req.query arrivait undefined dans Cloud Run, pis /claim/[token] mourait sur « Cannot find module 'undici' » — un trou de file-tracing Next 14 + pnpm sur la première route dynamique de l'app. Ensuite, tout l'outil a été refait aux couleurs de sinistar.ca, pis la dernière passe a pogné huit étiquettes en majuscules qui existent nulle part sur le vrai site."
+      "en": "Stella's stay-length estimate left the admin tool and landed inline in the sinistar.ca relocation form. Then the catch: that section sits above the guests and bedrooms fields, so it was feeding the agent numbers the customer hadn't entered yet — household size and bedroom count are now withheld on purpose. The feature forked in two: estimate immediately, or ask a few clarifying questions first.",
+      "fr": "L'estimation de durée de séjour de Stella a quitté l'outil admin pour atterrir dans le formulaire de relocalisation de sinistar.ca. Le hic : cette section est au-dessus des champs voyageurs pis chambres, donc elle envoyait à l'agent des chiffres que le client avait pas encore entrés — retenus exprès maintenant. La fonction s'est dédoublée : estimer tout de suite, ou poser des questions avant."
     }
   },
   "screenshots": [
@@ -157,10 +157,6 @@
   ],
   "activity": {
     "calendar": [
-      {
-        "date": "2026-05-21",
-        "commits": 0
-      },
       {
         "date": "2026-05-22",
         "commits": 1
@@ -519,19 +515,23 @@
       },
       {
         "date": "2026-08-19",
+        "commits": 22
+      },
+      {
+        "date": "2026-08-20",
         "commits": 1
       }
     ],
-    "sessions7d": 27,
+    "sessions7d": 30,
     "issuesClosed7d": 0
   },
   "theme": {
-    "hue": 262
+    "hue": 48
   },
   "flair": {
     "line": {
-      "en": "Eight uppercase labels were the last thing still saying: not sinistar.",
-      "fr": "Huit étiquettes en majuscules criaient encore : c'est pas sinistar, ça."
+      "en": "The estimate was asking about bedrooms the customer hadn't scrolled to yet.",
+      "fr": "L'estimation demandait des chambres que le client avait pas encore vues."
     }
   }
 }
